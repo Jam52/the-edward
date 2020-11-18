@@ -51,6 +51,12 @@ Not hosted yet.
 
 ## Contact Contributors
 
+A collaboration across the pond. Two developers who love learning, hoping to create a thing along the way.
+
 Jamie Sajdak - jamie.sajdak@gmail.com
 
 [Portfolio](https://www.jamiesajdak.com/)
+
+Sophie Rossier - sophrossit@gmail.com
+
+[Portfolio](https://sophieatgithub.github.io/)
