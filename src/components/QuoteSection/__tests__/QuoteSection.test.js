@@ -1,7 +1,7 @@
-import CabinPage from '../CabinPage';
+import QuoteSection from '../QuoteSection';
 import { render } from '@testing-library/react';
 
 test('renders TheEdward header', () => {
-  const { getByTestId } = render(<CabinPage />);
-  expect(getByTestId('component-cabin-page')).toBeInTheDocument();
+  const { getByTestId } = render(<QuoteSection />);
+  expect(getByTestId('component-quote-section')).toBeInTheDocument();
 });
