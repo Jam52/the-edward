@@ -1,6 +1,7 @@
 function App() {
   return (
-    <div >
+    <div data-testid="component-app">
+      <h1>Hello World</h1>
     </div>
   );
 }
