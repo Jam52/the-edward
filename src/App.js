@@ -4,8 +4,10 @@ import styles from './App.module.scss';
 
 function App() {
   return (
-    <div data-testid="component-app" className={styles.pageContainer}>
-      <LandingPage />
+    <div className={styles.page}>
+      <div data-testid="component-app" className={styles.page_container}>
+        <LandingPage />
+      </div>
     </div>
   );
 }

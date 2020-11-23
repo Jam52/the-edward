@@ -11,7 +11,7 @@ const LandingPage = () => {
         portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
         alt="Yellow house under bright blue sky"
       />
-      <div className={styles.cardContainer}>
+      <div className={`${styles.cardContainer} section section-light`}>
         <OverviewCard
           img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
           imgAlt="Inside of house, white walls dark wood"
@@ -28,6 +28,7 @@ const LandingPage = () => {
           occupancy={['2 Adults', '2 Children Under 10']}
           rate="From $275/night + Cleaning Fee"
         />
+
         <OverviewCard
           img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
           imgAlt="Glamping style cabin, large glass, amazing wooded surroundings."

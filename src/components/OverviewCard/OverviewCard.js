@@ -8,7 +8,6 @@ const OverviewCard = (props) => {
       <div className={styles.overview_img}>
         <img src={props.img} alt={props.imgAlt} data-testid="image" />
       </div>
-
       <h3 data-testid="room-name">{props.roomName}</h3>
       <p data-testid="overview">{props.overview}</p>
       <h3>Occupancy</h3>

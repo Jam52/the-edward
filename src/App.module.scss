@@ -1,12 +1,16 @@
 @import './CSS/base';
 
-.pageContainer {
-  max-width: 90vw;
+.page {
+  overflow: hidden;
+}
+
+.page_container {
+  max-width: 95vw;
   margin: auto;
 }
 
 @media (min-width: $media_computer_small) {
-  .pageContainer {
+  .page_container {
     width: 80vw;
     max-width: 75rem;
   }
