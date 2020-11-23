@@ -1,7 +1,16 @@
 import LandingPage from '../LandingPage';
 import { render } from '@testing-library/react';
 
-test('renders TheEdward header', () => {
-  const { getByTestId } = render(<LandingPage />);
-  expect(getByTestId('component-landing-page')).toBeInTheDocument();
+describe('LangingPage', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = render(<LandingPage />);
+  });
+  const renderData = ['component-landing-page'];
+
+  describe.each(renderData)('When rendering', (component) => {
+    test(`${renderData.id} renders correct text`, () => {
+      expect(wrapper.getByTestId(component)).toBeInTheDocument();
+    });
+  });
 });

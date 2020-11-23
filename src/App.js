@@ -1,7 +1,13 @@
+import React from 'react';
+import LandingPage from './views/LandingPage/LandingPage';
+import styles from './App.module.scss';
+
 function App() {
   return (
-    <div data-testid="component-app">
-      <h1>Hello World</h1>
+    <div className={styles.page}>
+      <div data-testid="component-app" className={styles.page_container}>
+        <LandingPage />
+      </div>
     </div>
   );
 }

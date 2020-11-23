@@ -1,8 +1,31 @@
-import React from 'react';
 import styles from './ImageContainer.module.scss';
+import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
-const ImageContainer = () => {
-  return <div data-testid="component-image-container"></div>;
+const ImageContainer = (props) => {
+  return (
+    <DeviceOrientation>
+      <Orientation orientation="portrait" alwaysRender={false}>
+        <div
+          data-testid="component-image-container"
+          className={styles.container}
+        >
+          <img src={props.portraitSrc} alt={props.alt} data-testid="portrait" />
+        </div>
+      </Orientation>
+      <Orientation orientation="landscape" alwaysRender={false}>
+        <div
+          data-testid="component-image-container"
+          className={styles.container}
+        >
+          <img
+            src={props.landscapeSrc}
+            alt={props.alt}
+            data-testid="landscape"
+          />
+        </div>
+      </Orientation>
+    </DeviceOrientation>
+  );
 };
 
 export default ImageContainer;
