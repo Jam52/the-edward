@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './OverviewCard.module.scss';
 import PropTypes from 'prop-types';
+import Button from '../Button/Button';
 
 const OverviewCard = (props) => {
   return (
@@ -10,14 +11,15 @@ const OverviewCard = (props) => {
       </div>
       <h3 data-testid="room-name">{props.roomName}</h3>
       <p data-testid="overview">{props.overview}</p>
-      <h3>Occupancy</h3>
+      <h4>Occupancy</h4>
       <ul data-testid="occupancy" className={styles.occupancy}>
         {props.occupancy.map((item) => (
           <li key={item}>{item}</li>
         ))}
       </ul>
-      <h3>Rate</h3>
+      <h4>Rate</h4>
       <p data-testid="rate">{props.rate}</p>
+      <Button text={`Book ${props.roomName}`} />
     </div>
   );
 };
