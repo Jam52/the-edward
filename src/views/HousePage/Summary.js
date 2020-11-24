@@ -1,18 +1,19 @@
 import React from 'react';
+import styles from './Summary.module.scss';
 import Button from '../../components/Button/Button';
 
-function Summary() {
+const Summary = () => {
     return (
-    <div>
-      <div>
+    <div className={styles.summaryContainer}>
+      <div className={styles.innerContainerOne}>
         <section>
           <h1>Welcome to your home away from home.</h1>
           <p>3 Suites. 3 Baths. 2 Living Spaces.</p>
           <p>1 Dining Room. 1 Solarium</p>
         </section>
-        <Button text ={"Book House"}></Button>
+        <Button className={styles.bookButton} text ={"Book House"}></Button>
       </div>
-      <section>
+      <div className={styles.innerContainerTwo}>
         <p>
           With 24 ft high atrium ceilings and three grand suites this light filled two-
           storey house is ideal for families or a group of friends. Much love, creativity
@@ -24,7 +25,7 @@ function Summary() {
         <p>3 Children under 10</p>
         <h4>Rate</h4>
         <p>From From $675/night + Cleaning Fee</p>
-      </section>
+      </div>
     </div>
     )
   }

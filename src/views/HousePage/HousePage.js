@@ -1,5 +1,5 @@
 import React from 'react';
-import Summary from './summary';
+import Summary from './Summary';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import Carosoul from './carosoul';
 import HouseDetails from './houseDetails';

@@ -1,0 +1,23 @@
+.summaryContainer {
+    display: flex;
+}
+
+    .innerContainerOne {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .innerContainerTwo {
+        width: 50%;
+    }
+
+    //Aligning the tops of text columns
+        h1,
+        p {
+            margin: 0;
+        }
+
+        // .bookButton {
+        //     align-self: flex-end;
+        // }
