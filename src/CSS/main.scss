@@ -31,3 +31,24 @@ h6 {
   background-color: $color_light_beige;
   background-size: cover;
 }
+
+.explore-section {
+  margin: 6rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__main {
+    font-family: $font_serif;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: $media_tablet) {
+  .explore-section {
+    &__main {
+      font-size: 2.7rem;
+    }
+  }
+}

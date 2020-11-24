@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
+import Button from '../../components/Button/Button';
 
 const LandingPage = () => {
   return (
@@ -11,10 +12,17 @@ const LandingPage = () => {
         portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
         alt="Yellow house under bright blue sky"
       />
+      <div className="explore-section">
+        <p className="explore-section__main">
+          "Five-star luxury; a million star experience."
+        </p>
+        <p>- Returning Guests</p>
+        <Button text="See all reviews" />
+      </div>
       <div className={`${styles.cardContainer} section section-light`}>
         <OverviewCard
           img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-          imgAlt="Inside of house, white walls dark wood"
+          altImg="Inside of house, white walls dark wood"
           roomName="House"
           overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for damilies or a group of friends."
           occupancy={['6 Adults', '3 Children']}
@@ -22,7 +30,7 @@ const LandingPage = () => {
         />
         <OverviewCard
           img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
-          imgAlt="Inside of loft, white walls, large bed"
+          altImg="Inside of loft, white walls, large bed"
           roomName="Loft"
           overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
           occupancy={['2 Adults', '2 Children Under 10']}
@@ -31,12 +39,20 @@ const LandingPage = () => {
 
         <OverviewCard
           img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
-          imgAlt="Glamping style cabin, large glass, amazing wooded surroundings."
+          altImg="Glamping style cabin, large glass, amazing wooded surroundings."
           roomName="Cabin"
           overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
           occupancy={['2 Adults', '1 Dog']}
           rate="From $399(for a 2-night getaway)"
         />
+      </div>
+      <div className="explore-section">
+        <p>The Edward Traveler’s Guide</p>
+        <p className="explore-section__main">
+          How do you best enjoy your time in Ontario’s gastronomical capital?
+        </p>
+
+        <Button text="See our top picks" />
       </div>
     </div>
   );
