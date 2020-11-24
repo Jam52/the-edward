@@ -3,6 +3,7 @@ import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
 import Button from '../../components/Button/Button';
+import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
 
 const LandingPage = () => {
   return (
@@ -14,13 +15,16 @@ const LandingPage = () => {
         }
         alt="Yellow house under bright blue sky"
       />
-      <div className="explore-section">
-        <p className="explore-section__main">
-          "Five-star luxury; a million star experience."
-        </p>
-        <p>- Returning Guests</p>
-        <Button text="See all reviews" />
-      </div>
+
+      <FadeInTransition>
+        <div className="explore-section">
+          <p className=" explore-section__main">
+            "Five-star luxury; a million star experience."
+          </p>
+          <p>- Returning Guests</p>
+          <Button text="See all reviews" />
+        </div>
+      </FadeInTransition>
       <div className="section section-light">
         <h2 className="section_header">
           Make your next visit to wine country memorable.
