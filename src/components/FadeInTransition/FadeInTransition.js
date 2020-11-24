@@ -12,13 +12,14 @@ const FadeInTransition = (props) => {
 
   useEffect(() => {
     if (inView) {
-      console.log('in view');
-      setHidden([styles.hidden, styles.fade_in].join(' '));
+      setTimeout(() => {
+        setHidden([styles.hidden, styles.fade_in].join(' '));
+      }, props.delay);
     }
   });
 
   return (
-    <div ref={ref} className={isHidden} style={{ animationDelay: props.delay }}>
+    <div ref={ref} className={isHidden} delay={props.delay}>
       {props.children}
     </div>
   );
