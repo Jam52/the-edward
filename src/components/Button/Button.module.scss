@@ -1,11 +1,22 @@
+@import '../../CSS/base';
+
 .button {
   margin: 3rem 0;
 
   &_link {
+    display: inline-block;
     padding: 1.5em 2em;
     border: 2px solid #000;
     border-radius: 1000px;
     text-decoration: none;
     color: #000;
+    transition: all 0.2s ease-in;
+
+    &:hover {
+      background-color: $color_dark_blue;
+      border: 2px solid $color_dark_blue;
+      color: #fff;
+      transform: scale(1.05);
+    }
   }
 }
