@@ -1,23 +1,47 @@
-.summaryContainer {
-    display: flex;
-}
+@import '../../CSS/base';
 
     .innerContainerOne {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
     }
+        h1,
+        .description {
+            margin-bottom: 35px;
+        }
 
-    .innerContainerTwo {
-        width: 50%;
+        h4 {
+            margin: 0;
+        }
+
+        p,
+        h4 {
+            line-height: 34px;
+        }
+
+@media (min-width: $media_computer_small) {
+    .summaryContainer {
+        display: flex;
+        margin: 100px 0 100px 0;
+        height: 525px;
     }
+    
+        .innerContainerOne {
+            justify-content: space-between;
+            height: 100%;
+        }
+    
+        .innerContainerTwo {
+            width: 50%;
+        }
 
-    //Aligning the tops of text columns
         h1,
         p {
             margin: 0;
         }
+    
+        h1,
+        .description {
+            height: 170px;
+        }
 
-        // .bookButton {
-        //     align-self: flex-end;
-        // }
+}   
