@@ -9,7 +9,9 @@ const LandingPage = () => {
     <div data-testid="component-landing-page">
       <ImageContainer
         landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Hero.jpg'}
-        portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
+        portraitSrc={
+          process.env.PUBLIC_URL + '/images/Homepage_Hero_Portrait.jpg'
+        }
         alt="Yellow house under bright blue sky"
       />
       <div className="explore-section">

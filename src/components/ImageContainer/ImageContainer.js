@@ -9,7 +9,12 @@ const ImageContainer = (props) => {
           data-testid="component-image-container"
           className={styles.container}
         >
-          <img src={props.portraitSrc} alt={props.alt} data-testid="portrait" />
+          <img
+            src={props.portraitSrc}
+            alt={props.alt}
+            data-testid="portrait"
+            className={styles.portrait}
+          />
         </div>
       </Orientation>
       <Orientation orientation="landscape" alwaysRender={false}>
@@ -18,6 +23,7 @@ const ImageContainer = (props) => {
           className={styles.container}
         >
           <img
+            className={styles.landscape}
             src={props.landscapeSrc}
             alt={props.alt}
             data-testid="landscape"
