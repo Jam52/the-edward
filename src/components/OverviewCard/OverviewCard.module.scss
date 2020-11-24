@@ -2,9 +2,12 @@
 
 .overview {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &_header {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     margin: 1rem 0;
   }
 

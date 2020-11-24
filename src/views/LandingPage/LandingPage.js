@@ -19,32 +19,42 @@ const LandingPage = () => {
         <p>- Returning Guests</p>
         <Button text="See all reviews" />
       </div>
-      <div className={`${styles.cardContainer} section section-light`}>
-        <OverviewCard
-          img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-          altImg="Inside of house, white walls dark wood"
-          roomName="House"
-          overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for damilies or a group of friends."
-          occupancy={['6 Adults', '3 Children']}
-          rate="From $675/night + Cleaning Fee"
-        />
-        <OverviewCard
-          img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
-          altImg="Inside of loft, white walls, large bed"
-          roomName="Loft"
-          overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
-          occupancy={['2 Adults', '2 Children Under 10']}
-          rate="From $275/night + Cleaning Fee"
-        />
+      <div className="section section-light">
+        <h2 className="section_header">
+          Make your next visit to wine country memorable.
+        </h2>
+        <p className="section_detail">
+          Stay with us at one of our three accommodations in Prince Edward
+          County and treat yourself to a luxurious country experience nestled in
+          75 acres of peaceful nature away from the fast-paced city life.
+        </p>
+        <div className={`${styles.cardContainer}`}>
+          <OverviewCard
+            img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
+            altImg="Inside of house, white walls dark wood"
+            roomName="House"
+            overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for damilies or a group of friends."
+            occupancy={['6 Adults', '3 Children']}
+            rate="From $675/night + Cleaning Fee"
+          />
+          <OverviewCard
+            img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
+            altImg="Inside of loft, white walls, large bed"
+            roomName="Loft"
+            overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
+            occupancy={['2 Adults', '2 Children Under 10']}
+            rate="From $275/night + Cleaning Fee"
+          />
 
-        <OverviewCard
-          img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
-          altImg="Glamping style cabin, large glass, amazing wooded surroundings."
-          roomName="Cabin"
-          overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
-          occupancy={['2 Adults', '1 Dog']}
-          rate="From $399(for a 2-night getaway)"
-        />
+          <OverviewCard
+            img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
+            altImg="Glamping style cabin, large glass, amazing wooded surroundings."
+            roomName="Cabin"
+            overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
+            occupancy={['2 Adults', '1 Dog']}
+            rate="From $399(for a 2-night getaway)"
+          />
+        </div>
       </div>
       <div className="explore-section">
         <p>The Edward Traveler’s Guide</p>
