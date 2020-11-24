@@ -1,5 +1,12 @@
+@import '../../CSS/base';
+
 .overview {
   width: 100%;
+
+  &_header {
+    font-size: 1.8rem;
+    margin: 1rem 0;
+  }
 
   &_img {
     position: relative;
@@ -9,6 +16,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 1.5rem;
 
     img {
       position: absolute;

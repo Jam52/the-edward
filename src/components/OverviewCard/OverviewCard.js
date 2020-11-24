@@ -6,10 +6,12 @@ import Button from '../Button/Button';
 const OverviewCard = (props) => {
   return (
     <div data-testid="component-overview-card" className={styles.overview}>
+      <h3 data-testid="room-name" className={styles.overview_header}>
+        {props.roomName}
+      </h3>
       <div className={styles.overview_img}>
         <img src={props.img} alt={props.imgAlt} data-testid="image" />
       </div>
-      <h3 data-testid="room-name">{props.roomName}</h3>
       <p data-testid="overview">{props.overview}</p>
       <h4>Occupancy</h4>
       <ul data-testid="occupancy" className={styles.occupancy}>
