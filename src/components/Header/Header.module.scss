@@ -10,5 +10,11 @@
     margin: 0;
     font-family: $font-serif;
     font-style: italic;
+    text-decoration: none;
+
+    a {
+      text-decoration: none;
+      color: #000;
+    }
   }
 }
