@@ -4,9 +4,10 @@ import NavList from '../NavList/NavList';
 
 const Header = () => {
   return (
-    <div data-testid="component-header">
+    <header data-testid="component-header" className={styles.header}>
+      <h1 className={styles.header_title}>The Edward</h1>
       <NavList />
-    </div>
+    </header>
   );
 };
 

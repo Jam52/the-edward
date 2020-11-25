@@ -1,0 +1,14 @@
+@import '../../CSS//base';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 0;
+  align-items: flex-end;
+
+  &_title {
+    margin: 0;
+    font-family: $font-serif;
+    font-style: italic;
+  }
+}
