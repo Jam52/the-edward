@@ -4,6 +4,7 @@ import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
 import Button from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
+import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection';
 
 const LandingPage = () => {
   return (
@@ -67,6 +68,9 @@ const LandingPage = () => {
             />
           </FadeInTransition>
         </div>
+        <CollapsibleSection header="The Concierge">
+          <div>TEST</div>
+        </CollapsibleSection>
       </div>
       <FadeInTransition>
         <div className="explore-section">
