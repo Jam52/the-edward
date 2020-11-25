@@ -4,14 +4,9 @@
   align-items: center;
   height: 80vh;
   overflow: hidden;
-}
 
-.landscape {
-  height: 100%;
-  width: auto;
-}
-
-.portrait {
-  width: 100%;
-  height: auto;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
