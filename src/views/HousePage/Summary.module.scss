@@ -1,4 +1,55 @@
 @import '../../CSS/base';
+
+// $media_phone: 300px;
+// $media_tablet: 700px;
+// $media_computer_small: 1100px;
+// $media_computer_large: 2000px;
+
+    .summaryContainer {
+        margin: 1px 0 50px 0;
+    }
+    
+        .innerContainerOne {
+            margin-bottom: 35px;
+        }
+            .title,
+            .description {
+                margin-top: 0;
+            }
+
+            .title {
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+
+        .innerContainerTwo {
+            flex-wrap: wrap;
+        }
+
+            .roomNums {
+                margin-bottom: 45px;
+            }
+
+            .content,
+            .subheader,
+            .rate {
+                margin: 5px 0px 5px 0px;
+            }
+
+            .description,
+            .content {
+                line-height: 34px;
+            }
+
+//700px +
+@media (min-width: $media_tablet) {
+    .title {
+        margin-top: 80px;
+    }
+}
+
+//1100px +
+@media (min-width: $media_computer_small) {
     .summaryContainer {
         display: flex;
         flex-direction: column;
@@ -7,7 +58,7 @@
     
         .innerContainerOne {
             display: flex;
-            margin-bottom: 35px;
+            // margin-bottom: 35px;
         }
             .title,
             .description {
@@ -43,45 +94,4 @@
             .content {
                 line-height: 34px;
             }
-            // .description {
-
-            // }
-
-            // .rate {
-            //     margin: 0;
-            // }
-
-            // .content,
-            // .subheader {
-            //     line-height: 34px;
-            // }
-
-//1100px +
-@media (min-width: $media_computer_small) {
-    // .summaryContainer {
-    //     display: flex;
-    //     margin: 10px 0 100px 0;
-    //     height: 525px;
-    // }
-    
-    //     .innerContainerOne {
-    //         justify-content: space-between;
-    //         height: 100%;
-    //     }
-    
-    //     .innerContainerTwo {
-    //         width: 50%;
-    //     }
-
-    //     .title,
-    //     .content {
-    //         margin: 0;
-    //     }
-    
-    //     .title,
-    //     .description {
-    //         height: 170px;
-    //         margin-bottom: 35px;
-    //     }
-
 }   
