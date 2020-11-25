@@ -40,9 +40,10 @@ const LandingPage = () => {
               img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
               altImg="Inside of house, white walls dark wood"
               roomName="House"
-              overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for damilies or a group of friends."
+              overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for families or a group of friends."
               occupancy={['6 Adults', '3 Children']}
               rate="From $675/night + Cleaning Fee"
+              to="/house"
             />
           </FadeInTransition>
           <FadeInTransition delay={150}>

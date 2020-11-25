@@ -6,7 +6,7 @@ import styles from './Button.module.scss';
 const Button = (props) => {
   return (
     <div className={styles.button}>
-      <Link data-testid="component-button" className={styles.button_link}>
+      <Link data-testid="component-button" className={styles.button_link} to={props.to}>
         {props.text}
       </Link>
     </div>
@@ -14,7 +14,7 @@ const Button = (props) => {
 };
 
 Button.propTypes = {
-  to: PropTypes.string.isRequired,
+  // to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
 
