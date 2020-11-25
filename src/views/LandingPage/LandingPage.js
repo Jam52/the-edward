@@ -4,6 +4,7 @@ import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
 import Button from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
+import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection';
 
 const LandingPage = () => {
   return (
@@ -67,6 +68,50 @@ const LandingPage = () => {
             />
           </FadeInTransition>
         </div>
+        <CollapsibleSection header="The Concierge">
+          <div className={styles.concierge}>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+          </div>
+        </CollapsibleSection>
       </div>
       <FadeInTransition>
         <div className="explore-section">
@@ -77,6 +122,15 @@ const LandingPage = () => {
 
           <Button text="See our top picks" />
         </div>
+      </FadeInTransition>
+      <FadeInTransition>
+        <ImageContainer
+          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
+          portraitSrc={
+            process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
+          }
+          alt="Bike beneath a green tree on a sunny day"
+        />
       </FadeInTransition>
     </div>
   );

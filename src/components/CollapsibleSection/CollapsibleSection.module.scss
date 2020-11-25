@@ -1,0 +1,37 @@
+@import '../../CSS//base';
+
+.collapsibleSection {
+  padding: 1.5rem;
+  background-color: $color_dark_blue;
+  color: #fff;
+
+  &_dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  &_header {
+    font-family: $font-serif;
+    margin: 0;
+  }
+}
+
+.arrow {
+  height: 1.5rem;
+  transition: transform 0.3s;
+  transform: rotate(0deg);
+
+  &__down {
+    transform: rotate(-180deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
