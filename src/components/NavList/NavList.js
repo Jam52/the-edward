@@ -4,9 +4,9 @@ import NavItem from './NavItem/NavItem';
 const NavList = () => {
   return (
     <nav>
-      <NavItem to="" text="house" />
-      <NavItem to="" text="loft" />
-      <NavItem to="" text="cabin" />
+      <NavItem to="/house" text="house" />
+      <NavItem to="/loft" text="loft" />
+      <NavItem to="/cabin" text="cabin" />
     </nav>
   );
 };
