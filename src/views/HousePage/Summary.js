@@ -6,6 +6,7 @@ const Summary = () => {
     return (
     <div className={styles.summaryContainer}>
       <div className={styles.innerContainerOne}>
+
         <h2 className={styles.title}>Welcome to your home away from home.</h2>
         <p className={styles.description}>
         With 24 ft high atrium ceilings and three grand suites this light filled two-
@@ -15,21 +16,23 @@ const Summary = () => {
         </p>
       </div>
       <div className={styles.innerContainerTwo}>
-        <div>
+        
+        <div className={styles.roomNums}>
           <p className={styles.content}>3 Suites. 3 Baths. 2 Living Spaces.</p>
           <p className={styles.content}>1 Dining Room. 1 Solarium</p>
         </div>
 
-        <div>
+        <div className={styles.occupancy}>
           <h4 className={styles.subheader}>Max Occupancy</h4>
           <p className={styles.content}>6 Adults</p>
           <p className={styles.content}>3 Children under 10</p>
           <br></br>
-          <h4 className={styles.summarySubheader}>Rate</h4>
+          <h4 className={styles.rate}>Rate</h4>
           <p className={styles.content}>From From $675/night + Cleaning Fee</p>
         </div>
 
         <Button className={styles.bookButton} text ={"Book House"}></Button>
+      
       </div>
     </div>
     )

@@ -7,6 +7,7 @@
     
         .innerContainerOne {
             display: flex;
+            margin-bottom: 35px;
         }
             .title,
             .description {
@@ -21,11 +22,32 @@
                 padding-right: 10px;
             }
 
+        .innerContainerTwo {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+            .roomNums,
+            .occupancy,
+            .bookButton {
+                flex-basis: 50%;
+            }
+
+            .content,
+            .subheader,
+            .rate {
+                margin: 2px 0px 2px 0px;
+            }
+
+            .description,
+            .content {
+                line-height: 34px;
+            }
             // .description {
 
             // }
 
-            // .summarySubheader {
+            // .rate {
             //     margin: 0;
             // }
 
