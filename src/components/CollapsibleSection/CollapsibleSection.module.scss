@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
   }
 
   &_header {
@@ -19,6 +20,12 @@
 
 .arrow {
   height: 1.5rem;
+  transition: transform 0.3s;
+  transform: rotate(0deg);
+
+  &__down {
+    transform: rotate(-180deg);
+  }
 }
 
 .hidden {

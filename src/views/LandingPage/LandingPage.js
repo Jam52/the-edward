@@ -69,7 +69,48 @@ const LandingPage = () => {
           </FadeInTransition>
         </div>
         <CollapsibleSection header="The Concierge">
-          <div>TEST</div>
+          <div className={styles.concierge}>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+            <div className={styles.concierge_section}>
+              <h3>Check In / Check Out</h3>
+              <p>
+                <b>Check-in:</b> 4pm
+              </p>
+              <p>
+                <b>Check-out:</b> 12pm
+              </p>
+              <p>Please specify if you would like a contactless checkin.</p>
+            </div>
+          </div>
         </CollapsibleSection>
       </div>
       <FadeInTransition>

@@ -9,19 +9,21 @@ const CollapsibleSection = (props) => {
       data-testid="component-collapsible-section"
       className={styles.collapsibleSection}
     >
-      <div className={styles.collapsibleSection_dropdown}>
+      <div
+        className={styles.collapsibleSection_dropdown}
+        onClick={() => toggleVisible(!isVisible)}
+      >
         <h2 className={styles.collapsibleSection_header}>{props.header}</h2>
         <img
           data-testid="arrow"
           className={
             isVisible
               ? [styles.arrow, styles.arrow__down].join(' ')
-              : [styles.arrow, styles.arrow__up].join(' ')
+              : styles.arrow
           }
           src={process.env.PUBLIC_URL + '/images/arrow.png'}
           alt="dropdown arrow"
           aria-roledescription="dropdown for convierge section"
-          onClick={() => toggleVisible(!isVisible)}
         />
       </div>
       <div
