@@ -36,6 +36,7 @@ OverviewCard.propTypes = {
   overview: PropTypes.string.isRequired,
   occupancy: PropTypes.array.isRequired,
   rate: PropTypes.string.isRequired,
+  to: PropTypes.string.isRequired,
 };
 
 export default OverviewCard;
