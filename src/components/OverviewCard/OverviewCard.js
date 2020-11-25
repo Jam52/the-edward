@@ -24,7 +24,7 @@ const OverviewCard = (props) => {
         <h4>Rate</h4>
         <p data-testid="rate">{props.rate}</p>
       </div>
-      <Button text={`Book ${props.roomName}`} />
+      <Button text={`Book ${props.roomName}`} to={props.to} />
     </div>
   );
 };
