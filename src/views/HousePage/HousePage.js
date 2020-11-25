@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Summary from './Summary';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import Carosoul from './carosoul';
