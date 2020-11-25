@@ -123,6 +123,15 @@ const LandingPage = () => {
           <Button text="See our top picks" />
         </div>
       </FadeInTransition>
+      <FadeInTransition>
+        <ImageContainer
+          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
+          portraitSrc={
+            process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
+          }
+          alt="Bike beneath a green tree on a sunny day"
+        />
+      </FadeInTransition>
     </div>
   );
 };
