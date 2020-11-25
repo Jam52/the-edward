@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Summary from './Summary';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import Carosoul from './carosoul';
@@ -7,6 +7,12 @@ import Availability from './availability';
 // import styles from './HousePage.module.scss';
 
 const HousePage = () => {
+
+  //auto scrolls to the top of the page on load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  })
+  
   return (
     <div data-testid="component-house-page">
       <ImageContainer
