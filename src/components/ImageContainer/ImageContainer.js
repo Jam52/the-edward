@@ -1,30 +1,38 @@
+import React, { useEffect, useState } from 'react';
 import styles from './ImageContainer.module.scss';
-import DeviceOrientation, { Orientation } from 'react-screen-orientation';
 
 const ImageContainer = (props) => {
+  const [orientation, setOrientation] = useState('portrait');
+
+  useEffect(() => {
+    changeImageOnResize();
+    window.addEventListener('resize', function () {
+      changeImageOnResize();
+    });
+  });
+
+  const changeImageOnResize = () => {
+    if (window.matchMedia('(orientation: portrait)').matches) {
+      setOrientation('portrait');
+    } else {
+      setOrientation('landscape');
+    }
+  };
+
+  const portrait = (
+    <img src={props.portraitSrc} alt={props.alt} data-testid="portrait" />
+  );
+
+  const landscape = (
+    <img src={props.landscapeSrc} alt={props.alt} data-testid="landscape" />
+  );
+
+  const images = orientation === 'portrait' ? portrait : landscape;
+
   return (
-    <DeviceOrientation>
-      <Orientation orientation="portrait" alwaysRender={false}>
-        <div
-          data-testid="component-image-container"
-          className={styles.container}
-        >
-          <img src={props.portraitSrc} alt={props.alt} data-testid="portrait" />
-        </div>
-      </Orientation>
-      <Orientation orientation="landscape" alwaysRender={false}>
-        <div
-          data-testid="component-image-container"
-          className={styles.container}
-        >
-          <img
-            src={props.landscapeSrc}
-            alt={props.alt}
-            data-testid="landscape"
-          />
-        </div>
-      </Orientation>
-    </DeviceOrientation>
+    <div data-testid="component-image-container" className={styles.container}>
+      {images}
+    </div>
   );
 };
 

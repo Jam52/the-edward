@@ -1,12 +1,21 @@
+@import '../../CSS/base';
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
   overflow: hidden;
+  height: 80vh;
 
   img {
     width: 100%;
     height: auto;
+  }
+}
+
+@media (min-width: $media_computer_large) {
+  .container {
+    height: auto;
+    margin: 2rem 0;
   }
 }
