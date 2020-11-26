@@ -21,15 +21,16 @@ const LandingPage = () => {
         alt="Yellow house under bright blue sky"
       />
 
-      <FadeInTransition>
-        <div className="explore-section">
+      <div className="explore-section">
+        <FadeInTransition>
           <p className=" explore-section__main">
             "Five-star luxury; a million star experience."
           </p>
           <p>- Returning Guests</p>
           <Button text="See all reviews" to="/" />
-        </div>
-      </FadeInTransition>
+        </FadeInTransition>
+      </div>
+
       <div className="section section-light">
         <h2 className="section_header">
           Make your next visit to wine country memorable.
