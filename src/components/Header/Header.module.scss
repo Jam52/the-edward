@@ -58,9 +58,12 @@
 }
 
 .dropdown {
+  opacity: 0;
   z-index: 1;
   padding: 0 0 2rem 0;
   position: absolute;
+  transform: translateX(110vw);
+  transition: all 0.3s ease-in;
 }
 
 .dropdown:after {
@@ -72,6 +75,11 @@
   background-color: #fff;
   width: 110vw;
   transform: translateX(-10vw);
+}
+
+.dropdown__visible {
+  opacity: 1;
+  transform: translateY(0px);
 }
 
 @media (min-width: $media-tablet) {

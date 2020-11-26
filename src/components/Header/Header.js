@@ -25,11 +25,16 @@ const Header = () => {
           <div />
         </div>
       </div>
-      {isOpen ? (
-        <div className={styles.dropdown}>
-          <NavList click={() => toggleOpen(!isOpen)} />
-        </div>
-      ) : null}
+
+      <div
+        className={
+          isOpen
+            ? [styles.dropdown, styles.dropdown__visible].join(' ')
+            : styles.dropdown
+        }
+      >
+        <NavList click={() => toggleOpen(!isOpen)} />
+      </div>
     </header>
   );
 };
