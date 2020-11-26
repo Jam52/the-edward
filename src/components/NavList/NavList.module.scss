@@ -1,0 +1,12 @@
+@import '../../CSS/base';
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: $media-tablet) {
+  .container {
+    flex-direction: row;
+  }
+}
