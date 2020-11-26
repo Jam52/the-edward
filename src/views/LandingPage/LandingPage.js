@@ -5,6 +5,7 @@ import OverviewCard from '../../components/OverviewCard/OverviewCard';
 import Button from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
 import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection';
+import Footer from '../../components/Footer/Footer';
 
 const LandingPage = () => {
   return (
@@ -134,6 +135,7 @@ const LandingPage = () => {
           alt="Bike beneath a green tree on a sunny day"
         />
       </FadeInTransition>
+      <Footer />
     </div>
   );
 };
