@@ -135,7 +135,6 @@ const LandingPage = () => {
           alt="Bike beneath a green tree on a sunny day"
         />
       </FadeInTransition>
-      <Footer />
     </div>
   );
 };
