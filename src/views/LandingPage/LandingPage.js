@@ -23,7 +23,7 @@ const LandingPage = () => {
             "Five-star luxury; a million star experience."
           </p>
           <p>- Returning Guests</p>
-          <Button text="See all reviews" />
+          <Button text="See all reviews" to="/" />
         </div>
       </FadeInTransition>
       <div className="section section-light">
@@ -55,6 +55,7 @@ const LandingPage = () => {
               overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
               occupancy={['2 Adults', '2 Children Under 10']}
               rate="From $275/night + Cleaning Fee"
+              to="/loft"
             />
           </FadeInTransition>
           <FadeInTransition delay={300}>
@@ -65,6 +66,7 @@ const LandingPage = () => {
               overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
               occupancy={['2 Adults', '1 Dog']}
               rate="From $399(for a 2-night getaway)"
+              to="/cabin"
             />
           </FadeInTransition>
         </div>
@@ -120,7 +122,7 @@ const LandingPage = () => {
             How do you best enjoy your time in Ontario’s gastronomical capital?
           </p>
 
-          <Button text="See our top picks" />
+          <Button text="See our top picks" to="/" />
         </div>
       </FadeInTransition>
       <FadeInTransition>

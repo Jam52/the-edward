@@ -15,7 +15,7 @@ const NavItem = (props) => {
   );
 };
 
-NavLink.propTypes = {
+NavItem.propTypes = {
   to: PropTypes.string.isRequired,
   text: PropTypes.string.isRequired,
 };
