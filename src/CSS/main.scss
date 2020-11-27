@@ -1,6 +1,14 @@
 @import './base';
 
-p {
+p,
+li {
+  font-family: $font-main;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
   font-family: $font-main;
   line-height: 1.5;
 }
