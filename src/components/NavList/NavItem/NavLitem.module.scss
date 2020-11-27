@@ -2,7 +2,8 @@
 
 .nav {
   text-decoration: none;
-  color: #000;
+  font-size: 1.5rem;
+  color: #ddd;
   display: inline-block;
   transition: transform 0.2s;
 
@@ -16,10 +17,20 @@
 }
 
 .active {
-  border-bottom: 1.5px solid #000;
+  font-weight: 700;
+  color: #fff;
 }
 
 @media (min-width: $media-tablet) {
+  .active {
+    border-bottom: 1.5px solid #000;
+    font-weight: normal;
+    color: #000;
+  }
+  .nav {
+    font-size: 1rem;
+    color: #000;
+  }
   .nav + .nav {
     margin-left: 1rem;
     margin-top: 0;
