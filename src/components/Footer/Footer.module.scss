@@ -1,0 +1,29 @@
+@import '../../CSS/base';
+
+.footer {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &_section {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      margin-bottom: 0.5rem;
+    }
+    P {
+      margin: 0;
+    }
+  }
+}
+
+@media (min-width: $media_tablet) {
+  .footer {
+    flex-direction: row;
+  }
+
+  .footer_section:last-child {
+    margin-left: auto;
+  }
+}

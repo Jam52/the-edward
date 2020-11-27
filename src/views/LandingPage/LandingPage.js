@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
@@ -7,6 +7,10 @@ import FadeInTransition from '../../components/FadeInTransition/FadeInTransition
 import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection';
 
 const LandingPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <div data-testid="component-landing-page">
       <ImageContainer
@@ -17,15 +21,16 @@ const LandingPage = () => {
         alt="Yellow house under bright blue sky"
       />
 
-      <FadeInTransition>
-        <div className="explore-section">
+      <div className="explore-section">
+        <FadeInTransition>
           <p className=" explore-section__main">
             "Five-star luxury; a million star experience."
           </p>
           <p>- Returning Guests</p>
           <Button text="See all reviews" to="/" />
-        </div>
-      </FadeInTransition>
+        </FadeInTransition>
+      </div>
+
       <div className="section section-light">
         <h2 className="section_header">
           Make your next visit to wine country memorable.
