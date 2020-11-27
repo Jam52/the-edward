@@ -6,7 +6,8 @@
 // $media_computer_large: 2000px;
 
     .summaryContainer {
-        margin: 50px 0 50px 0;
+        margin-bottom: 50px;
+        margin-top: 50px;
     }
     
         .innerContainerOne {
@@ -43,10 +44,20 @@
 
 //700px +
 @media (min-width: $media_tablet) {
-    .title {
-        margin-top: 80px;
+    .summaryContainer {
+        margin-top: 70px;
+    }
+    .description {
+        max-width: 770px;
     }
 }
+
+// //Fixing white space between image and summary title
+// @media only screen and (min-width: 863px) {
+//     .summaryContainer {
+//         margin-top: 0;
+//     }
+// }
 
 //1100px +
 @media (min-width: $media_computer_small) {
@@ -70,7 +81,7 @@
 
             .title {
                 font-size: 40px;
-                padding-right: 10px;
+                padding-right: 47px;
             }
 
         .innerContainerTwo {
@@ -95,3 +106,10 @@
                 line-height: 34px;
             }
 }   
+
+//Fixing white space between image and summary title
+@media only screen and (min-width: 1300px) {
+    .summaryContainer {
+        margin-top: 40px;
+    }
+}
