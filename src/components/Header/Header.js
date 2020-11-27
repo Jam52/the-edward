@@ -1,16 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import NavList from '../NavList/NavList';
 
 const Header = () => {
-  return (
-    <header data-testid="component-header" className={styles.header}>
-      <h1 className={styles.header_title}>
-        <Link to="/">The Edward</Link>
-      </h1>
+  const [isOpen, toggleOpen] = useState(false);
 
-      <NavList />
+  const crossStyles = isOpen
+    ? [styles.menu, styles.cross].join(' ')
+    : styles.menu;
+
+  return (
+    <header data-testid="component-header">
+      <div className={styles.header}>
+        <h1 className={styles.header_title}>
+          <Link to="/">The Edward</Link>
+        </h1>
+        <div className={styles.header_nav}>
+          <NavList />
+        </div>
+        <div className={crossStyles} onClick={() => toggleOpen(!isOpen)}>
+          <div />
+          <div />
+          <div />
+        </div>
+      </div>
+
+      <div
+        className={
+          isOpen
+            ? [styles.dropdown, styles.dropdown__visible].join(' ')
+            : styles.dropdown
+        }
+      >
+        <NavList click={() => toggleOpen(!isOpen)} />
+      </div>
     </header>
   );
 };

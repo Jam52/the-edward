@@ -1,12 +1,14 @@
 import React from 'react';
 import NavItem from './NavItem/NavItem';
+import styles from './NavList.module.scss';
 
-const NavList = () => {
+const NavList = (props) => {
   return (
-    <nav>
-      <NavItem to="/house" text="house" />
-      <NavItem to="/loft" text="loft" />
-      <NavItem to="/cabin" text="cabin" />
+    <nav className={styles.container}>
+      <NavItem to="/house" text="house" click={props.click} />
+      <NavItem to="/loft" text="loft" click={props.click} />
+      <NavItem to="/cabin" text="cabin" click={props.click} />
+      <NavItem to="/about" text="about" click={props.click} />
     </nav>
   );
 };
