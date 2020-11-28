@@ -6,12 +6,11 @@
 // $media_computer_large: 2000px;
 
     .summaryContainer {
-        margin-bottom: 50px;
-        margin-top: 50px;
+        margin: 3.1rem 0 3.1rem 0;
     }
     
         .innerContainerOne {
-            margin-bottom: 35px;
+            margin-bottom: 2.2rem;
         }
             .title,
             .description {
@@ -19,8 +18,8 @@
             }
 
             .title {
-                font-size: 30px;
-                margin-bottom: 40px;
+                font-size: 1.9rem;
+                margin-bottom: 2.5rem;
             }
 
         .innerContainerTwo {
@@ -28,18 +27,18 @@
         }
 
             .roomNums {
-                margin-bottom: 45px;
+                margin-bottom: 2.8rem;
             }
 
             .content,
             .subheader,
             .rate {
-                margin: 5px 0px 5px 0px;
+                margin: .3rem 0 .3rem 0;
             }
 
             .description,
             .content {
-                line-height: 34px;
+                line-height: 2.1rem;
             }
 
 //700px +
@@ -52,36 +51,32 @@
     }
 }
 
-// //Fixing white space between image and summary title
-// @media only screen and (min-width: 863px) {
-//     .summaryContainer {
-//         margin-top: 0;
-//     }
-// }
+//Fixing white space between image and summary title
+@media only screen and (min-width: 863px) {
+    .summaryContainer {
+        margin-top: 0;
+    }
+}
 
 //1100px +
 @media (min-width: $media_computer_small) {
     .summaryContainer {
         display: flex;
         flex-direction: column;
-        margin: 10px 0 80px 0;
+        margin: .6em 0 5em 0;
     }
     
         .innerContainerOne {
             display: flex;
-            // margin-bottom: 35px;
         }
             .title,
             .description {
                 width: 50%;
                 margin-top: 0;
-                // margin-bottom: 35px;
-                // max-width: 680px;
             }
 
             .title {
-                font-size: 40px;
-                padding-right: 47px;
+                font-size: 2.5em;
             }
 
         .innerContainerTwo {
@@ -98,18 +93,18 @@
             .content,
             .subheader,
             .rate {
-                margin: 2px 0px 2px 0px;
+                margin: .1em 0 .1em 0;
             }
 
             .description,
             .content {
-                line-height: 34px;
+                line-height: 2.1em;
             }
 }   
 
 //Fixing white space between image and summary title
 @media only screen and (min-width: 1300px) {
     .summaryContainer {
-        margin-top: 40px;
+        margin-top: 2.5em;
     }
 }
