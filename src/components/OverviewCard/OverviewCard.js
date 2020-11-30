@@ -1,11 +1,30 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import styles from './OverviewCard.module.scss';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 
 const OverviewCard = (props) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    rootMargin: '-100px',
+  });
+
+  const [isHiddenLeft, setHiddenLeft] = useState(styles.hidden_left);
+  const [isHiddenRight, setHiddenRight] = useState(styles.hidden_right);
+
+  useEffect(() => {
+    if (inView) {
+      setTimeout(() => {
+        setHiddenLeft([styles.hidden_left, styles.slide].join(' '));
+        setHiddenRight([styles.hidden_right, styles.slide].join(' '));
+      }, props.delay);
+    }
+  });
+
   return (
     <div
+      ref={ref}
       data-testid="component-overview-card"
       className={
         props.isFlipped
@@ -13,14 +32,23 @@ const OverviewCard = (props) => {
           : styles.overview
       }
     >
-      <div className={styles.overview_img}>
+      <div
+        className={[
+          styles.overview_img,
+          props.isFlipped ? isHiddenRight : isHiddenLeft,
+        ].join(' ')}
+      >
         <img src={props.img} alt={props.imgAlt} data-testid="image" />
       </div>
       <div
         className={
           props.isFlipped
-            ? [styles.overview_info, styles.overview_info__right].join(' ')
-            : styles.overview_info
+            ? [
+                styles.overview_info,
+                styles.overview_info__right,
+                isHiddenRight,
+              ].join(' ')
+            : [styles.overview_info, isHiddenLeft].join(' ')
         }
       >
         <h3 data-testid="room-name" className={styles.overview_header}>

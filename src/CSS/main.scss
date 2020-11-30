@@ -1,6 +1,7 @@
 @import './base';
 
-p {
+p,
+ul {
   font-family: $font-main;
   line-height: 1.5;
 }
