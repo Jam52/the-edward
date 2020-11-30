@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
@@ -7,6 +7,10 @@ import FadeInTransition from '../../components/FadeInTransition/FadeInTransition
 import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection';
 
 const LandingPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
   return (
     <div data-testid="component-landing-page">
       <ImageContainer
