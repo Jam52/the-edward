@@ -14,6 +14,10 @@
   &_logo {
     margin: 0;
     width: 12rem;
+    translate: opacity 0.2s;
+    &:hover {
+      opacity: 0.65;
+    }
   }
 
   &_nav {
