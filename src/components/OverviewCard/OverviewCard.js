@@ -5,26 +5,38 @@ import Button from '../Button/Button';
 
 const OverviewCard = (props) => {
   return (
-    <div data-testid="component-overview-card" className={styles.overview}>
-      <div>
+    <div
+      data-testid="component-overview-card"
+      className={
+        props.isFlipped
+          ? [styles.overview, styles.overview__left].join(' ')
+          : styles.overview
+      }
+    >
+      <div className={styles.overview_img}>
+        <img src={props.img} alt={props.imgAlt} data-testid="image" />
+      </div>
+      <div
+        className={
+          props.isFlipped
+            ? [styles.overview_info, styles.overview_info__right].join(' ')
+            : styles.overview_info
+        }
+      >
         <h3 data-testid="room-name" className={styles.overview_header}>
           {props.roomName}
         </h3>
-        <div className={styles.overview_img}>
-          <img src={props.img} alt={props.imgAlt} data-testid="image" />
-        </div>
-
         <p data-testid="overview">{props.overview}</p>
-        <h4>Occupancy</h4>
-        <ul data-testid="occupancy" className={styles.occupancy}>
+        <h4>Max Occupancy</h4>
+        <ul data-testid="occupancy" className={styles.overview_occupancy}>
           {props.occupancy.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
         <h4>Rate</h4>
         <p data-testid="rate">{props.rate}</p>
+        <Button text={`Book ${props.roomName}`} to={props.to} />
       </div>
-      <Button text={`Book ${props.roomName}`} to={props.to} />
     </div>
   );
 };
