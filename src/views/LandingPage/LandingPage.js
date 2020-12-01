@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
-import Button from '../../components/Button/Button';
+import Button, { ExternalLink } from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
 import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection';
 
@@ -27,7 +27,10 @@ const LandingPage = () => {
             "Five-star luxury; a million star experience."
           </p>
           <p>- Returning Guests</p>
-          <Button text="See all reviews" to="/" />
+          <ExternalLink
+            text="See all reviews"
+            to="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
+          />
         </FadeInTransition>
       </div>
 
