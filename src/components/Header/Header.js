@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import styles from './Header.module.scss';
 import NavList from '../NavList/NavList';
 import edwardSvg from './The Edward_Logo.svg';
@@ -7,14 +8,29 @@ import edwardSvg from './The Edward_Logo.svg';
 const Header = () => {
   const [isOpen, toggleOpen] = useState(false);
 
-  const crossStyles = isOpen
-    ? [styles.menu, styles.cross].join(' ')
+  const menuButtonStyles = isOpen
+    ? [styles.menu, styles.rotate].join(' ')
     : styles.menu;
+
+  const toggleMenu = () => {
+    toggleOpen(!isOpen);
+    if (isOpen) {
+      enableBodyScroll(NavList);
+    } else {
+      disableBodyScroll(NavList);
+    }
+  };
 
   return (
     <header data-testid="component-header">
       <div className={styles.header}>
-        <h1 className={styles.header_title}>
+        <h1
+          className={
+            isOpen
+              ? [styles.header_title, styles.hidden].join(' ')
+              : styles.header_title
+          }
+        >
           <Link to="/">
             <img
               src={edwardSvg}
@@ -26,8 +42,7 @@ const Header = () => {
         <div className={styles.header_nav}>
           <NavList />
         </div>
-        <div className={crossStyles} onClick={() => toggleOpen(!isOpen)}>
-          <div />
+        <div className={menuButtonStyles} onClick={toggleMenu} id="menu">
           <div />
           <div />
         </div>
@@ -40,7 +55,7 @@ const Header = () => {
             : styles.dropdown
         }
       >
-        <NavList click={() => toggleOpen(!isOpen)} />
+        <NavList click={toggleMenu} />
       </div>
     </header>
   );
