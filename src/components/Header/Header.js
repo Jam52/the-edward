@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Header.module.scss';
 import NavList from '../NavList/NavList';
+import edwardSvg from './The Edward_Logo.svg';
 
 const Header = () => {
   const [isOpen, toggleOpen] = useState(false);
@@ -14,7 +15,13 @@ const Header = () => {
     <header data-testid="component-header">
       <div className={styles.header}>
         <h1 className={styles.header_title}>
-          <Link to="/">The Edward</Link>
+          <Link to="/">
+            <img
+              src={edwardSvg}
+              alt="the edward"
+              className={styles.header_logo}
+            />
+          </Link>
         </h1>
         <div className={styles.header_nav}>
           <NavList />

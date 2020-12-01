@@ -41,39 +41,36 @@ const LandingPage = () => {
           75 acres of peaceful nature away from the fast-paced city life.
         </p>
         <div className={`${styles.cardContainer}`}>
-          <FadeInTransition>
-            <OverviewCard
-              img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-              altImg="Inside of house, white walls dark wood"
-              roomName="House"
-              overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for families or a group of friends."
-              occupancy={['6 Adults', '3 Children']}
-              rate="From $675/night + Cleaning Fee"
-              to="/house"
-            />
-          </FadeInTransition>
-          <FadeInTransition delay={150}>
-            <OverviewCard
-              img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
-              altImg="Inside of loft, white walls, large bed"
-              roomName="Loft"
-              overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
-              occupancy={['2 Adults', '2 Children Under 10']}
-              rate="From $275/night + Cleaning Fee"
-              to="/loft"
-            />
-          </FadeInTransition>
-          <FadeInTransition delay={300}>
-            <OverviewCard
-              img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
-              altImg="Glamping style cabin, large glass, amazing wooded surroundings."
-              roomName="Cabin"
-              overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
-              occupancy={['2 Adults', '1 Dog']}
-              rate="From $399(for a 2-night getaway)"
-              to="/cabin"
-            />
-          </FadeInTransition>
+          <OverviewCard
+            img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
+            altImg="Inside of house, white walls dark wood"
+            roomName="House"
+            overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for families or a group of friends."
+            occupancy={['6 Adults', '3 Children']}
+            rate="From $675/night + Cleaning Fee"
+            to="/house"
+          />
+
+          <OverviewCard
+            isFlipped
+            img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
+            altImg="Inside of loft, white walls, large bed"
+            roomName="Loft"
+            overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
+            occupancy={['2 Adults', '2 Children Under 10']}
+            rate="From $275/night + Cleaning Fee"
+            to="/loft"
+          />
+
+          <OverviewCard
+            img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
+            altImg="Glamping style cabin, large glass, amazing wooded surroundings."
+            roomName="Cabin"
+            overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
+            occupancy={['2 Adults', '1 Dog']}
+            rate="From $399(for a 2-night getaway)"
+            to="/cabin"
+          />
         </div>
         <CollapsibleSection header="The Concierge">
           <div className={styles.concierge}>
