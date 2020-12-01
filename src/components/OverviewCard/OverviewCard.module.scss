@@ -1,22 +1,5 @@
 @import '../../CSS/base';
 
-.hidden_left {
-  opacity: 0;
-  transform: translateX(-30rem);
-  transition: all 1s;
-}
-
-.hidden_right {
-  opacity: 0;
-  transform: translateX(30rem);
-  transition: all 1s;
-}
-
-.slide {
-  opacity: 1;
-  transform: translateX(0);
-}
-
 .overview {
   position: relative;
   width: 100%;
