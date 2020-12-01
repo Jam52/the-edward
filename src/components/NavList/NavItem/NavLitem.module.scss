@@ -3,7 +3,7 @@
 .nav {
   text-decoration: none;
   font-size: 1.5rem;
-  color: #000;
+  color: #333333;
   display: inline-block;
   transition: opacity 0.2s;
 
@@ -17,8 +17,7 @@
 }
 
 .active {
-  font-weight: 700;
-  color: #fff;
+  font-weight: 900;
 }
 
 @media (min-width: $media-tablet) {

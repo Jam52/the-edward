@@ -25,7 +25,6 @@ const Header = () => {
     <header data-testid="component-header">
       <div className={styles.header}>
         <h1
-          onClick={toggleMenu}
           className={
             isOpen
               ? [styles.header_title, styles.hidden].join(' ')
