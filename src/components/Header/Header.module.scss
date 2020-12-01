@@ -5,7 +5,7 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem 0;
-  align-items: flex-end;
+  align-items: center;
   z-index: 10;
 
   &_title {
@@ -33,21 +33,20 @@
 .menu {
   position: relative;
   display: block;
-  height: 1.5rem;
-  width: 2rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-self: center;
+  height: 1.9rem;
+  width: 1.9rem;
   transition: all 0.2s;
   transform-origin: 50% 50%;
-  transform: rotate(45deg) scale(0.9);
+  transform: rotate(45deg);
 
   div {
-    height: 3px;
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 100%;
     background-color: #000;
     border-radius: 20px;
-    transform-origin: 1px;
+    transform-origin: 50% 50%;
   }
 
   div:first-child {
@@ -60,7 +59,9 @@
 }
 
 .rotate {
-  transform: rotate(0deg);
+  height: 2rem;
+  width: 2rem;
+  transform: rotate(90deg);
 }
 
 .dropdown {
@@ -89,6 +90,7 @@
 
 @media (min-width: $media-tablet) {
   .header {
+    align-items: flex-end;
     padding: 2rem 0;
     &_logo {
       width: 15rem;
