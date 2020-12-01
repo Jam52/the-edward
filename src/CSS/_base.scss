@@ -1,13 +1,14 @@
 //media queries
 $media_phone: 300px;
 $media_tablet: 700px;
+$media_tablet_landscape: 1000px;
 $media_computer_small: 1100px;
 $media_computer_large: 2000px;
 
 //typography
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
-$font_main: 'Montserrat', sans-serif;
+$font_main: 'Raleway', sans-serif;
 $font_serif: 'Libre Baskerville', serif;
 
 //colours
