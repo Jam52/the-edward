@@ -1,17 +1,22 @@
 import Footer from '../Footer';
-import { render } from '@testing-library/react';
+import { renderSetup } from '../../../utils/testUtils';
 
-test('renders TheEdward footer', () => {
-  const { getByTestId } = render(<Footer />);
+test('renders TheEdward header', () => {
+  const { getByTestId } = renderSetup(<Footer />);
   expect(getByTestId('component-footer')).toBeInTheDocument();
 });
 
-test('renders contact', () => {
-  const { getByText } = render(<Footer />);
-  expect(getByText('contact')).toBeInTheDocument();
+test('renders address', () => {
+  const { getByText } = renderSetup(<Footer />);
+  expect(getByText('Address')).toBeInTheDocument();
 });
 
-test('renders address', () => {
-  const { getByText } = render(<Footer />);
-  expect(getByText('adress')).toBeInTheDocument();
+test('renders contact', () => {
+  const { getByText } = renderSetup(<Footer />);
+  expect(getByText('Contact')).toBeInTheDocument();
+});
+
+test('renders navigation', () => {
+  const { getByText } = renderSetup(<Footer />);
+  expect(getByText('Navigation')).toBeInTheDocument();
 });
