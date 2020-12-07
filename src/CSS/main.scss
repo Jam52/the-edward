@@ -24,7 +24,7 @@ h6 {
 }
 
 .section {
-  padding: 2rem 0;
+  padding: 4rem 0;
   position: relative;
 
   &_header {
@@ -35,6 +35,11 @@ h6 {
   &_detail {
     max-width: 50ch;
   }
+}
+
+.section-dark {
+  background-color: $color_dark_blue;
+  color: #fff;
 }
 
 .section-light:before {
@@ -51,6 +56,7 @@ h6 {
 }
 
 .explore-section {
+  min-height: 70vh;
   margin: 6rem 2rem;
   text-align: center;
   display: flex;

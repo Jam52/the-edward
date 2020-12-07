@@ -12,6 +12,8 @@ const OverviewCard = (props) => {
           ? [styles.overview, styles.overview__left].join(' ')
           : styles.overview
       }
+      id={`id${props.roomName}`}
+      ref={props.refProp}
     >
       <div className={styles.overview_img}>
         <img src={props.img} alt={props.imgAlt} data-testid="image" />
@@ -35,7 +37,7 @@ const OverviewCard = (props) => {
         </ul>
         <h4>Rate</h4>
         <p data-testid="rate">{props.rate}</p>
-        <Button text={`Book ${props.roomName}`} to={props.to} />
+        <Button text={`See ${props.roomName}`} to={props.to} />
       </div>
     </div>
   );

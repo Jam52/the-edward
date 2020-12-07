@@ -1,15 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
 import Button, { ExternalLink } from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
-import CollapsibleSection from '../../components/CollapsibleSection/CollapsibleSection';
 
 const LandingPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   });
+
+  const houseRef = useRef(null);
+  const loftRef = useRef(null);
+  const cabinRef = useRef(null);
+
+  const exicuteScrollTo = (ref) => {
+    console.log('clicked');
+    ref.current.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <div data-testid="component-landing-page">
@@ -21,7 +29,7 @@ const LandingPage = () => {
         alt="Yellow house under bright blue sky"
       />
 
-      <div className="explore-section">
+      <section className="explore-section">
         <FadeInTransition>
           <p className=" explore-section__main">
             "Five-star luxury; a million star experience."
@@ -32,19 +40,31 @@ const LandingPage = () => {
             to="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
           />
         </FadeInTransition>
-      </div>
+      </section>
 
-      <div className="section section-light">
-        <h2 className="section_header">
-          Make your next visit to wine country memorable.
-        </h2>
-        <p className="section_detail">
-          Stay with us at one of our three accommodations in Prince Edward
-          County and treat yourself to a luxurious country experience nestled in
-          75 acres of peaceful nature away from the fast-paced city life.
-        </p>
+      <section className="section section-light">
+        <div className={styles.explore}>
+          <div className={styles.explore_header}>
+            <h2 className="section_header">
+              Make your next visit to wine country memorable.
+            </h2>
+            <p className="section_detail">
+              Stay with us at one of our three accommodations in Prince Edward
+              County and treat yourself to a luxurious country experience
+              nestled in 75 acres of peaceful nature away from the fast-paced
+              city life.
+            </p>
+          </div>
+          <div className={styles.explore_scroll}>
+            <p onClick={() => exicuteScrollTo(houseRef)}>House</p>
+            <p onClick={() => exicuteScrollTo(loftRef)}>Loft</p>
+            <p onClick={() => exicuteScrollTo(cabinRef)}>Cabin</p>
+          </div>
+        </div>
+
         <div className={`${styles.cardContainer}`}>
           <OverviewCard
+            refProp={houseRef}
             img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
             altImg="Inside of house, white walls dark wood"
             roomName="House"
@@ -55,6 +75,7 @@ const LandingPage = () => {
           />
 
           <OverviewCard
+            refProp={loftRef}
             isFlipped
             img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
             altImg="Inside of loft, white walls, large bed"
@@ -66,6 +87,7 @@ const LandingPage = () => {
           />
 
           <OverviewCard
+            refProp={cabinRef}
             img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
             altImg="Glamping style cabin, large glass, amazing wooded surroundings."
             roomName="Cabin"
@@ -75,51 +97,58 @@ const LandingPage = () => {
             to="/cabin"
           />
         </div>
-        <CollapsibleSection header="The Concierge">
-          <div className={styles.concierge}>
+        <section className={`${styles.concierge} section section-dark`}>
+          <div className={styles.concierge_header}>
+            <h2 className="section_header">The Concierge</h2>
+            <p>
+              We are here for you blah blah, if you have questions or special
+              requests blah blah email us at welcome@theedward.ca. Our customer
+              experience hours of operations are between 8:00 am and 5:00pm.
+            </p>
+          </div>
+          <div className={styles.concierge_details}>
             <div className={styles.concierge_section}>
-              <h3>Check In / Check Out</h3>
+              <h3>How to find us</h3>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m8!3m7!1s0x89d7c8cb02908139:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522"
+              >
+                <p>
+                  <b>Latitude:</b> 44.031892
+                </p>
+                <p>
+                  <b>Longitude:</b> -77.037088
+                </p>
+                <p>
+                  662 Country Road 7 <br /> (also known as Lake on the Mountain
+                  Road, Picton, ON, K0K 2T0
+                </p>
+              </a>
+            </div>
+            <div className={styles.concierge_section}>
+              <h3>Arriving at The Edward</h3>
               <p>
-                <b>Check-in:</b> 4pm
+                <b>Check-in:</b> 4:00pm
               </p>
               <p>
-                <b>Check-out:</b> 12pm
+                <b>Check-out:</b> 12:00pm
               </p>
               <p>Please specify if you would like a contactless checkin.</p>
             </div>
             <div className={styles.concierge_section}>
-              <h3>Check In / Check Out</h3>
+              <h3>Cancellations</h3>
               <p>
-                <b>Check-in:</b> 4pm
+                <b>Full Refund</b> 2 weeks notice
               </p>
               <p>
-                <b>Check-out:</b> 12pm
-              </p>
-              <p>Please specify if you would like a contactless checkin.</p>
-            </div>
-            <div className={styles.concierge_section}>
-              <h3>Check In / Check Out</h3>
-              <p>
-                <b>Check-in:</b> 4pm
-              </p>
-              <p>
-                <b>Check-out:</b> 12pm
-              </p>
-              <p>Please specify if you would like a contactless checkin.</p>
-            </div>
-            <div className={styles.concierge_section}>
-              <h3>Check In / Check Out</h3>
-              <p>
-                <b>Check-in:</b> 4pm
-              </p>
-              <p>
-                <b>Check-out:</b> 12pm
+                <b>%50 Refund:</b> 1 week notice
               </p>
               <p>Please specify if you would like a contactless checkin.</p>
             </div>
           </div>
-        </CollapsibleSection>
-      </div>
+        </section>
+      </section>
       <FadeInTransition>
         <div className="explore-section">
           <p>The Edward Traveler’s Guide</p>
@@ -130,15 +159,13 @@ const LandingPage = () => {
           <Button text="See our top picks" to="/" />
         </div>
       </FadeInTransition>
-      <FadeInTransition>
-        <ImageContainer
-          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
-          portraitSrc={
-            process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
-          }
-          alt="Bike beneath a green tree on a sunny day"
-        />
-      </FadeInTransition>
+      <ImageContainer
+        landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
+        portraitSrc={
+          process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
+        }
+        alt="Bike beneath a green tree on a sunny day"
+      />
     </div>
   );
 };

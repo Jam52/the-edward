@@ -1,3 +1,5 @@
+@import '../../CSS/base';
+
 .cardContainer {
   display: flex;
   flex-direction: column;
@@ -5,15 +7,95 @@
 }
 
 .concierge {
-  width: 80%;
-  margin-left: 20%;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 2rem;
+  margin-top: 4rem;
+  padding: 2rem;
+  p {
+    max-width: 50ch;
+    margin: 0;
+  }
+  a {
+    color: #fff;
+  }
 
+  &_header {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+  }
+
+  &_details {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
   &_section {
+    padding-bottom: 1rem;
+    padding-left: 2rem;
+    border-left: 1px solid #ccc;
     p {
       max-width: 30ch;
+    }
+    p:last-child {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.explore {
+  &_header {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      max-width: 30ch;
+      margin: 0;
+    }
+  }
+
+  &_scroll {
+    display: flex;
+    P {
+      cursor: pointer;
+    }
+
+    p + p {
+      margin-left: 1.5rem;
+    }
+  }
+
+  .concierge {
+    &_header {
+      flex-direction: row;
+    }
+  }
+}
+
+@media (min-width: $media_tablet_landscape) {
+  .explore {
+    &_header {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-bottom: 2rem;
+
+      h2,
+      p {
+        margin: 0;
+      }
+    }
+    &_scroll {
+      font-size: 1.3rem;
+      justify-content: center;
+    }
+  }
+
+  .concierge {
+    &_header {
+      flex-direction: row;
+      justify-content: space-between;
+      h2,
+      p {
+        margin: 0;
+      }
     }
   }
 }
