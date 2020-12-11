@@ -60,6 +60,9 @@
       margin: 0;
       font-family: $font_main;
     }
+    button:hover {
+      opacity: 0.6;
+    }
     button + button {
       margin-left: 1rem;
     }
