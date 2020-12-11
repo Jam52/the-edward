@@ -15,8 +15,9 @@ const LandingPage = () => {
   const cabinRef = useRef(null);
 
   const exicuteScrollTo = (ref) => {
-    console.log('clicked');
     ref.current.scrollIntoView({ behavior: 'smooth' });
+    console.log(ref.current);
+    ref.current.focus();
   };
 
   return (
@@ -56,9 +57,24 @@ const LandingPage = () => {
               </p>
             </div>
             <div className={styles.explore_scroll}>
-              <p onClick={() => exicuteScrollTo(houseRef)}>House</p>
-              <p onClick={() => exicuteScrollTo(loftRef)}>Loft</p>
-              <p onClick={() => exicuteScrollTo(cabinRef)}>Cabin</p>
+              <button
+                aria-label="scroll to house overview"
+                onClick={() => exicuteScrollTo(houseRef)}
+              >
+                House
+              </button>
+              <button
+                aria-label="scroll to loft overview"
+                onClick={() => exicuteScrollTo(loftRef)}
+              >
+                Loft
+              </button>
+              <button
+                aria-label="scroll to cabin overview"
+                onClick={() => exicuteScrollTo(cabinRef)}
+              >
+                Cabin
+              </button>
             </div>
           </div>
 
@@ -66,7 +82,7 @@ const LandingPage = () => {
             <OverviewCard
               refProp={houseRef}
               img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-              altImg="Inside of house, white walls dark wood"
+              imgAlt="Inside of house, white walls dark wood"
               roomName="House"
               overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for families or a group of friends."
               occupancy={['6 Adults', '3 Children']}
@@ -78,7 +94,7 @@ const LandingPage = () => {
               refProp={loftRef}
               isFlipped
               img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
-              altImg="Inside of loft, white walls, large bed"
+              imgAlt="Inside of loft, white walls, large bed"
               roomName="Loft"
               overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
               occupancy={['2 Adults', '2 Children Under 10']}
@@ -89,7 +105,7 @@ const LandingPage = () => {
             <OverviewCard
               refProp={cabinRef}
               img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
-              altImg="Glamping style cabin, large glass, amazing wooded surroundings."
+              imgAlt="Glamping style cabin, large glass, amazing wooded surroundings."
               roomName="Cabin"
               overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
               occupancy={['2 Adults', '1 Dog']}
