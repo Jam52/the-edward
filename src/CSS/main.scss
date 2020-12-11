@@ -23,6 +23,11 @@ h6 {
   margin: 1.5rem 0;
 }
 
+*:focus {
+  outline: 3px solid $color_beige;
+  outline-offset: 6px;
+}
+
 .section {
   padding: 4rem 0;
   position: relative;
@@ -67,6 +72,30 @@ h6 {
     font-family: $font_serif;
     font-size: 2rem;
   }
+}
+
+.skip {
+  margin: 1em auto;
+}
+
+.skip a {
+  position: absolute;
+  display: block;
+  margin-top: 1em;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+
+  font-size: 1.5rem;
+}
+.skip a:focus {
+  text-align: center;
+  position: sticky;
+  width: 90vw;
+  margin: auto;
+  height: auto;
+  opacity: 1;
 }
 
 @media (min-width: $media_tablet) {
