@@ -23,6 +23,42 @@ h6 {
   margin: 1.5rem 0;
 }
 
+.btn {
+  padding: 1.5em 3em;
+  border-radius: 1000px;
+  text-align: center;
+  transition: all 0.2s;
+  display: inline-block;
+  font-family: $font_main;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.btn--small {
+  padding: 0.5em 2em;
+}
+
+.btn--dark {
+  color: #fff;
+  border: 2px solid #fff;
+
+  &:hover {
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: #000;
+  }
+}
+
+.btn--light {
+  border: 2px solid #000;
+  color: #000;
+  &:hover {
+    background-color: $color_dark_blue;
+    border: 2px solid $color_dark_blue;
+    color: #fff;
+  }
+}
+
 .section {
   padding: 4rem 0;
   position: relative;
