@@ -34,7 +34,7 @@ const Header = () => {
           <Link to="/">
             <img
               src={edwardSvg}
-              alt="the edward"
+              alt="homepage"
               className={styles.header_logo}
             />
           </Link>
@@ -42,7 +42,15 @@ const Header = () => {
         <div className={styles.header_nav}>
           <NavList />
         </div>
-        <div className={menuButtonStyles} onClick={toggleMenu} id="menu">
+        <div
+          className={menuButtonStyles}
+          onClick={toggleMenu}
+          id="menu"
+          role="button"
+          tabIndex="0"
+          aria-expanded={isOpen}
+          aria-label="menu"
+        >
           <div />
           <div />
         </div>
@@ -55,7 +63,7 @@ const Header = () => {
             : styles.dropdown
         }
       >
-        <NavList click={toggleMenu} />
+        <NavList click={toggleMenu} tabIndex={isOpen ? '0' : '-1'} />
       </div>
     </header>
   );
