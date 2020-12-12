@@ -16,8 +16,6 @@ const LandingPage = () => {
 
   const exicuteScrollTo = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
-    console.log(ref.current);
-    ref.current.focus();
   };
 
   return (
