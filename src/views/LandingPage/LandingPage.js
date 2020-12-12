@@ -16,8 +16,6 @@ const LandingPage = () => {
 
   const exicuteScrollTo = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
-    console.log(ref.current);
-    ref.current.focus();
   };
 
   return (
@@ -43,7 +41,7 @@ const LandingPage = () => {
           </FadeInTransition>
         </section>
 
-        <section className="section section-light">
+        <section className="section section--light">
           <div className={styles.explore}>
             <div className={styles.explore_header}>
               <h2 className="section_header">
@@ -113,7 +111,7 @@ const LandingPage = () => {
               to="/cabin"
             />
           </div>
-          <section className={`${styles.concierge} section section-dark`}>
+          <section className={`${styles.concierge} section section--dark`}>
             <div className={styles.concierge_header}>
               <h2 className="section_header">The Concierge</h2>
               <p>
@@ -126,21 +124,21 @@ const LandingPage = () => {
             <div className={styles.concierge_details}>
               <div className={styles.concierge_section}>
                 <h3>How to find us</h3>
+                <p>
+                  662 Country Road 7 <br /> (also known as Lake on the Mountain
+                  Road, Picton, ON, K0K 2T0
+                </p>
                 <a
                   target="_blank"
+                  aria-label="to google maps"
                   rel="noreferrer"
                   href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m8!3m7!1s0x89d7c8cb02908139:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522"
                 >
-                  <p>
+                  <div className="btn btn--dark btn--small">
                     <b>Latitude:</b> 44.031892
-                  </p>
-                  <p>
+                    <br />
                     <b>Longitude:</b> -77.037088
-                  </p>
-                  <p>
-                    662 Country Road 7 <br /> (also known as Lake on the
-                    Mountain Road, Picton, ON, K0K 2T0
-                  </p>
+                  </div>
                 </a>
               </div>
               <div className={styles.concierge_section}>
@@ -166,17 +164,17 @@ const LandingPage = () => {
             </div>
           </section>
         </section>
-        <FadeInTransition>
-          <div className="explore-section">
+
+        <section className="explore-section">
+          <FadeInTransition>
             <p>The Edward Traveler’s Guide</p>
             <p className="explore-section__main">
               How do you best enjoy your time in Ontario’s gastronomical
               capital?
             </p>
-
-            <Button text="See our top picks" to="/" />
-          </div>
-        </FadeInTransition>
+            <Button text="See our top picks" to="/andlkdn" />
+          </FadeInTransition>
+        </section>
         <ImageContainer
           landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
           portraitSrc={

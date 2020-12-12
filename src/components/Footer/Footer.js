@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <footer
       data-testid="component-footer"
-      className={`section section-light ${styles.footer}`}
+      className={`section section--light ${styles.footer}`}
     >
       <div className={styles.footer_section}>
         <h2>Address</h2>
