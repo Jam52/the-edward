@@ -14,6 +14,7 @@ const OverviewCard = (props) => {
       }
       id={`id${props.roomName}`}
       ref={props.refProp}
+      tabIndex="-1"
     >
       <div className={styles.overview_img}>
         <img src={props.img} alt={props.imgAlt} data-testid="image" />
