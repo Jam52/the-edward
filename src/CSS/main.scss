@@ -101,3 +101,10 @@ h6 {
     }
   }
 }
+
+@media (min-width: $media_computer_large) {
+  .explore-section {
+    min-height: auto;
+    margin: 13rem 2rem;
+  }
+}
