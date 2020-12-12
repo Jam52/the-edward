@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styles from './ImageContainer.module.scss';
+import Aux from '../../hoc/Auxillary/Auxillary';
 
 const ImageContainer = (props) => {
   const [orientation, setOrientation] = useState('portrait');
@@ -20,20 +21,26 @@ const ImageContainer = (props) => {
   };
 
   const portrait = (
-    <img src={props.portraitSrc} alt={props.alt} data-testid="portrait" />
+    <img
+      src={props.portraitSrc}
+      alt={props.alt}
+      data-testid="portrait"
+      className={styles.image}
+    />
   );
 
   const landscape = (
-    <img src={props.landscapeSrc} alt={props.alt} data-testid="landscape" />
+    <img
+      src={props.landscapeSrc}
+      alt={props.alt}
+      data-testid="landscape"
+      className={styles.image}
+    />
   );
 
   const images = orientation === 'portrait' ? portrait : landscape;
 
-  return (
-    <div data-testid="component-image-container" className={styles.container}>
-      {images}
-    </div>
-  );
+  return <Aux>{images}</Aux>;
 };
 
 export default ImageContainer;

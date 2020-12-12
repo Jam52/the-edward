@@ -73,12 +73,12 @@ h6 {
   }
 }
 
-.section-dark {
+.section--dark {
   background-color: $color_dark_blue;
   color: #fff;
 }
 
-.section-light:before {
+.section--light:before {
   z-index: -1;
   content: '';
   display: block;
@@ -105,10 +105,37 @@ h6 {
   }
 }
 
+.skip a {
+  position: absolute;
+  display: block;
+  margin-top: 1em;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+
+  font-size: 1.5rem;
+}
+.skip a:focus {
+  text-align: center;
+  position: sticky;
+  width: 90vw;
+  margin: auto;
+  height: auto;
+  opacity: 1;
+}
+
 @media (min-width: $media_tablet) {
   .explore-section {
     &__main {
       font-size: 2.7rem;
     }
+  }
+}
+
+@media (min-width: $media_computer_large) {
+  .explore-section {
+    min-height: auto;
+    margin: 13rem 2rem;
   }
 }
