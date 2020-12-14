@@ -5,10 +5,23 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  li {
+    list-style: none;
+  }
+
+  li + li {
+    margin-top: 1rem;
+  }
 }
 
 @media (min-width: $media-tablet) {
   .container {
     flex-direction: row;
+
+    li + li {
+      margin-left: 2rem;
+      margin-top: 0;
+    }
   }
 }
