@@ -1,0 +1,57 @@
+@import '../../CSS/base';
+
+.calendar {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+
+  &_header {
+    padding: 0.5rem;
+    background-color: $color_dark_blue;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    div {
+      display: flex;
+      gap: 2rem;
+    }
+  }
+  &_arrow {
+    height: 1rem;
+    width: 1.3rem;
+    cursor: pointer;
+  }
+
+  &_day {
+    padding: 0.7rem 0.2rem;
+    text-align: center;
+    border: 1px solid $color_light_grey;
+
+    &__unavailable {
+      background-color: $color_light_beige;
+      color: $color_light_beige;
+    }
+  }
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  top: 50vh;
+  width: 90vw;
+  max-width: 40rem;
+  background-color: white;
+  transform: translateY(-50%);
+}
+
+.table {
+  width: 100%;
+
+  th {
+    padding: 0.2rem;
+  }
+}
