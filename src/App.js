@@ -5,7 +5,7 @@ import Footer from './components/Footer/Footer';
 import HousePage from './views/HousePage/HousePage';
 import styles from './App.module.scss';
 import { Route, Switch } from 'react-router-dom';
-import Calendar from './components/Calendar/Calendar';
+import Calendar from './components/BookingBar/Calendar/Calendar';
 
 function App() {
   return (

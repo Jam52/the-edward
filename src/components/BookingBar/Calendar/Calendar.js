@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import DayJS from 'react-dayjs';
 import styles from './Calendar.module.scss';
 const dayjs = require('dayjs');
 
@@ -17,27 +16,28 @@ const Calendar = (props) => {
   let firstDayOfMonth = Number(date.date(1).format('d'));
   let numDaysInMonth = date.daysInMonth();
 
-  let daysInMonth = Array(42).fill(null);
-  let count = 0;
-  for (let i = firstDayOfMonth; count < numDaysInMonth; i++) {
-    daysInMonth[i] = date.date(1).add(count, 'day');
-    count++;
-  }
-
-  daysInMonth = daysInMonth.map((day) => {
-    if (day !== null) {
-      return <td className={styles.calendar_day}>{day.date()}</td>;
+  let daysInMonth = [...Array(42).keys()].map((key) => {
+    key = key - firstDayOfMonth;
+    let day = date.date(1).add(key, 'day');
+    let classes = [styles.calendar_day];
+    if (key + 1 <= 0) {
+      classes.push(styles.calendar_day__unavailable);
+      day = date.date(1).subtract(Math.abs(key) + 1, 'day');
+    }
+    if (key + 1 > numDaysInMonth) {
+      classes.push(styles.calendar_day__unavailable);
     }
     return (
       <td
-        className={`${styles.calendar_day__unavailable} ${styles.calendar_day}`}
+        data-testid="day"
+        className={classes.join(' ')}
+        key={key}
+        onClick={() => console.log(day)}
       >
-        _
+        {day.date()}
       </td>
     );
   });
-
-  console.log(firstDayOfMonth, numDaysInMonth, daysInMonth);
 
   return (
     <div data-testid="component-calendar" className={styles.calendar}>
@@ -45,6 +45,7 @@ const Calendar = (props) => {
         <div className={styles.calendar_header}>
           <div>
             <img
+              data-testid="backward-one-month"
               role="button"
               aria-label="go back one month"
               onClick={() => minusOneToDate('month')}
@@ -55,6 +56,7 @@ const Calendar = (props) => {
             />
             <div>{date.format('MMM')}</div>
             <img
+              data-testid="forward-one-month"
               role="button"
               aria-label="go forward one month"
               onClick={() => plusOneToDate('month')}
@@ -66,6 +68,7 @@ const Calendar = (props) => {
           </div>
           <div>
             <img
+              data-testid="backward-one-year"
               role="button"
               aria-label="go back one year"
               onClick={() => minusOneToDate('year')}
@@ -78,6 +81,7 @@ const Calendar = (props) => {
             <div>{date.format('YYYY')}</div>
 
             <img
+              data-testid="forward-one-year"
               role="button"
               aria-label="go forward one year"
               onClick={() => plusOneToDate('year')}

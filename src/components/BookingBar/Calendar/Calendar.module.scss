@@ -1,4 +1,4 @@
-@import '../../CSS/base';
+@import '../../../CSS/base';
 
 .calendar {
   background-color: rgba(0, 0, 0, 0.5);
@@ -10,7 +10,7 @@
   z-index: 100;
 
   &_header {
-    padding: 0.5rem;
+    padding: 1rem;
     background-color: $color_dark_blue;
     color: white;
     display: flex;
@@ -21,19 +21,30 @@
     }
   }
   &_arrow {
+    display: block;
     height: 1rem;
     width: 1.3rem;
     cursor: pointer;
+    transition: all 0.3s;
+    &:hover {
+      filter: brightness(0.9);
+      transform: scale(1.1);
+    }
   }
 
   &_day {
     padding: 0.7rem 0.2rem;
     text-align: center;
     border: 1px solid $color_light_grey;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s;
+    &:hover {
+      filter: brightness(0.9);
+    }
 
     &__unavailable {
       background-color: $color_light_beige;
-      color: $color_light_beige;
     }
   }
 }
@@ -50,6 +61,7 @@
 
 .table {
   width: 100%;
+  table-layout: fixed;
 
   th {
     padding: 0.2rem;
