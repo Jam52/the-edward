@@ -7,14 +7,15 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 100;
+  z-index: 20;
 
   &_header {
     padding: 1rem;
     background-color: $color_dark_blue;
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    align-items: center;
     div {
       display: flex;
       gap: 2rem;
@@ -43,8 +44,17 @@
       filter: brightness(0.9);
     }
 
-    &__unavailable {
+    &__other {
       background-color: $color_light_beige;
+    }
+    &__selected {
+      background-color: $color_dark_blue;
+      color: white;
+    }
+    &__inbetween {
+      background-color: $color_dark_blue;
+      color: white;
+      filter: brightness(1.8);
     }
   }
 }
@@ -52,11 +62,10 @@
 .container {
   position: relative;
   margin: auto;
-  top: 50vh;
+  top: 10vh;
   width: 90vw;
   max-width: 40rem;
   background-color: white;
-  transform: translateY(-50%);
 }
 
 .table {

@@ -6,7 +6,7 @@ const dayjs = require('dayjs');
 describe('Calendar', () => {
   let wrapper;
   beforeEach(() => {
-    wrapper = render(<Calendar />);
+    wrapper = render(<Calendar selectedDates={[]} />);
   });
   afterEach(() => {
     cleanup();
