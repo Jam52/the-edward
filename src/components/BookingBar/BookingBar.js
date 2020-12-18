@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import styles from './BookingBar.module.scss';
 import Calendar from './Calendar/Calendar';
 import Aux from '../../hoc/Auxillary/Auxillary';
@@ -116,7 +116,12 @@ class BookingBar extends Component {
             clear={() => this.setState({ selectedDates: [] })}
           />
         ) : null}
-        <div data-testid="component-booking-bar" className={styles.bookingbar}>
+        <div
+          data-testid="component-booking-bar"
+          className={`${styles.bookingbar} ${
+            this.props.show ? `${styles.hidden} ${styles.show}` : styles.hidden
+          }`}
+        >
           <div className={`page_container ${styles.bookingbar_container}`}>
             <h2>The Edaward House</h2>
             <p className={styles.bookingbar_cost}>{this.state.cost}</p>

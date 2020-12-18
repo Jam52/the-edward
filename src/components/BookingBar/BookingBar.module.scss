@@ -6,7 +6,7 @@
   left: 0;
   height: 5rem;
   background-color: white;
-  z-index: 200;
+  z-index: 10;
   width: 100%;
   padding: 0.5rem;
   box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.2),
@@ -55,6 +55,18 @@
   background-color: $color_red;
   border: 2px solid $color_red;
   color: white;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(50rem);
+
+  transition: all 0.5s;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (min-width: $media_computer_small) {
