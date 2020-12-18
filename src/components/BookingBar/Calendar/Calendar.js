@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Calendar.module.scss';
 const dayjs = require('dayjs');
+var customParseFormat = require('dayjs/plugin/customParseFormat');
+dayjs.extend(customParseFormat);
 
 const Calendar = (props) => {
   const todaysDate = dayjs();
@@ -11,6 +13,22 @@ const Calendar = (props) => {
   };
   const minusOneToDate = (amount) => {
     changeDate(date.subtract(1, amount));
+  };
+
+  const isDateUnavailable = (date) => {
+    const isUnavailable = !props.unavailableDates.every((booking) => {
+      let isAvailable = true;
+      const startDate = dayjs(booking.period_start);
+      const endDate = dayjs(booking.period_end);
+      if (date.isSame(startDate) || date.isSame(endDate)) {
+        isAvailable = false;
+      }
+      if (date.isAfter(startDate) && date.isBefore(endDate)) {
+        isAvailable = false;
+      }
+      return isAvailable;
+    });
+    return isUnavailable;
   };
 
   let firstDayOfMonth = Number(date.date(1).format('d'));
@@ -28,19 +46,23 @@ const Calendar = (props) => {
     if (key + 1 > numDaysInMonth) {
       classes.push(styles.calendar_day__other);
     }
-
-    if (props.selectedDates.length > 0) {
-      if (props.selectedDates.some((date) => day.isSame(date, 'D'))) {
-        click = (day) => props.remove(day);
-        classes.push(styles.calendar_day__selected);
-      }
-      if (props.selectedDates.length === 2) {
-        if (
-          day.isAfter(props.selectedDates[0], 'D') &&
-          day.isBefore(props.selectedDates[1], 'D')
-        ) {
-          click = () => console.log('nothing');
-          classes.push(styles.calendar_day__inbetween);
+    if (isDateUnavailable(day) || day.isBefore(dayjs())) {
+      classes.push(styles.calendar_day__booked);
+      click = () => console.log('nothing');
+    } else {
+      if (props.selectedDates.length > 0) {
+        if (props.selectedDates.some((date) => day.isSame(date, 'D'))) {
+          click = (day) => props.remove(day);
+          classes.push(styles.calendar_day__selected);
+        }
+        if (props.selectedDates.length === 2) {
+          if (
+            day.isAfter(props.selectedDates[0], 'D') &&
+            day.isBefore(props.selectedDates[1], 'D')
+          ) {
+            click = () => console.log('nothing');
+            classes.push(styles.calendar_day__inbetween);
+          }
         }
       }
     }

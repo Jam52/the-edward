@@ -5,6 +5,8 @@ import Aux from '../../hoc/Auxillary/Auxillary';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 const dayjs = require('dayjs');
+var customParseFormat = require('dayjs/plugin/customParseFormat');
+dayjs.extend(customParseFormat);
 
 class BookingBar extends Component {
   state = {
@@ -16,15 +18,18 @@ class BookingBar extends Component {
   };
 
   async componentDidMount() {
-    console.log(process.env.REACT_APP_LODGIFY_KEY);
-    let data = await this.fetchLodgifyData();
-    data = data.filter((booking) => !booking.is_available);
-    this.setState({ lodgifyData: data, loading: false });
+    try {
+      let data = await this.fetchLodgifyData();
+      data = data.filter((booking) => !booking.is_available);
+      this.setState({ lodgifyData: data, loading: false });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   fetchLodgifyData = async () => {
     const currentDate = dayjs();
-    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
     const url = `https://api.lodgify.com/v1/availability/${
       this.props.roomId
     }?periodStart=${currentDate.format(
@@ -46,18 +51,35 @@ class BookingBar extends Component {
   };
 
   addDate = (day) => {
-    if (this.state.selectedDates.length < 2) {
-      this.setState({
-        selectedDates: [...this.state.selectedDates, day].sort((a, b) => {
-          if (a.isBefore(b)) {
-            return -1;
-          }
-          if (b.isBefore(a)) {
-            return 11;
-          }
-          return 0;
-        }),
+    if (this.state.selectedDates.length === 0) {
+      this.setState({ selectedDates: [day] });
+    }
+    if (this.state.selectedDates.length === 1) {
+      const newDates = [...this.state.selectedDates, day].sort((a, b) => {
+        if (a.isBefore(b)) {
+          return -1;
+        }
+        if (b.isBefore(a)) {
+          return 11;
+        }
+        return 0;
       });
+      const unavailableDates = this.state.lodgifyData
+        .map((booking) => booking.period_start)
+        .concat(this.state.lodgifyData.map((booking) => booking.period_end));
+      if (
+        unavailableDates.some(
+          (date) =>
+            dayjs(date).isAfter(newDates[0]) &&
+            dayjs(date).isBefore(newDates[1]),
+        )
+      ) {
+        alert('booking must be continuous');
+      } else {
+        this.setState({
+          selectedDates: newDates,
+        });
+      }
     }
   };
 
@@ -86,6 +108,7 @@ class BookingBar extends Component {
             addDate={this.addDate}
             selectedDates={this.state.selectedDates}
             remove={this.removeDate}
+            unavailableDates={this.state.lodgifyData}
           />
         ) : null}
         <div data-testid="component-booking-bar" className={styles.bookingbar}>

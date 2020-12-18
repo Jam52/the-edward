@@ -56,6 +56,11 @@
       color: white;
       filter: brightness(1.8);
     }
+    &__booked {
+      background-color: #eee;
+      color: #aaa;
+      cursor: not-allowed;
+    }
   }
 }
 
