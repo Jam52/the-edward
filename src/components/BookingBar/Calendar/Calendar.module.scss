@@ -16,9 +16,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
     div {
       display: flex;
-      gap: 2rem;
+      & > * + * {
+        margin-left: 1.5rem;
+      }
     }
   }
   &_arrow {
@@ -62,6 +65,10 @@
       cursor: not-allowed;
     }
   }
+
+  &_close {
+    display: none;
+  }
 }
 
 .container {
@@ -79,5 +86,28 @@
 
   th {
     padding: 0.2rem;
+  }
+}
+
+.clearDates {
+  padding: 0.5rem;
+  background-color: $color_dark_blue;
+  button {
+    display: block;
+    margin: auto;
+  }
+}
+
+@media (min-width: $media_tablet) {
+  .calendar {
+    &_header {
+      div + div {
+        margin-left: 2rem;
+      }
+    }
+    &_close {
+      margin-left: auto;
+      display: block;
+    }
   }
 }

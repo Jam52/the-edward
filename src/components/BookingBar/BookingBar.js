@@ -90,6 +90,10 @@ class BookingBar extends Component {
     this.setState({ selectedDates: newSelectedDates });
   };
 
+  toggleCalendar = () => {
+    this.setState({ showCalendar: !this.state.showCalendar });
+  };
+
   render() {
     let orderedDates = ['Arrival', 'Departure'];
     if (this.state.selectedDates.length === 1) {
@@ -104,11 +108,12 @@ class BookingBar extends Component {
       <Aux>
         {this.state.showCalendar ? (
           <Calendar
-            close={() => this.setState({ showCalendar: false })}
+            close={this.toggleCalendar}
             addDate={this.addDate}
             selectedDates={this.state.selectedDates}
             remove={this.removeDate}
             unavailableDates={this.state.lodgifyData}
+            clear={() => this.setState({ selectedDates: [] })}
           />
         ) : null}
         <div data-testid="component-booking-bar" className={styles.bookingbar}>
@@ -117,7 +122,7 @@ class BookingBar extends Component {
             <p className={styles.bookingbar_cost}>{this.state.cost}</p>
             <div
               className={styles.bookingbar_dates}
-              onClick={() => this.setState({ showCalendar: true })}
+              onClick={this.toggleCalendar}
             >
               <img
                 src={process.env.PUBLIC_URL + '/images/calendar.png'}
@@ -152,17 +157,14 @@ class BookingBar extends Component {
             </div>
             {this.state.selectedDates.length === 2 ? (
               <button
-                className="btn btn--light"
-                onClick={() => this.setState({ showCalendar: true })}
+                className={`btn btn--light ${styles.booknow}`}
+                onClick={this.toggleCalendar}
               >
                 Book Now
               </button>
             ) : (
-              <button
-                className="btn btn--light"
-                onClick={() => this.setState({ showCalendar: true })}
-              >
-                Check Availability
+              <button className="btn btn--light" onClick={this.toggleCalendar}>
+                {this.state.showCalendar ? 'Close' : 'Availability'}
               </button>
             )}
           </div>

@@ -138,6 +138,7 @@ const Calendar = (props) => {
             version="1.1"
             viewBox="0 0 512 512"
             width="2rem"
+            className={styles.calendar_close}
           >
             <path
               style={{ fill: 'white', cursor: 'pointer' }}
@@ -167,6 +168,16 @@ const Calendar = (props) => {
             <tr>{daysInMonth.slice(35, 42)}</tr>
           </tbody>
         </table>
+        <div className={styles.clearDates}>
+          {props.selectedDates.length > 0 ? (
+            <button
+              className="btn btn--dark btn--small"
+              onClick={() => props.clear()}
+            >
+              Clear Dates
+            </button>
+          ) : null}
+        </div>
       </div>
     </div>
   );

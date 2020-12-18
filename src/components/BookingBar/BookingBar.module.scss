@@ -2,7 +2,7 @@
 
 .bookingbar {
   position: fixed;
-  bottom: 1rem;
+  bottom: 0;
   left: 0;
   height: 5rem;
   background-color: white;
@@ -49,6 +49,12 @@
       }
     }
   }
+}
+
+.booknow {
+  background-color: $color_red;
+  border: 2px solid $color_red;
+  color: white;
 }
 
 @media (min-width: $media_computer_small) {
