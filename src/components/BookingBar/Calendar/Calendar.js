@@ -23,7 +23,7 @@ const Calendar = (props) => {
     let click = (day) => props.addDate(day);
     if (key + 1 <= 0) {
       classes.push(styles.calendar_day__other);
-      day = date.date(1).subtract(Math.abs(key) + 1, 'day');
+      day = date.date(1).subtract(Math.abs(key), 'day');
     }
     if (key + 1 > numDaysInMonth) {
       classes.push(styles.calendar_day__other);

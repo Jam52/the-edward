@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Summary from './Summary';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import Carosoul from './carosoul';
 import HouseDetails from './houseDetails';
 import Availability from './availability';
-import Calendar from '../../components/BookingBar/Calendar/Calendar';
 import BookingBar from '../../components/BookingBar/BookingBar';
 
 // import styles from './HousePage.module.scss';
@@ -23,7 +22,7 @@ const HousePage = () => {
         alt="Yellow house under bright blue sky"
       />
       <Summary />
-      <BookingBar cost={'From $675/night'} />
+      <BookingBar cost={'From $675/night'} roomId={309275} />
       <Carosoul />
       <HouseDetails />
       <Availability />

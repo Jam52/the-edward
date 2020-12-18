@@ -2,12 +2,47 @@ import React, { Component } from 'react';
 import styles from './BookingBar.module.scss';
 import Calendar from './Calendar/Calendar';
 import Aux from '../../hoc/Auxillary/Auxillary';
+import PropTypes from 'prop-types';
+import axios from 'axios';
+const dayjs = require('dayjs');
 
 class BookingBar extends Component {
   state = {
     showCalendar: false,
     cost: this.props.cost,
     selectedDates: [],
+    lodgifyData: [],
+    loading: false,
+  };
+
+  async componentDidMount() {
+    console.log(process.env.REACT_APP_LODGIFY_KEY);
+    let data = await this.fetchLodgifyData();
+    data = data.filter((booking) => !booking.is_available);
+    this.setState({ lodgifyData: data, loading: false });
+  }
+
+  fetchLodgifyData = async () => {
+    const currentDate = dayjs();
+    const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+    const url = `https://api.lodgify.com/v1/availability/${
+      this.props.roomId
+    }?periodStart=${currentDate.format(
+      'YYYY-MM-DD',
+    )}&periodEnd=${currentDate.add(2, 'year').format('YYYY-MM-DD')}`;
+
+    this.setState({ loading: true });
+    try {
+      const lodgifyData = await axios.get(proxyurl + url, {
+        headers: {
+          'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
+        },
+      });
+      return await lodgifyData.data;
+    } catch (error) {
+      this.setState({ loading: 'error' });
+      console.log(error);
+    }
   };
 
   addDate = (day) => {
@@ -113,5 +148,9 @@ class BookingBar extends Component {
     );
   }
 }
+
+BookingBar.protoTypes = {
+  roomId: PropTypes.number.isRequired,
+};
 
 export default BookingBar;
