@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import styles from './BookingBar.module.scss';
 import Calendar from './Calendar/Calendar';
 import Aux from '../../hoc/Auxillary/Auxillary';
