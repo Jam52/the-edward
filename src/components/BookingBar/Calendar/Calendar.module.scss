@@ -7,44 +7,53 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  z-index: 9;
+  z-index: 20;
+  font-family: $font-main;
 
   &_header {
     padding: 1rem;
-    background-color: $color_dark_blue;
-    color: white;
+    background-color: $color_light_beige;
+    color: black;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 
     div {
+      min-width: 50%;
       display: flex;
-      & > * + * {
-        margin-left: 1.5rem;
-      }
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    div > * + * {
+      margin-left: 1rem;
     }
   }
   &_arrow {
     display: block;
     height: 1rem;
-    width: 1.3rem;
+    width: 2rem;
     cursor: pointer;
     transition: all 0.3s;
+    stroke: black;
+    stroke-width: 5;
     &:hover {
       filter: brightness(0.9);
       transform: scale(1.1);
     }
 
     &__unavailable {
-      opacity: 0.5;
+      opacity: 0.2;
       cursor: not-allowed;
     }
   }
 
   &_day {
-    padding: 0.7rem 0.2rem;
+    box-sizing: border-box;
+    padding: 0.5rem 0.2rem;
     text-align: center;
-    border: 1px solid $color_light_grey;
+    margin: 0.5rem;
     cursor: pointer;
     background-color: white;
     transition: all 0.3s;
@@ -75,44 +84,64 @@
     &__inbetween {
       background-color: $color_dark_blue;
       color: white;
-      filter: brightness(1.8);
+      opacity: 0.7;
     }
     &__booked {
-      background-color: #eee;
       color: #aaa;
       cursor: not-allowed;
+      border: 1px solid red;
+      background: linear-gradient(
+        to top left,
+        #ddd calc(50% - 0.5px),
+        red,
+        #ddd calc(50% + 0.5px)
+      );
     }
   }
 
   &_close {
     display: none;
+    stroke-width: 5;
+    stroke: black;
   }
 }
 
 .container {
   position: relative;
   margin: auto;
-  top: 10vh;
+  top: 5vh;
   width: 90vw;
-  max-width: 40rem;
+  max-width: 30rem;
   background-color: white;
 }
 
 .table {
   width: 100%;
   table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 10px;
 
   th {
     padding: 0.2rem;
   }
+
+  &_weekdays {
+    font-size: 0.7rem;
+    th {
+      padding: 0.8rem 0;
+    }
+  }
 }
 
 .clearDates {
-  padding: 0.5rem;
-  background-color: $color_dark_blue;
+  padding: 1rem;
+  background-color: $color_light_beige;
   button {
     display: block;
-    margin: auto;
+    margin-left: auto;
+    background: none;
+    border: none;
+    text-decoration: underline;
   }
 }
 
@@ -124,8 +153,13 @@
       }
     }
     &_close {
-      margin-left: auto;
+      position: absolute;
+      right: 1rem;
       display: block;
     }
+  }
+
+  .table {
+    padding: 0 4rem;
   }
 }

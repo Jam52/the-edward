@@ -99,9 +99,9 @@ class BookingBar extends Component {
         return 0;
       });
       if (this.areDatesBookedBetween(newDates)) {
-        alert('booking must be continuous');
+        alert('Booking must be continuous.');
       } else if (this.isLessThanMinimumDays(newDates)) {
-        alert(`minmum stay of ${this.state.minimumStay} nights`);
+        alert(`Minimum stay of ${this.state.minimumStay} nights.`);
       } else {
         this.setState({
           selectedDates: newDates,

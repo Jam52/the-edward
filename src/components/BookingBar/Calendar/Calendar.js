@@ -48,7 +48,6 @@ const Calendar = (props) => {
       classes.push(styles.calendar_day__other);
     }
     if (day.isSame(todaysDate)) {
-      console.log('today', day);
       classes.push(styles.calendar_day__today);
     }
     if (
@@ -105,7 +104,10 @@ const Calendar = (props) => {
       <div className={styles.container}>
         <div className={styles.calendar_header}>
           <div>
-            <img
+            <svg
+              height="3rem"
+              viewBox="0 0 200 100"
+              width="4rem"
               data-testid="backward-one-month"
               role="button"
               aria-label="go back one month"
@@ -119,12 +121,17 @@ const Calendar = (props) => {
                   ? styles.calendar_arrow
                   : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
               }
-              src={process.env.PUBLIC_URL + '/images/arrow.png'}
               alt=""
-              style={{ transform: 'rotate(90deg)' }}
-            />
-            <div>{date.format('MMMM - YYYY')}</div>
-            <img
+            >
+              <line x1="5" y1="50" x2="195" y2="50" strokeLinecap="round" />
+              <line x1="5" y1="50" x2="50" y2="5" strokeLinecap="round" />
+              <line x1="5" y1="50" x2="50" y2="95" strokeLinecap="round" />
+            </svg>
+            <p>{date.format('MMMM - YYYY')}</p>
+            <svg
+              height="3rem"
+              viewBox="0 0 200 100"
+              width="4rem"
               data-testid="forward-one-month"
               role="button"
               aria-label="go forward one month"
@@ -138,31 +145,31 @@ const Calendar = (props) => {
                   ? styles.calendar_arrow
                   : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
               }
-              src={process.env.PUBLIC_URL + '/images/arrow.png'}
               alt=""
-              style={{ transform: 'rotate(-90deg)' }}
-            />
+              style={{ transform: 'rotate(-180deg)' }}
+            >
+              {' '}
+              <line x1="5" y1="50" x2="195" y2="50" strokeLinecap="round" />
+              <line x1="5" y1="50" x2="50" y2="5" strokeLinecap="round" />
+              <line x1="5" y1="50" x2="50" y2="95" strokeLinecap="round" />
+            </svg>
           </div>
 
           <svg
             onClick={props.close}
-            height="2rem"
-            id="Layer_1"
-            version="1.1"
-            viewBox="0 0 512 512"
-            width="2rem"
+            height="1.5rem"
+            viewBox="0 0 100 100"
+            width="1.5rem"
             className={styles.calendar_close}
           >
-            <path
-              style={{ fill: 'white', cursor: 'pointer' }}
-              d="M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4  L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1  c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1  c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z"
-            />
+            <line x1="0" x2="100" y1="0" y2="100" />
+            <line x1="100" x2="0" y1="0" y2="100" />
           </svg>
         </div>
 
         <table className={styles.table}>
           <thead>
-            <tr>
+            <tr className={styles.table_weekdays}>
               <th>sun</th>
               <th>mon</th>
               <th>tue</th>
@@ -184,7 +191,7 @@ const Calendar = (props) => {
         <div className={styles.clearDates}>
           {props.selectedDates.length > 0 ? (
             <button
-              className="btn btn--dark btn--small"
+              className={styles.clearDates_btn}
               onClick={() => props.clear()}
             >
               Clear Dates
