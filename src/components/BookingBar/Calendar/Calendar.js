@@ -5,7 +5,7 @@ var customParseFormat = require('dayjs/plugin/customParseFormat');
 dayjs.extend(customParseFormat);
 
 const Calendar = (props) => {
-  const todaysDate = dayjs();
+  const todaysDate = props.todaysDate;
   const [date, changeDate] = useState(todaysDate);
 
   const plusOneToDate = (amount) => {
@@ -15,20 +15,18 @@ const Calendar = (props) => {
     changeDate(date.subtract(1, amount));
   };
 
-  const isDateUnavailable = (date) => {
-    const isUnavailable = !props.unavailableDates.every((booking) => {
-      let isAvailable = true;
-      const startDate = dayjs(booking.period_start);
-      const endDate = dayjs(booking.period_end);
-      if (date.isSame(startDate) || date.isSame(endDate)) {
-        isAvailable = false;
+  const isDateAvailable = (date) => {
+    return props.unavailableDates.every((booking) => {
+      const startDate = dayjs(booking.period_start).subtract(1, 'day');
+      const endDate = dayjs(booking.period_end).add(1, 'day');
+      if (date.isSame(startDate, 'day') || date.isSame(endDate, 'day')) {
+        return false;
       }
-      if (date.isAfter(startDate) && date.isBefore(endDate)) {
-        isAvailable = false;
+      if (date.isAfter(startDate, 'day') && date.isBefore(endDate, 'day')) {
+        return false;
       }
-      return isAvailable;
+      return true;
     });
-    return isUnavailable;
   };
 
   let firstDayOfMonth = Number(date.date(1).format('d'));
@@ -46,7 +44,15 @@ const Calendar = (props) => {
     if (key + 1 > numDaysInMonth) {
       classes.push(styles.calendar_day__other);
     }
-    if (isDateUnavailable(day) || day.isBefore(dayjs())) {
+    if (day.isSame(todaysDate)) {
+      console.log('today', day);
+      classes.push(styles.calendar_day__today);
+    }
+    if (
+      !isDateAvailable(day) ||
+      day.isBefore(dayjs().add(1, 'day')) ||
+      day.isAfter(dayjs().add(props.bookingWindowDays, 'day'))
+    ) {
       classes.push(styles.calendar_day__booked);
       click = () => console.log('nothing');
     } else {
@@ -79,6 +85,18 @@ const Calendar = (props) => {
     );
   });
 
+  const isNextMonthValidToDisplay = (value) => {
+    const nextMonth =
+      value === 'add' ? date.add(1, 'month') : date.subtract(1, 'month');
+    if (
+      nextMonth.isBefore(todaysDate, 'month') ||
+      nextMonth.isAfter(todaysDate.add(props.bookingWindowDays, 'day'))
+    ) {
+      return false;
+    }
+    return true;
+  };
+
   return (
     <div data-testid="component-calendar" className={styles.calendar}>
       <div className={styles.container}>
@@ -88,49 +106,41 @@ const Calendar = (props) => {
               data-testid="backward-one-month"
               role="button"
               aria-label="go back one month"
-              onClick={() => minusOneToDate('month')}
-              className={styles.calendar_arrow}
+              onClick={
+                isNextMonthValidToDisplay('subtract')
+                  ? () => minusOneToDate('month')
+                  : null
+              }
+              className={
+                isNextMonthValidToDisplay('subtract')
+                  ? styles.calendar_arrow
+                  : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
+              }
               src={process.env.PUBLIC_URL + '/images/arrow.png'}
               alt=""
               style={{ transform: 'rotate(90deg)' }}
             />
-            <div>{date.format('MMM')}</div>
+            <div>{date.format('MMMM - YYYY')}</div>
             <img
               data-testid="forward-one-month"
               role="button"
               aria-label="go forward one month"
-              onClick={() => plusOneToDate('month')}
-              className={styles.calendar_arrow}
+              onClick={
+                isNextMonthValidToDisplay('add')
+                  ? () => plusOneToDate('month')
+                  : null
+              }
+              className={
+                isNextMonthValidToDisplay('add')
+                  ? styles.calendar_arrow
+                  : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
+              }
               src={process.env.PUBLIC_URL + '/images/arrow.png'}
               alt=""
               style={{ transform: 'rotate(-90deg)' }}
             />
           </div>
-          <div>
-            <img
-              data-testid="backward-one-year"
-              role="button"
-              aria-label="go back one year"
-              onClick={() => minusOneToDate('year')}
-              className={styles.calendar_arrow}
-              src={process.env.PUBLIC_URL + '/images/arrow.png'}
-              alt=""
-              style={{ transform: 'rotate(90deg)' }}
-            />
 
-            <div>{date.format('YYYY')}</div>
-
-            <img
-              data-testid="forward-one-year"
-              role="button"
-              aria-label="go forward one year"
-              onClick={() => plusOneToDate('year')}
-              className={styles.calendar_arrow}
-              src={process.env.PUBLIC_URL + '/images/arrow.png'}
-              alt=""
-              style={{ transform: 'rotate(-90deg)' }}
-            />
-          </div>
           <svg
             onClick={props.close}
             height="2rem"

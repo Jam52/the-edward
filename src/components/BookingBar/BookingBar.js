@@ -13,37 +13,69 @@ class BookingBar extends Component {
     showCalendar: false,
     cost: this.props.cost,
     selectedDates: [],
-    lodgifyData: [],
+    lodgifyAvailabilityData: [],
+    minimumStay: 0,
+    bookingWindowDays: 0,
     loading: false,
   };
 
   async componentDidMount() {
     try {
-      let data = await this.fetchLodgifyData();
-      data = data.filter((booking) => !booking.is_available);
-      this.setState({ lodgifyData: data, loading: false });
+      let availabilityData = await this.fetchLodgifyAvailabilityData();
+      availabilityData = availabilityData.filter(
+        (booking) => !booking.is_available,
+      );
+      this.setState({
+        lodgifyAvailabilityData: availabilityData,
+        loading: false,
+      });
+      let rateData = await this.fetchLodgifyRatesData();
+      const bookingWindowDays = await rateData.rate_settings
+        .booking_window_days;
+      const minimumStay = await rateData.calendar_items[0].prices[0].min_stay;
+      this.setState({
+        minimumStay: minimumStay,
+        bookingWindowDays: bookingWindowDays,
+      });
     } catch (error) {
       console.log(error);
     }
   }
 
-  fetchLodgifyData = async () => {
+  fetchLodgifyAvailabilityData = async () => {
     const currentDate = dayjs();
     const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
     const url = `https://api.lodgify.com/v1/availability/${
-      this.props.roomId
+      this.props.propertyId
     }?periodStart=${currentDate.format(
       'YYYY-MM-DD',
     )}&periodEnd=${currentDate.add(2, 'year').format('YYYY-MM-DD')}`;
 
     this.setState({ loading: true });
     try {
-      const lodgifyData = await axios.get(proxyurl + url, {
+      const lodgifyAvailabilityData = await axios.get(proxyurl + url, {
         headers: {
           'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
         },
       });
-      return await lodgifyData.data;
+      return await lodgifyAvailabilityData.data;
+    } catch (error) {
+      this.setState({ loading: 'error' });
+      console.log(error);
+    }
+  };
+
+  fetchLodgifyRatesData = async () => {
+    const currentDate = dayjs().format('YYYY-MM-DD');
+    const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
+    const url = `https://api.lodgify.com/v2/rates/calendar?HouseId=${this.props.propertyId}&RoomTypeId=${this.props.roomTypeId}&StartDate=${currentDate}&EndDate=${currentDate}`;
+    try {
+      const lodgifyAvailabilityData = await axios.get(proxyurl + url, {
+        headers: {
+          'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
+        },
+      });
+      return await lodgifyAvailabilityData.data;
     } catch (error) {
       this.setState({ loading: 'error' });
       console.log(error);
@@ -64,23 +96,42 @@ class BookingBar extends Component {
         }
         return 0;
       });
-      const unavailableDates = this.state.lodgifyData
-        .map((booking) => booking.period_start)
-        .concat(this.state.lodgifyData.map((booking) => booking.period_end));
-      if (
-        unavailableDates.some(
-          (date) =>
-            dayjs(date).isAfter(newDates[0]) &&
-            dayjs(date).isBefore(newDates[1]),
-        )
-      ) {
+      if (this.areDatesBookedBetween(newDates)) {
         alert('booking must be continuous');
+      } else if (this.isLessThanMinimumDays(newDates)) {
+        alert(`minmum stay of ${this.state.minimumStay} nights`);
       } else {
         this.setState({
           selectedDates: newDates,
         });
       }
     }
+  };
+
+  isLessThanMinimumDays = (newDates) => {
+    if (newDates[1].diff(newDates[0], 'day') < this.state.minimumStay) {
+      return true;
+    }
+    return false;
+  };
+
+  areDatesBookedBetween = (newDates) => {
+    const unavailableDates = this.state.lodgifyAvailabilityData
+      .map((booking) => booking.period_start)
+      .concat(
+        this.state.lodgifyAvailabilityData.map((booking) => booking.period_end),
+      );
+
+    if (
+      unavailableDates.some(
+        (date) =>
+          dayjs(date).isAfter(newDates[0], 'day') &&
+          dayjs(date).isBefore(newDates[1], ' day'),
+      )
+    ) {
+      return true;
+    }
+    return false;
   };
 
   removeDate = (day) => {
@@ -112,7 +163,10 @@ class BookingBar extends Component {
             addDate={this.addDate}
             selectedDates={this.state.selectedDates}
             remove={this.removeDate}
-            unavailableDates={this.state.lodgifyData}
+            unavailableDates={this.state.lodgifyAvailabilityData}
+            bookingWindowDays={this.state.bookingWindowDays}
+            minimumStay={this.state.minimumStay}
+            todaysDate={dayjs()}
             clear={() => this.setState({ selectedDates: [] })}
           />
         ) : null}
@@ -143,13 +197,13 @@ class BookingBar extends Component {
                 width="3rem"
                 height="1rem"
                 viewBox="0 0 150 50"
-                enable-background="new 0 0 150 50"
+                enableBackground="new 0 0 150 50"
               >
                 <g>
                   <line
                     stroke="#000000"
-                    stroke-width="6"
-                    stroke-miterlimit="10"
+                    strokeWidth="6"
+                    strokeMiterlimit="10"
                     x1="1.266"
                     y1="24.704"
                     x2="125.302"
