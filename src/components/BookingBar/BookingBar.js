@@ -32,10 +32,12 @@ class BookingBar extends Component {
       let rateData = await this.fetchLodgifyRatesData();
       const bookingWindowDays = await rateData.rate_settings
         .booking_window_days;
+      const prepDays = await rateData.rate_settings.preparation_time_days;
       const minimumStay = await rateData.calendar_items[0].prices[0].min_stay;
       this.setState({
         minimumStay: minimumStay,
         bookingWindowDays: bookingWindowDays,
+        prepDays,
       });
     } catch (error) {
       console.log(error);
@@ -166,6 +168,7 @@ class BookingBar extends Component {
             unavailableDates={this.state.lodgifyAvailabilityData}
             bookingWindowDays={this.state.bookingWindowDays}
             minimumStay={this.state.minimumStay}
+            prepDays={this.state.prepDays}
             todaysDate={dayjs()}
             clear={() => this.setState({ selectedDates: [] })}
           />

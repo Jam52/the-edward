@@ -17,8 +17,11 @@ const Calendar = (props) => {
 
   const isDateAvailable = (date) => {
     return props.unavailableDates.every((booking) => {
-      const startDate = dayjs(booking.period_start).subtract(1, 'day');
-      const endDate = dayjs(booking.period_end).add(1, 'day');
+      const startDate = dayjs(booking.period_start).subtract(
+        props.prepDays,
+        'day',
+      );
+      const endDate = dayjs(booking.period_end).add(props.prepDays, 'day');
       if (date.isSame(startDate, 'day') || date.isSame(endDate, 'day')) {
         return false;
       }
