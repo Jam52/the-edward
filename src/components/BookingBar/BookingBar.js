@@ -170,7 +170,11 @@ class BookingBar extends Component {
 }
 
 BookingBar.protoTypes = {
-  roomId: PropTypes.number.isRequired,
+  propertyId: PropTypes.number.isRequired,
+  roomTypeId: PropTypes.number.isRequired,
+  addDate: PropTypes.func.isRequired,
+  removeDate: PropTypes.func.isRequired,
+  isDateAvailable: PropTypes.func.isRequired,
 };
 
 export default BookingBar;
