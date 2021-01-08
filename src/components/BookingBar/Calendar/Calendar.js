@@ -1,8 +1,5 @@
 import React, { useState } from 'react';
 import styles from './Calendar.module.scss';
-const dayjs = require('dayjs');
-var customParseFormat = require('dayjs/plugin/customParseFormat');
-dayjs.extend(customParseFormat);
 
 const Calendar = (props) => {
   const todaysDate = props.todaysDate;
@@ -39,8 +36,8 @@ const Calendar = (props) => {
     }
     if (
       !isDateAvailable(day) ||
-      day.isBefore(dayjs().add(1, 'day')) ||
-      day.isAfter(dayjs().add(props.bookingWindowDays, 'day'))
+      day.isBefore(todaysDate.add(1, 'day')) ||
+      day.isAfter(todaysDate.add(props.bookingWindowDays, 'day'))
     ) {
       classes.push(styles.calendar_day__booked);
       click = () => console.log('nothing');
