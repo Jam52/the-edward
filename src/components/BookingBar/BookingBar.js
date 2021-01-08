@@ -3,7 +3,10 @@ import styles from './BookingBar.module.scss';
 import Calendar from './Calendar/Calendar';
 import Aux from '../../hoc/Auxillary/Auxillary';
 import PropTypes from 'prop-types';
-import axios from 'axios';
+import {
+  fetchLodgifyRatesData,
+  fetchLodgifyAvailabilityData,
+} from '../../services/lodgifyApi/lodgifyApi';
 const dayjs = require('dayjs');
 var customParseFormat = require('dayjs/plugin/customParseFormat');
 dayjs.extend(customParseFormat);
@@ -20,23 +23,28 @@ class BookingBar extends Component {
   };
 
   async componentDidMount() {
+    this.setState({ loading: true });
     try {
-      let availabilityData = await this.fetchLodgifyAvailabilityData();
+      let availabilityData = await fetchLodgifyAvailabilityData(
+        this.props.propertyId,
+      );
       availabilityData = availabilityData.filter(
         (booking) => !booking.is_available,
       );
+
+      let rateData = await fetchLodgifyRatesData(
+        this.props.propertyId,
+        this.props.roomTypeId,
+      );
+
+      const bookingWindowDays = rateData.rate_settings.booking_window_days;
+      const prepDays = rateData.rate_settings.preparation_time_days;
+      const minimumStay = rateData.calendar_items[0].prices[0].min_stay;
+
       this.setState({
         lodgifyAvailabilityData: availabilityData,
-        loading: false,
-      });
-      let rateData = await this.fetchLodgifyRatesData();
-      const bookingWindowDays = await rateData.rate_settings
-        .booking_window_days;
-      const prepDays = await rateData.rate_settings.preparation_time_days;
-      const minimumStay = await rateData.calendar_items[0].prices[0].min_stay;
-      this.setState({
-        minimumStay: minimumStay,
-        bookingWindowDays: bookingWindowDays,
+        minimumStay,
+        bookingWindowDays,
         prepDays,
       });
     } catch (error) {
@@ -44,102 +52,25 @@ class BookingBar extends Component {
     }
   }
 
-  fetchLodgifyAvailabilityData = async () => {
-    const currentDate = dayjs();
-    const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
-    const url = `https://api.lodgify.com/v1/availability/${
-      this.props.propertyId
-    }?periodStart=${currentDate.format(
-      'YYYY-MM-DD',
-    )}&periodEnd=${currentDate.add(2, 'year').format('YYYY-MM-DD')}`;
-
-    this.setState({ loading: true });
-    try {
-      const lodgifyAvailabilityData = await axios.get(proxyurl + url, {
-        headers: {
-          'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
-        },
-      });
-      return await lodgifyAvailabilityData.data;
-    } catch (error) {
-      this.setState({ loading: 'error' });
-      console.log(error);
-    }
-  };
-
-  fetchLodgifyRatesData = async () => {
-    const currentDate = dayjs().format('YYYY-MM-DD');
-    const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
-    const url = `https://api.lodgify.com/v2/rates/calendar?HouseId=${this.props.propertyId}&RoomTypeId=${this.props.roomTypeId}&StartDate=${currentDate}&EndDate=${currentDate}`;
-    try {
-      const lodgifyAvailabilityData = await axios.get(proxyurl + url, {
-        headers: {
-          'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
-        },
-      });
-      return await lodgifyAvailabilityData.data;
-    } catch (error) {
-      this.setState({ loading: 'error' });
-      console.log(error);
-    }
-  };
-
   addDate = (day) => {
-    if (this.state.selectedDates.length === 0) {
-      this.setState({ selectedDates: [day] });
-    }
-    if (this.state.selectedDates.length === 1) {
-      const newDates = [...this.state.selectedDates, day].sort((a, b) => {
-        if (a.isBefore(b)) {
-          return -1;
-        }
-        if (b.isBefore(a)) {
-          return 11;
-        }
-        return 0;
+    const newDates = this.props.addDate(
+      day,
+      this.state.minimumStay,
+      this.state.lodgifyAvailabilityData,
+      this.state.selectedDates,
+    );
+    if (newDates) {
+      this.setState({
+        selectedDates: newDates,
       });
-      if (this.areDatesBookedBetween(newDates)) {
-        alert('Booking must be continuous.');
-      } else if (this.isLessThanMinimumDays(newDates)) {
-        alert(`Minimum stay of ${this.state.minimumStay} nights.`);
-      } else {
-        this.setState({
-          selectedDates: newDates,
-        });
-      }
     }
-  };
-
-  isLessThanMinimumDays = (newDates) => {
-    if (newDates[1].diff(newDates[0], 'day') < this.state.minimumStay) {
-      return true;
-    }
-    return false;
-  };
-
-  areDatesBookedBetween = (newDates) => {
-    const unavailableDates = this.state.lodgifyAvailabilityData
-      .map((booking) => booking.period_start)
-      .concat(
-        this.state.lodgifyAvailabilityData.map((booking) => booking.period_end),
-      );
-
-    if (
-      unavailableDates.some(
-        (date) =>
-          dayjs(date).isAfter(newDates[0], 'day') &&
-          dayjs(date).isBefore(newDates[1], ' day'),
-      )
-    ) {
-      return true;
-    }
-    return false;
   };
 
   removeDate = (day) => {
-    const newSelectedDates = this.state.selectedDates.filter((date) => {
-      return !date.isSame(day, 'D');
-    });
+    const newSelectedDates = this.props.removeDate(
+      day,
+      this.state.selectedDates,
+    );
     this.setState({ selectedDates: newSelectedDates });
   };
 

@@ -6,6 +6,10 @@ import HouseDetails from './houseDetails';
 import Availability from './availability';
 import BookingBar from '../../components/BookingBar/BookingBar';
 import { useInView } from 'react-intersection-observer';
+import {
+  addDate,
+  removeDate,
+} from '../../services/calendarLogic/multiDayBookingCalendar';
 
 // import styles from './HousePage.module.scss';
 
@@ -46,6 +50,8 @@ const HousePage = () => {
         propertyId={309275}
         roomTypeId={374215}
         show={showBooking}
+        addDate={addDate}
+        removeDate={removeDate}
       />
 
       <Carosoul />
