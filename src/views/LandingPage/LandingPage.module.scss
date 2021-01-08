@@ -1,76 +1,43 @@
 @import '../../CSS/base';
 
-.cardContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+.overview {
+  --gap: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-.concierge {
-  margin-top: 4rem;
-  padding: 2rem;
-  p {
-    max-width: 50ch;
-    margin: 0;
-  }
-  a {
-    display: block;
-    margin-top: 1rem;
-  }
+.cardContainer {
+  --gap: 6rem;
+}
 
-  &_header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-  }
+.scroll {
+  display: flex;
 
-  &_details {
-    display: flex;
-    flex-direction: column;
+  button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-family: $font_main;
+    font-weight: 600;
   }
-  &_section {
-    margin-bottom: 2rem;
-    p {
-      max-width: 30ch;
-    }
-    p:last-child {
-      margin-top: 1rem;
-    }
+  button:hover {
+    opacity: 0.6;
   }
 }
 
 .explore {
-  &_header {
-    display: flex;
-    flex-direction: column;
-    h2 {
-      max-width: 30ch;
-      margin: 0;
-    }
-  }
+  --gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  margin: 6rem 2rem;
+  text-align: center;
 
-  &_scroll {
-    display: flex;
-    margin-bottom: 2rem;
-    button {
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      margin: 0;
-      font-family: $font_main;
-    }
-    button:hover {
-      opacity: 0.6;
-    }
-    button + button {
-      margin-left: 1rem;
-    }
-  }
-
-  .concierge {
-    &_header {
-      flex-direction: row;
-    }
+  &__main {
+    font-family: $font-serif;
+    font-size: 3rem;
   }
 }
 

@@ -6,12 +6,12 @@
   max-width: 1500px;
 }
 
-.bg__light {
+.bg--light {
   background-color: $color_light_beige;
   color: black;
 }
 
-.bg__dark {
+.bg--dark {
   background-color: $color_dark_blue;
   color: #fff;
 }
@@ -20,7 +20,11 @@
   display: flex;
 }
 
-.flow__vert > * + * {
+.split > * {
+  flex-basis: 100%;
+}
+
+.flow-vert > * + * {
   margin-top: var(--gap, $spacer);
 }
 

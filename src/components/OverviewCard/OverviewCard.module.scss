@@ -17,13 +17,10 @@
     width: 90%;
 
     h3 {
-      margin-top: 0;
       font-family: $font_serif;
       font-size: 2rem;
     }
-    h4 {
-      margin: 0;
-    }
+
     p {
       max-width: 50ch;
     }
@@ -56,8 +53,7 @@
   }
 }
 
-.overview_occupancy,
-p {
+.overview_occupancy {
   list-style: none;
   padding-left: 0;
   margin: 0.5rem 0 1.5rem 0;
@@ -65,7 +61,6 @@ p {
 
 @media (min-width: $media_tablet) {
   .overview {
-    margin: 1rem 0;
     &_img {
       padding-bottom: 80%;
     }
@@ -74,7 +69,6 @@ p {
 
 @media (min-width: $media_tablet_landscape) {
   .overview {
-    margin: 2rem 0;
     flex-direction: row;
     align-items: center;
 
