@@ -46,6 +46,7 @@ class BookingBar extends Component {
         minimumStay,
         bookingWindowDays,
         prepDays,
+        loading: false,
       });
     } catch (error) {
       console.log(error);
@@ -102,6 +103,7 @@ class BookingBar extends Component {
             prepDays={this.state.prepDays}
             todaysDate={dayjs()}
             clear={() => this.setState({ selectedDates: [] })}
+            isDateAvailable={this.props.isDateAvailable}
           />
         ) : null}
         <div

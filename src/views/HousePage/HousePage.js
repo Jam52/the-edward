@@ -9,6 +9,7 @@ import { useInView } from 'react-intersection-observer';
 import {
   addDate,
   removeDate,
+  isDateAvailable,
 } from '../../services/calendarLogic/multiDayBookingCalendar';
 
 // import styles from './HousePage.module.scss';
@@ -52,6 +53,7 @@ const HousePage = () => {
         show={showBooking}
         addDate={addDate}
         removeDate={removeDate}
+        isDateAvailable={isDateAvailable}
       />
 
       <Carosoul />

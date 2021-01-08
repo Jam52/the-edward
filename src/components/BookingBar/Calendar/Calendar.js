@@ -16,20 +16,7 @@ const Calendar = (props) => {
   };
 
   const isDateAvailable = (date) => {
-    return props.unavailableDates.every((booking) => {
-      const startDate = dayjs(booking.period_start).subtract(
-        props.prepDays,
-        'day',
-      );
-      const endDate = dayjs(booking.period_end).add(props.prepDays, 'day');
-      if (date.isSame(startDate, 'day') || date.isSame(endDate, 'day')) {
-        return false;
-      }
-      if (date.isAfter(startDate, 'day') && date.isBefore(endDate, 'day')) {
-        return false;
-      }
-      return true;
-    });
+    return props.isDateAvailable(date, props.unavailableDates);
   };
 
   let firstDayOfMonth = Number(date.date(1).format('d'));

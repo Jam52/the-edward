@@ -63,3 +63,17 @@ export const removeDate = (day, selectedDates) => {
   });
   return newSelectedDates;
 };
+
+export const isDateAvailable = (date, unavailableDates) => {
+  return unavailableDates.every((booking) => {
+    const startDate = dayjs(booking.period_start);
+    const endDate = dayjs(booking.period_end);
+    if (date.isSame(startDate, 'day') || date.isSame(endDate, 'day')) {
+      return false;
+    }
+    if (date.isAfter(startDate, 'day') && date.isBefore(endDate, 'day')) {
+      return false;
+    }
+    return true;
+  });
+};
