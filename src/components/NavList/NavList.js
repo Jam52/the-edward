@@ -1,34 +1,47 @@
 import React from 'react';
-import NavItem from './NavItem/NavItem';
+import { NavLink } from 'react-router-dom';
 import styles from './NavList.module.scss';
 
 const NavList = (props) => {
   return (
-    <nav className={styles.container}>
-      <NavItem
+    <nav className={`flow ${styles.container}`}>
+      <NavLink
         to="/house"
-        text="House"
-        click={props.click}
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
         tabIndex={props.tabIndex}
-      />
-      <NavItem
+      >
+        House
+      </NavLink>
+      <NavLink
         to="/loft"
-        text="Loft"
-        click={props.click}
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
         tabIndex={props.tabIndex}
-      />
-      <NavItem
+      >
+        Loft
+      </NavLink>
+      <NavLink
         to="/cabin"
-        text="Cabin"
-        click={props.click}
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
         tabIndex={props.tabIndex}
-      />
-      <NavItem
+      >
+        Cabin
+      </NavLink>
+
+      <NavLink
         to="/about"
-        text="About"
-        click={props.click}
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
         tabIndex={props.tabIndex}
-      />
+      >
+        About
+      </NavLink>
     </nav>
   );
 };

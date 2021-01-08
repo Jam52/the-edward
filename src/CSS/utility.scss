@@ -1,0 +1,35 @@
+@import './base';
+
+.container {
+  width: 90vw;
+  margin: auto;
+  max-width: 1500px;
+}
+
+.bg__light {
+  background-color: $color_light_beige;
+  color: black;
+}
+
+.bg__dark {
+  background-color: $color_dark_blue;
+  color: #fff;
+}
+
+.split {
+  display: flex;
+}
+
+.flow__vert > * + * {
+  margin-top: var(--gap, $spacer);
+}
+
+.flow > * + * {
+  margin: var(--gap, $spacer) 0 0 0;
+}
+
+@media (min-width: $media_tablet) {
+  .flow > * + * {
+    margin: 0 0 0 var(--gap, $spacer);
+  }
+}

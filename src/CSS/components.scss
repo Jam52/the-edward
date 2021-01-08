@@ -1,28 +1,5 @@
 @import './base';
 
-p,
-li {
-  font-family: $font-main;
-  line-height: 1.5;
-}
-
-a {
-  text-decoration: none;
-  color: #000;
-  font-family: $font-main;
-  line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $font-main;
-  margin: 1.5rem 0;
-}
-
 .btn {
   padding: 1.5em 3em;
   border-radius: 1000px;
@@ -57,38 +34,6 @@ h6 {
     border: 2px solid $color_dark_blue;
     color: #fff;
   }
-}
-
-.section {
-  padding: 4rem 0;
-  position: relative;
-
-  &_header {
-    font-family: $font-serif;
-    font-size: 1.7rem;
-  }
-
-  &_detail {
-    max-width: 50ch;
-  }
-}
-
-.section--dark {
-  background-color: $color_dark_blue;
-  color: #fff;
-}
-
-.section--light:before {
-  z-index: -1;
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: -50vw;
-  bottom: 0;
-  width: 200vw;
-  background-color: $color_light_beige;
-  background-size: cover;
 }
 
 .explore-section {
