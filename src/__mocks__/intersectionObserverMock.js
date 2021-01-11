@@ -11,3 +11,10 @@ global.IntersectionObserver = class IntersectionObserver {
     return null;
   }
 };
+
+const intersectionObserverMock = () => ({
+  observe: () => null,
+});
+window.IntersectionObserver = jest
+  .fn()
+  .mockImplementation(intersectionObserverMock);

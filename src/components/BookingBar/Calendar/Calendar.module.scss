@@ -1,0 +1,165 @@
+@import '../../../CSS/base';
+
+.calendar {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  font-family: $font-main;
+
+  &_header {
+    padding: 1rem;
+    background-color: $color_light_beige;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      min-width: 50%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: center;
+    }
+
+    div > * + * {
+      margin-left: 1rem;
+    }
+  }
+  &_arrow {
+    display: block;
+    height: 1rem;
+    width: 2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    stroke: black;
+    stroke-width: 5;
+    &:hover {
+      filter: brightness(0.9);
+      transform: scale(1.1);
+    }
+
+    &__unavailable {
+      opacity: 0.2;
+      cursor: not-allowed;
+    }
+  }
+
+  &_day {
+    box-sizing: border-box;
+    padding: 0.5rem 0.2rem;
+    text-align: center;
+    margin: 0.5rem;
+    cursor: pointer;
+    background-color: white;
+    transition: all 0.3s;
+    position: relative;
+    &:hover {
+      filter: brightness(0.9);
+    }
+
+    &__today::after {
+      content: '';
+      padding: 1em 1em;
+      background-color: red;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 1000px;
+      opacity: 0.5;
+    }
+
+    &__other {
+      color: #ccc;
+    }
+    &__selected {
+      background-color: $color_dark_blue;
+      color: white;
+    }
+    &__inbetween {
+      background-color: $color_dark_blue;
+      color: white;
+      opacity: 0.7;
+    }
+    &__booked {
+      color: #aaa;
+      cursor: not-allowed;
+      border: 1px solid red;
+      background: linear-gradient(
+        to top left,
+        #ddd calc(50% - 0.5px),
+        red,
+        #ddd calc(50% + 0.5px)
+      );
+    }
+  }
+
+  &_close {
+    display: none;
+    stroke-width: 5;
+    stroke: black;
+  }
+}
+
+.container {
+  position: relative;
+  margin: auto;
+  top: 5vh;
+  width: 90vw;
+  max-width: 30rem;
+  background-color: white;
+}
+
+.table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 10px;
+
+  th {
+    padding: 0.2rem;
+  }
+
+  &_weekdays {
+    font-size: 0.7rem;
+    th {
+      padding: 0.8rem 0;
+    }
+  }
+}
+
+.clearDates {
+  padding: 1rem;
+  background-color: $color_light_beige;
+  button {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: none;
+    text-decoration: underline;
+  }
+}
+
+@media (min-width: $media_tablet) {
+  .calendar {
+    &_header {
+      div + div {
+        margin-left: 2rem;
+      }
+    }
+    &_close {
+      position: absolute;
+      right: 1rem;
+      display: block;
+    }
+  }
+
+  .table {
+    padding: 0 4rem;
+  }
+}

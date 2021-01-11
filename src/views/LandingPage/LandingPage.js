@@ -84,7 +84,7 @@ const LandingPage = () => {
             <OverviewCard
               refProp={houseRef}
               img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-              imgAlt="Inside of house, white walls dark wood"
+              altImg="Inside of house, white walls dark wood"
               roomName="House"
               overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for families or a group of friends."
               occupancy={['6 Adults', '3 Children']}
@@ -96,7 +96,7 @@ const LandingPage = () => {
               refProp={loftRef}
               isFlipped
               img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
-              imgAlt="Inside of loft, white walls, large bed"
+              altImg="Inside of loft, white walls, large bed"
               roomName="Loft"
               overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
               occupancy={['2 Adults', '2 Children Under 10']}
@@ -107,7 +107,7 @@ const LandingPage = () => {
             <OverviewCard
               refProp={cabinRef}
               img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
-              imgAlt="Glamping style cabin, large glass, amazing wooded surroundings."
+              altImg="Glamping style cabin, large glass, amazing wooded surroundings."
               roomName="Cabin"
               overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
               occupancy={['2 Adults', '1 Dog']}
