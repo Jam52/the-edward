@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Summary from './Summary';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import Carosoul from './carosoul';
-import HouseDetails from './houseDetails';
-import Availability from './availability';
 import BookingBar from '../../components/BookingBar/BookingBar';
 import { useInView } from 'react-intersection-observer';
 import {
@@ -11,8 +9,7 @@ import {
   removeDate,
   isDateAvailable,
 } from '../../services/calendarLogic/multiDayBookingCalendar';
-
-// import styles from './HousePage.module.scss';
+import styles from './HousePage.module.scss';
 
 const HousePage = () => {
   //auto scrolls to the top of the page on load
@@ -23,7 +20,7 @@ const HousePage = () => {
   const [showBooking, setBooking] = useState(false);
   const [ref, inView] = useInView({
     triggerOnce: true,
-    rootMargin: '300px',
+    rootMargin: '100px',
   });
 
   useEffect(() => {
@@ -36,8 +33,8 @@ const HousePage = () => {
   }, [inView]);
 
   return (
-    <div data-testid="component-house-page flow-vert">
-      <div className="container">
+    <div data-testid="flow-vert">
+      <div className={`container control-flow-vert ${styles.container}`}>
         <ImageContainer
           landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
           portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
@@ -46,9 +43,7 @@ const HousePage = () => {
 
         <Summary />
       </div>
-
       <div ref={ref}></div>
-
       <BookingBar
         cost={'From $675/night'}
         propertyId={309275}
@@ -58,10 +53,6 @@ const HousePage = () => {
         removeDate={removeDate}
         isDateAvailable={isDateAvailable}
       />
-
-      <Carosoul />
-      <HouseDetails />
-      <Availability />
     </div>
   );
 };

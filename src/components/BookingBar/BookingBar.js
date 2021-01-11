@@ -112,7 +112,7 @@ class BookingBar extends Component {
             this.props.show ? `${styles.hidden} ${styles.show}` : styles.hidden
           }`}
         >
-          <div className={`page_container ${styles.bookingbar_container}`}>
+          <div className={`container ${styles.bookingbar_container}`}>
             <h2>The Edaward House</h2>
             <p className={styles.bookingbar_cost}>{this.state.cost}</p>
             <div

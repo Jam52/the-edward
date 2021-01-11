@@ -4,7 +4,10 @@ import styles from './Footer.module.scss';
 
 const Footer = () => {
   return (
-    <footer data-testid="component-footer" className="bg--light">
+    <footer
+      data-testid="component-footer"
+      className={`bg--light ${styles.container}`}
+    >
       <div className={`container ${styles.footer}`}>
         <div className={styles.footer_section}>
           <h2>Address</h2>
