@@ -12,10 +12,6 @@
   }
 }
 
-.nav + .nav {
-  margin-top: 1rem;
-}
-
 .active {
   font-weight: 900;
 }
@@ -29,9 +25,5 @@
   .nav {
     font-size: 1rem;
     color: #000;
-  }
-  .nav + .nav {
-    margin-left: 2rem;
-    margin-top: 0;
   }
 }

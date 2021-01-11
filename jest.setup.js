@@ -11,3 +11,7 @@ Object.defineProperty(window, 'matchMedia', {
     dispatchEvent: jest.fn(),
   })),
 });
+
+module.exports = {
+  setupFiles: ['<rootDir>/script/test-setup.js'],
+};

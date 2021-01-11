@@ -5,9 +5,12 @@
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/user-event": "^12.2.2",
+    "axios": "^0.21.0",
     "body-scroll-lock": "^3.1.5",
+    "dayjs": "^1.9.7",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
+    "react-dayjs": "^0.2.1",
     "react-dom": "^17.0.1",
     "react-intersection-observer": "^8.31.0",
     "react-router": "^5.2.0",

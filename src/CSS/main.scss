@@ -4,6 +4,7 @@ p,
 li {
   font-family: $font-main;
   line-height: 1.5;
+  margin: 0;
 }
 
 a {
@@ -20,7 +21,7 @@ h4,
 h5,
 h6 {
   font-family: $font-main;
-  margin: 1.5rem 0;
+  margin: 0;
 }
 
 .btn {
@@ -32,6 +33,7 @@ h6 {
   font-family: $font_main;
   font-weight: bold;
   flex-shrink: 0;
+  background-color: transparent;
 }
 
 .btn--small {
@@ -56,6 +58,22 @@ h6 {
     background-color: $color_dark_blue;
     border: 2px solid $color_dark_blue;
     color: #fff;
+  }
+}
+
+.page {
+  overflow: hidden;
+}
+
+.page_container {
+  max-width: 90vw;
+  margin: auto;
+}
+
+@media (min-width: $media_computer_small) {
+  .page_container {
+    width: 90vw;
+    max-width: 1500px;
   }
 }
 

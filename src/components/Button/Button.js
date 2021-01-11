@@ -21,6 +21,7 @@ export const ExternalLink = (props) => {
       href={props.to}
       target="_blank"
       rel="noreferrer"
+      aria-label={`${props.text} opens in new window`}
     >
       {props.text}
     </a>
