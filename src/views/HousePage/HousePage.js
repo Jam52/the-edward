@@ -36,14 +36,17 @@ const HousePage = () => {
   }, [inView]);
 
   return (
-    <div data-testid="component-house-page">
-      <ImageContainer
-        landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-        portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-        alt="Yellow house under bright blue sky"
-      />
+    <div data-testid="component-house-page flow-vert">
+      <div className="container">
+        <ImageContainer
+          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
+          portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
+          alt="Yellow house under bright blue sky"
+        />
 
-      <Summary />
+        <Summary />
+      </div>
+
       <div ref={ref}></div>
 
       <BookingBar

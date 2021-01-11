@@ -23,6 +23,9 @@
 
 .split > * {
   flex-basis: 100%;
+}
+
+.split > * + * {
   margin-top: var(--gap, $spacer);
 }
 
@@ -42,11 +45,19 @@
   margin-top: var(--gap, $spacer);
 }
 
+.internal-link {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  padding: 0;
+}
+
 @media (min-width: $media_tablet) {
   .split {
     flex-direction: row;
   }
-  .split > * {
+  .split > * + * {
     margin-top: 0;
+    margin-left: var(--gap, $spacer);
   }
 }
