@@ -74,6 +74,7 @@
   &__main {
     font-family: $font-serif;
     font-size: 3rem;
+    max-width: 25ch;
   }
 }
 
@@ -81,23 +82,14 @@
   min-height: 80vh;
 }
 
-@media (min-width: $media_tablet_landscape) {
-  .explore {
-    &_header {
-      flex-direction: row;
-      justify-content: space-between;
-      gap: 3rem;
-      margin-bottom: 2rem;
-
-      h2,
-      p {
-        margin: 0;
-      }
-    }
-    &_scroll {
-      font-size: 1.3rem;
-      justify-content: center;
-    }
+.internal-link {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  padding: 0;
+  transition: opacity 0.2s;
+  &:hover {
+    opacity: 0.5;
   }
 }
 

@@ -53,13 +53,6 @@
   margin-top: var(--gap, $spacer);
 }
 
-.internal-link {
-  background: none;
-  border: none;
-  text-decoration: underline;
-  padding: 0;
-}
-
 @media (min-width: $media_tablet) {
   .split {
     flex-direction: row;

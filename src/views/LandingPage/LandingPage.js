@@ -60,18 +60,21 @@ const LandingPage = () => {
                 </p>
                 <div className={`flow ${styles.scroll}`}>
                   <button
+                    className="internal-link"
                     aria-label="scroll to house overview"
                     onClick={() => exicuteScrollTo(houseRef)}
                   >
                     House
                   </button>
                   <button
+                    className="internal-link"
                     aria-label="scroll to loft overview"
                     onClick={() => exicuteScrollTo(loftRef)}
                   >
                     Loft
                   </button>
                   <button
+                    className="internal-link"
                     aria-label="scroll to cabin overview"
                     onClick={() => exicuteScrollTo(cabinRef)}
                   >
