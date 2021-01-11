@@ -1,3 +1,35 @@
+@import '../../CSS/base';
+
+.housePage {
+  --gap: 6rem;
+}
+
 .container {
   --gap: 3rem;
+}
+
+.details {
+  --gap: 2rem;
+
+  &_split {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  &_terms {
+    font-style: italic;
+    font-size: 0.8rem;
+    opacity: 0.8;
+    max-width: 20ch;
+    margin-top: 1.5rem;
+  }
+}
+
+@media (min-width: $media_tablet) {
+  .details {
+    &_split {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
 }

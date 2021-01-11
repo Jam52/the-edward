@@ -34,6 +34,10 @@
 }
 
 .section {
+  padding: 3rem 0;
+}
+
+.inner-section {
   padding: 2rem;
 }
 
@@ -57,10 +61,42 @@
   opacity: 1;
 }
 
-@media (min-width: $media_tablet) {
-  .explore-section {
-    &__main {
-      font-size: 2.7rem;
+.explore {
+  --gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  margin: 6rem 2rem;
+  text-align: center;
+
+  &__main {
+    font-family: $font-serif;
+    font-size: 3rem;
+  }
+}
+
+.explore-secton {
+  min-height: 80vh;
+}
+
+@media (min-width: $media_tablet_landscape) {
+  .explore {
+    &_header {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 3rem;
+      margin-bottom: 2rem;
+
+      h2,
+      p {
+        margin: 0;
+      }
+    }
+    &_scroll {
+      font-size: 1.3rem;
+      justify-content: center;
     }
   }
 }

@@ -22,7 +22,7 @@
 }
 
 .split > * {
-  flex-basis: 100%;
+  flex-basis: 50%;
 }
 
 .split > * + * {
@@ -31,6 +31,14 @@
 
 .flow-vert > * + * {
   margin-top: $spacer;
+}
+
+.flow-vert-sm > * + * {
+  margin-top: 0.3rem;
+}
+
+.flow-vert-lg > * + * {
+  margin-top: 3rem;
 }
 
 .flow > * + * {

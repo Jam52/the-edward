@@ -32,8 +32,8 @@ const LandingPage = () => {
         </div>
         <section>
           <FadeInTransition>
-            <div className={`flow-vert ${styles.explore}`}>
-              <p className={styles.explore__main}>
+            <div className={`container flow-vert explore`}>
+              <p className="explore__main">
                 "Five-star luxury; a million star experience."
               </p>
               <p>- Returning Guests</p>
@@ -172,10 +172,8 @@ const LandingPage = () => {
 
         <section className="explore-section">
           <FadeInTransition>
-            <div className={`flow-vert ${styles.explore}`}>
-              <p className={styles.explore__main}>
-                The Edward Traveler’s Guide
-              </p>
+            <div className={`container flow-vert explore`}>
+              <p className="explore__main">The Edward Traveler’s Guide</p>
               <p>
                 How do you best enjoy your time in Ontario’s gastronomical
                 capital?
