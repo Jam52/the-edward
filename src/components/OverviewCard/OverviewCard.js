@@ -22,7 +22,7 @@ const OverviewCard = (props) => {
       <div
         className={
           props.isFlipped
-            ? [styles.overview_info, styles.overview_info__right].join(' ')
+            ? `${styles.overview_info} ${styles.overview_info__right}`
             : styles.overview_info
         }
       >

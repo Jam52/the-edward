@@ -48,37 +48,35 @@ const LandingPage = () => {
         </section>
 
         <section className="section bg--light">
-          <div className={`container flow-vert ${styles.overview}`}>
-            <div className="flow-vert">
-              <div className="split flow">
-                <h2>Make your next visit to wine country memorable.</h2>
-                <div className="flow-vert">
-                  <p>
-                    Stay with us at one of our three accommodations in Prince
-                    Edward County and treat yourself to a luxurious country
-                    experience nestled in 75 acres of peaceful nature away from
-                    the fast-paced city life.
-                  </p>
-                  <div className={`flow ${styles.scroll}`}>
-                    <button
-                      aria-label="scroll to house overview"
-                      onClick={() => exicuteScrollTo(houseRef)}
-                    >
-                      House
-                    </button>
-                    <button
-                      aria-label="scroll to loft overview"
-                      onClick={() => exicuteScrollTo(loftRef)}
-                    >
-                      Loft
-                    </button>
-                    <button
-                      aria-label="scroll to cabin overview"
-                      onClick={() => exicuteScrollTo(cabinRef)}
-                    >
-                      Cabin
-                    </button>
-                  </div>
+          <div className={`container control-flow-vert ${styles.overview}`}>
+            <div className="split">
+              <h2>Make your next visit to wine country memorable.</h2>
+              <div className="flow-vert">
+                <p>
+                  Stay with us at one of our three accommodations in Prince
+                  Edward County and treat yourself to a luxurious country
+                  experience nestled in 75 acres of peaceful nature away from
+                  the fast-paced city life.
+                </p>
+                <div className={`flow ${styles.scroll}`}>
+                  <button
+                    aria-label="scroll to house overview"
+                    onClick={() => exicuteScrollTo(houseRef)}
+                  >
+                    House
+                  </button>
+                  <button
+                    aria-label="scroll to loft overview"
+                    onClick={() => exicuteScrollTo(loftRef)}
+                  >
+                    Loft
+                  </button>
+                  <button
+                    aria-label="scroll to cabin overview"
+                    onClick={() => exicuteScrollTo(cabinRef)}
+                  >
+                    Cabin
+                  </button>
                 </div>
               </div>
             </div>
@@ -174,21 +172,29 @@ const LandingPage = () => {
 
         <section className="explore-section">
           <FadeInTransition>
-            <p>The Edward Traveler’s Guide</p>
-            <p className="explore-section__main">
-              How do you best enjoy your time in Ontario’s gastronomical
-              capital?
-            </p>
-            <Button text="See our top picks" to="/andlkdn" />
+            <div className={`flow-vert ${styles.explore}`}>
+              <p className={styles.explore__main}>
+                The Edward Traveler’s Guide
+              </p>
+              <p>
+                How do you best enjoy your time in Ontario’s gastronomical
+                capital?
+              </p>
+              <Button text="See our top picks" to="/andlkdn" />
+            </div>
           </FadeInTransition>
         </section>
-        <ImageContainer
-          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
-          portraitSrc={
-            process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
-          }
-          alt="Bike beneath a green tree on a sunny day"
-        />
+        <div className="container">
+          <ImageContainer
+            landscapeSrc={
+              process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'
+            }
+            portraitSrc={
+              process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
+            }
+            alt="Bike beneath a green tree on a sunny day"
+          />
+        </div>
       </main>
     </div>
   );

@@ -18,22 +18,35 @@
 
 .split {
   display: flex;
+  flex-direction: column;
 }
 
 .split > * {
   flex-basis: 100%;
-}
-
-.flow-vert > * + * {
   margin-top: var(--gap, $spacer);
 }
 
+.flow-vert > * + * {
+  margin-top: $spacer;
+}
+
 .flow > * + * {
-  margin: var(--gap, $spacer) 0 0 0;
+  margin: 0 0 0 $spacer;
+}
+
+.control-flow > * + * {
+  margin: 0 0 0 var(--gap, $spacer);
+}
+
+.control-flow-vert > * + * {
+  margin-top: var(--gap, $spacer);
 }
 
 @media (min-width: $media_tablet) {
-  .flow > * + * {
-    margin: 0 0 0 var(--gap, $spacer);
+  .split {
+    flex-direction: row;
+  }
+  .split > * {
+    margin-top: 0;
   }
 }

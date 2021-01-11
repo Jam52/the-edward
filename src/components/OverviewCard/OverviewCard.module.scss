@@ -1,4 +1,10 @@
 @import '../../CSS/base';
+@import '../../CSS/utility.scss';
+
+.img {
+  position: relative;
+  width: 90%;
+}
 
 .overview {
   position: relative;
@@ -9,6 +15,7 @@
   justify-content: space-between;
 
   &_info {
+    @extend .flow-vert;
     transform: translateY(-2rem);
     align-self: flex-end;
     box-sizing: border-box;
