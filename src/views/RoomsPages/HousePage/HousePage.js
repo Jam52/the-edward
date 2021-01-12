@@ -1,15 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ImageContainer from '../../components/ImageContainer/ImageContainer';
+import ImageContainer from '../../../components/ImageContainer/ImageContainer';
 import HouseDetails from './houseDetails';
-import BookingBar from '../../components/BookingBar/BookingBar';
+import BookingBar from '../../../components/BookingBar/BookingBar';
 import { useInView } from 'react-intersection-observer';
 import {
   addDate,
   removeDate,
   isDateAvailable,
-} from '../../services/calendarLogic/multiDayBookingCalendar';
-import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
-import styles from './HousePage.module.scss';
+} from '../../../services/calendarLogic/multiDayBookingCalendar';
+import FadeInTransition from '../../../components/FadeInTransition/FadeInTransition';
+import styles from '../RoomsPage.module.scss';
 
 const HousePage = () => {
   //auto scrolls to the top of the page on load

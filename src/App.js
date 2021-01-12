@@ -2,7 +2,7 @@ import React from 'react';
 import LandingPage from './views/LandingPage/LandingPage';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import HousePage from './views/HousePage/HousePage';
+import HousePage from './views/RoomsPages/HousePage/HousePage';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {

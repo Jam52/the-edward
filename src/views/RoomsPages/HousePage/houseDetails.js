@@ -1,7 +1,7 @@
 import React from 'react';
-import DetailList from '../../components/DetailList/DetailList';
-import Dropdown from '../../components/Dropdown/Dropdown';
-import styles from './HousePage.module.scss';
+import DetailList from '../DetailList/DetailList';
+import Dropdown from '../../../components/Dropdown/Dropdown';
+import styles from '../RoomsPage.module.scss';
 import houseDetailsData from './houseDetailsData.json';
 
 function HouseDetails() {
