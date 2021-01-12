@@ -28,22 +28,42 @@ function HouseDetails() {
           <div className={styles.details_split}>
             <div className="flow-vert-sm">
               <h3>Master Suite</h3>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bed.svg'}
+                  alt=""
+                />
                 <p>1 King Bed</p>
               </div>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
+                  alt=""
+                />
                 <p>5-piece Ensuite</p>
               </div>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Patio.svg'}
+                  alt=""
+                />
                 <p>Patio Access</p>
               </div>
             </div>
             <div className="flow-vert-sm">
               <h3>East Suite</h3>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bed.svg'}
+                  alt=""
+                />
                 <p>1 Queen Bed</p>
               </div>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
+                  alt=""
+                />
                 <p>5-piece Ensuite</p>
               </div>
               <p className={styles.details_terms}>
@@ -52,13 +72,25 @@ function HouseDetails() {
             </div>
             <div className="flow-vert-sm">
               <h3>West Suite</h3>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bed.svg'}
+                  alt=""
+                />
                 <p>1 Queen Bed</p>
               </div>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bed.svg'}
+                  alt=""
+                />
                 <p>1 Twin Pull-out</p>
               </div>
-              <div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
+                  alt=""
+                />
                 <p>5-piece Ensuite</p>
               </div>
             </div>
