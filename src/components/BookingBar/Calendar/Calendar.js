@@ -33,7 +33,7 @@ const Calendar = (props) => {
     if (key + 1 > numDaysInMonth) {
       classes.push(styles.calendar_day__other);
     }
-    if (day.isSame(todaysDate)) {
+    if (day.isSame(todaysDate, 'day')) {
       classes.push(styles.calendar_day__today);
     }
     if (

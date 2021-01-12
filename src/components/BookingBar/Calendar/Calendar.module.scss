@@ -63,13 +63,14 @@
 
     &__today::after {
       content: '';
-      padding: 1em 1em;
+      z-index: 2;
+      height: 100%;
+      width: 100%;
       background-color: red;
+      border: 1px solid red;
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 1000px;
+      top: -1px;
+      left: -1px;
       opacity: 0.5;
     }
 
@@ -91,9 +92,9 @@
       border: 1px solid red;
       background: linear-gradient(
         to top left,
-        #ddd calc(50% - 0.5px),
+        #eee calc(50% - 0.5px),
         red,
-        #ddd calc(50% + 0.5px)
+        #eee calc(50% + 0.5px)
       );
     }
   }
