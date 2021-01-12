@@ -1,0 +1,31 @@
+{
+  "breakfast": [
+    { "url": "", "text": "Home-made Granola" },
+    { "url": "", "text": "Artisanal Bread" },
+    { "url": "", "text": "Farm-fresh Eggs" },
+    { "url": "", "text": "Yogurt, Cream and Milk" },
+    { "url": "", "text": "Jams and Honey" },
+    { "url": "", "text": "Coffee and Tea" }
+  ],
+  "amenities": [
+    { "url": "", "text": "Wifi" },
+    { "url": "", "text": "Blow Dryers" },
+    { "url": "", "text": "Parking" },
+    { "url": "", "text": "Iron & Ironing Board" },
+    { "url": "", "text": "Keyless Entry" },
+    { "url": "", "text": "Children’s Toys" },
+    { "url": "", "text": "Sandbank Pass" },
+    { "url": "", "text": "Heating & Cooling" },
+    { "url": "", "text": "BBQ" },
+    { "url": "", "text": "Smoke & CO Detectors" },
+    { "url": "", "text": "Outdoor Firepit" },
+    { "url": "", "text": "Fire Extinguishers" },
+    { "url": "", "text": "Cooking Essentials" }
+  ],
+  "houseRules": [
+    { "url": "", "text": "Check-in: 4:00pm" },
+    { "url": "", "text": "Check-out: 12:00pm" },
+    { "url": "", "text": "No Pets" },
+    { "url": "", "text": "No Smoking" }
+  ]
+}

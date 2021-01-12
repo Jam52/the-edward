@@ -3,6 +3,8 @@ import LandingPage from './views/LandingPage/LandingPage';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import HousePage from './views/RoomsPages/HousePage/HousePage';
+import LoftPage from './views/RoomsPages/LoftPage/LoftPage';
+import CabinPage from './views/RoomsPages/CabinPage/CabinPage';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
         <Header />
         <Switch>
           <Route path="/house" component={HousePage} />
+          <Route path="/cabin" component={CabinPage} />
+          <Route path="/Loft" component={LoftPage} />
           <Route path="/" component={LandingPage} />
         </Switch>
         <Footer />
