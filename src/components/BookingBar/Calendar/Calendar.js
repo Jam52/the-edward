@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import Backdrop from '../../Backdrop/Backdrop';
 import styles from './Calendar.module.scss';
+import Aux from '../../../hoc/Auxillary/Auxillary';
 
 const Calendar = (props) => {
   const todaysDate = props.todaysDate;
@@ -84,106 +86,109 @@ const Calendar = (props) => {
   };
 
   return (
-    <div data-testid="component-calendar" className={styles.calendar}>
-      <div className={styles.container}>
-        <div className={styles.calendar_header}>
-          <div>
+    <Aux>
+      <div data-testid="component-calendar" className={styles.calendar}>
+        <div className={styles.container}>
+          <div className={styles.calendar_header}>
+            <div>
+              <svg
+                height="3rem"
+                viewBox="0 0 200 100"
+                width="4rem"
+                data-testid="backward-one-month"
+                role="button"
+                aria-label="go back one month"
+                onClick={
+                  isNextMonthValidToDisplay('subtract')
+                    ? () => minusOneToDate('month')
+                    : null
+                }
+                className={
+                  isNextMonthValidToDisplay('subtract')
+                    ? styles.calendar_arrow
+                    : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
+                }
+                alt=""
+              >
+                <line x1="5" y1="50" x2="195" y2="50" strokeLinecap="round" />
+                <line x1="5" y1="50" x2="50" y2="5" strokeLinecap="round" />
+                <line x1="5" y1="50" x2="50" y2="95" strokeLinecap="round" />
+              </svg>
+              <p>{date.format('MMMM - YYYY')}</p>
+              <svg
+                height="3rem"
+                viewBox="0 0 200 100"
+                width="4rem"
+                data-testid="forward-one-month"
+                role="button"
+                aria-label="go forward one month"
+                onClick={
+                  isNextMonthValidToDisplay('add')
+                    ? () => plusOneToDate('month')
+                    : null
+                }
+                className={
+                  isNextMonthValidToDisplay('add')
+                    ? styles.calendar_arrow
+                    : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
+                }
+                alt=""
+                style={{ transform: 'rotate(-180deg)' }}
+              >
+                {' '}
+                <line x1="5" y1="50" x2="195" y2="50" strokeLinecap="round" />
+                <line x1="5" y1="50" x2="50" y2="5" strokeLinecap="round" />
+                <line x1="5" y1="50" x2="50" y2="95" strokeLinecap="round" />
+              </svg>
+            </div>
+
             <svg
-              height="3rem"
-              viewBox="0 0 200 100"
-              width="4rem"
-              data-testid="backward-one-month"
-              role="button"
-              aria-label="go back one month"
-              onClick={
-                isNextMonthValidToDisplay('subtract')
-                  ? () => minusOneToDate('month')
-                  : null
-              }
-              className={
-                isNextMonthValidToDisplay('subtract')
-                  ? styles.calendar_arrow
-                  : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
-              }
-              alt=""
+              onClick={props.close}
+              height="1.5rem"
+              viewBox="0 0 100 100"
+              width="1.5rem"
+              className={styles.calendar_close}
             >
-              <line x1="5" y1="50" x2="195" y2="50" strokeLinecap="round" />
-              <line x1="5" y1="50" x2="50" y2="5" strokeLinecap="round" />
-              <line x1="5" y1="50" x2="50" y2="95" strokeLinecap="round" />
-            </svg>
-            <p>{date.format('MMMM - YYYY')}</p>
-            <svg
-              height="3rem"
-              viewBox="0 0 200 100"
-              width="4rem"
-              data-testid="forward-one-month"
-              role="button"
-              aria-label="go forward one month"
-              onClick={
-                isNextMonthValidToDisplay('add')
-                  ? () => plusOneToDate('month')
-                  : null
-              }
-              className={
-                isNextMonthValidToDisplay('add')
-                  ? styles.calendar_arrow
-                  : `${styles.calendar_arrow} ${styles.calendar_arrow__unavailable}`
-              }
-              alt=""
-              style={{ transform: 'rotate(-180deg)' }}
-            >
-              {' '}
-              <line x1="5" y1="50" x2="195" y2="50" strokeLinecap="round" />
-              <line x1="5" y1="50" x2="50" y2="5" strokeLinecap="round" />
-              <line x1="5" y1="50" x2="50" y2="95" strokeLinecap="round" />
+              <line x1="0" x2="100" y1="0" y2="100" />
+              <line x1="100" x2="0" y1="0" y2="100" />
             </svg>
           </div>
 
-          <svg
-            onClick={props.close}
-            height="1.5rem"
-            viewBox="0 0 100 100"
-            width="1.5rem"
-            className={styles.calendar_close}
-          >
-            <line x1="0" x2="100" y1="0" y2="100" />
-            <line x1="100" x2="0" y1="0" y2="100" />
-          </svg>
-        </div>
-
-        <table className={styles.table}>
-          <thead>
-            <tr className={styles.table_weekdays}>
-              <th>sun</th>
-              <th>mon</th>
-              <th>tue</th>
-              <th>wed</th>
-              <th>thu</th>
-              <th>fri</th>
-              <th>sat</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>{daysInMonth.slice(0, 7)}</tr>
-            <tr>{daysInMonth.slice(7, 14)}</tr>
-            <tr>{daysInMonth.slice(14, 21)}</tr>
-            <tr>{daysInMonth.slice(21, 28)}</tr>
-            <tr>{daysInMonth.slice(28, 35)}</tr>
-            <tr>{daysInMonth.slice(35, 42)}</tr>
-          </tbody>
-        </table>
-        <div className={styles.clearDates}>
-          {props.selectedDates.length > 0 ? (
-            <button
-              className={styles.clearDates_btn}
-              onClick={() => props.clear()}
-            >
-              Clear Dates
-            </button>
-          ) : null}
+          <table className={styles.table}>
+            <thead>
+              <tr className={styles.table_weekdays}>
+                <th>sun</th>
+                <th>mon</th>
+                <th>tue</th>
+                <th>wed</th>
+                <th>thu</th>
+                <th>fri</th>
+                <th>sat</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>{daysInMonth.slice(0, 7)}</tr>
+              <tr>{daysInMonth.slice(7, 14)}</tr>
+              <tr>{daysInMonth.slice(14, 21)}</tr>
+              <tr>{daysInMonth.slice(21, 28)}</tr>
+              <tr>{daysInMonth.slice(28, 35)}</tr>
+              <tr>{daysInMonth.slice(35, 42)}</tr>
+            </tbody>
+          </table>
+          <div className={styles.clearDates}>
+            {props.selectedDates.length > 0 ? (
+              <button
+                className={styles.clearDates_btn}
+                onClick={() => props.clear()}
+              >
+                Clear Dates
+              </button>
+            ) : null}
+          </div>
         </div>
       </div>
-    </div>
+      <Backdrop close={props.close} />
+    </Aux>
   );
 };
 

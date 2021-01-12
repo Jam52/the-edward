@@ -2,12 +2,10 @@
 
 .calendar {
   margin: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
   z-index: 20;
   font-family: $font-main;
 
@@ -110,7 +108,7 @@
 .container {
   position: relative;
   margin: auto;
-  top: 5vh;
+  top: auto;
   width: 90vw;
   max-width: 30rem;
   background-color: white;

@@ -7,6 +7,7 @@ import {
   fetchLodgifyRatesData,
   fetchLodgifyAvailabilityData,
 } from '../../services/lodgifyApi/lodgifyApi';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 const dayjs = require('dayjs');
 var customParseFormat = require('dayjs/plugin/customParseFormat');
 dayjs.extend(customParseFormat);
@@ -75,8 +76,13 @@ class BookingBar extends Component {
     this.setState({ selectedDates: newSelectedDates });
   };
 
-  toggleCalendar = () => {
-    this.setState({ showCalendar: !this.state.showCalendar });
+  showCalendar = () => {
+    disableBodyScroll(Calendar);
+    this.setState({ showCalendar: true });
+  };
+  hideCalendar = () => {
+    enableBodyScroll(Calendar);
+    this.setState({ showCalendar: false });
   };
 
   render() {
@@ -93,7 +99,8 @@ class BookingBar extends Component {
       <Aux>
         {this.state.showCalendar ? (
           <Calendar
-            close={this.toggleCalendar}
+            ref={this.targetRef}
+            close={this.hideCalendar}
             addDate={this.addDate}
             selectedDates={this.state.selectedDates}
             remove={this.removeDate}
@@ -117,7 +124,7 @@ class BookingBar extends Component {
             <p className={styles.bookingbar_cost}>{this.state.cost}</p>
             <div
               className={styles.bookingbar_dates}
-              onClick={this.toggleCalendar}
+              onClick={this.showCalendar}
             >
               <img
                 src={process.env.PUBLIC_URL + '/images/calendar.png'}
@@ -158,7 +165,14 @@ class BookingBar extends Component {
                 Book Now
               </button>
             ) : (
-              <button className="btn btn--light" onClick={this.toggleCalendar}>
+              <button
+                className="btn btn--light"
+                onClick={
+                  !this.state.showCalendar
+                    ? this.showCalendar
+                    : this.hideCalendar
+                }
+              >
                 {this.state.showCalendar ? 'Close' : 'Availability'}
               </button>
             )}
