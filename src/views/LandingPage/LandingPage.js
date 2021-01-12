@@ -4,6 +4,7 @@ import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
 import Button from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
+import Dropdown from '../../components/Dropdown/Dropdown';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -118,57 +119,67 @@ const LandingPage = () => {
               to="/cabin"
             />
 
-            <section className={`${styles.concierge} section bg--dark`}>
-              <div className={styles.concierge_header}>
-                <h2 className="section_header">The Concierge</h2>
+            <section className={`flow-vert-lg inner-section bg--dark`}>
+              <div className="split">
+                <h2>The Concierge</h2>
                 <p>
-                  We are here for you blah blah, if you have questions or
-                  special requests blah blah email us at welcome@theedward.ca.
-                  Our customer experience hours of operations are between 8:00
-                  am and 5:00pm.
+                  We are always here for you. if you have questions or special
+                  requests, please email us at welcome@theedward.ca. Our
+                  customer experience hours of operations are between 9:00 am
+                  and 5:00pm Monday to Friday.
                 </p>
               </div>
-              <div className={styles.concierge_details}>
-                <div className={styles.concierge_section}>
-                  <h3>How to find us</h3>
-                  <p>
-                    662 Country Road 7 <br /> (also known as Lake on the
-                    Mountain Road, Picton, ON, K0K 2T0
-                  </p>
-                  <a
-                    target="_blank"
-                    aria-label="to google maps"
-                    rel="noreferrer"
-                    href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m8!3m7!1s0x89d7c8cb02908139:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522"
-                  >
-                    <div className="btn btn--dark btn--small">
-                      <b>Latitude:</b> 44.031892
+              <Dropdown header="How to find us" color="white">
+                <div className="split">
+                  <div></div>
+                  <div className="flow-vert">
+                    <p>
+                      Latitude: 44.031892 <br /> Longitude: -77.037088
+                    </p>
+                    <a
+                      className="btn--small btn btn--dark"
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m8!3m7!1s0x89d7c8cb02908139:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522"
+                    >
+                      Open in Maps
+                    </a>
+                    <p>
+                      662 County Road 7 <br />
+                      (also known as Lake on the Mountain Road)
                       <br />
-                      <b>Longitude:</b> -77.037088
-                    </div>
-                  </a>
+                      Picton, ON,
+                      <br />
+                      K0K 2T0
+                    </p>
+                  </div>
                 </div>
-                <div className={styles.concierge_section}>
-                  <h3>Arriving at The Edward</h3>
-                  <p>
-                    <b>Check-in:</b> 4:00pm
+              </Dropdown>
+              <Dropdown header="Arriving at The Edward" color="white">
+                <div className="split">
+                  <div></div>
+                  <p style={{ maxWidth: '30ch' }}>
+                    Check-in: <strong>4:00pm</strong>
+                    <br />
+                    Check-out: <strong>12:00pm</strong>
+                    <br />
+                    Please specify if you would prefer a contactless check-in
+                    upon making your reservation.
                   </p>
-                  <p>
-                    <b>Check-out:</b> 12:00pm
-                  </p>
-                  <p>Please specify if you would like a contactless checkin.</p>
                 </div>
-                <div className={styles.concierge_section}>
-                  <h3>Cancellations</h3>
-                  <p>
-                    <b>Full Refund</b> 2 weeks notice
+              </Dropdown>
+              <Dropdown header="Cancellations" color="white">
+                <div className="split">
+                  <div></div>
+                  <p style={{ maxWidth: '30ch' }}>
+                    For full refund: <strong>1 week notice</strong>
+                    <br />
+                    <br />
+                    Should your plans change, a written cancellation email is
+                    required a minimum of 7 days prior to your booking date.
                   </p>
-                  <p>
-                    <b>%50 Refund:</b> 1 week notice
-                  </p>
-                  <p>Please specify if you would like a contactless checkin.</p>
                 </div>
-              </div>
+              </Dropdown>
             </section>
           </div>
         </section>

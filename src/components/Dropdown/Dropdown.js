@@ -7,6 +7,7 @@ const Dropdown = (props) => {
 
   return (
     <div className="flow-vert">
+      <div className={styles.divider} />
       <div className={styles.dropdown}>
         <h3 className={styles.dropdown_header}>{props.header}</h3>
         <ToggleButton
@@ -16,7 +17,6 @@ const Dropdown = (props) => {
         />
       </div>
       {isOpen ? props.children : null}
-      <div className={styles.divider} />
     </div>
   );
 };
