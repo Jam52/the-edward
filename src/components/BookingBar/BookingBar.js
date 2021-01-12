@@ -29,10 +29,6 @@ class BookingBar extends Component {
       let availabilityData = await fetchLodgifyAvailabilityData(
         this.props.propertyId,
       );
-      availabilityData = availabilityData.filter(
-        (booking) => !booking.is_available,
-      );
-
       let rateData = await fetchLodgifyRatesData(
         this.props.propertyId,
         this.props.roomTypeId,
@@ -61,6 +57,7 @@ class BookingBar extends Component {
       this.state.lodgifyAvailabilityData,
       this.state.selectedDates,
     );
+    console.log(newDates);
     if (newDates) {
       this.setState({
         selectedDates: newDates,

@@ -17,7 +17,7 @@ export const addDate = (
         return -1;
       }
       if (b.isBefore(a)) {
-        return 11;
+        return 1;
       }
       return 0;
     });

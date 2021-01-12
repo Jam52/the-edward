@@ -7,7 +7,7 @@ import {
   addDate,
   removeDate,
   isDateAvailable,
-} from '../../../services/calendarLogic/multiDayBookingCalendar';
+} from '../../../services/calendarLogic/blockBookingCalendar.js';
 import FadeInTransition from '../../../components/FadeInTransition/FadeInTransition';
 import styles from '../RoomsPage.module.scss';
 

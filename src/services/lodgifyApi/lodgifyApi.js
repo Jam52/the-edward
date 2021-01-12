@@ -13,7 +13,6 @@ export const fetchLodgifyRatesData = async (propertyId, roomTypeId) => {
         'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
       },
     });
-    console.log(await apiData.data);
     return await apiData.data;
   } catch (error) {
     console.log(error);
@@ -28,13 +27,15 @@ export const fetchLodgifyAvailabilityData = async (propertyId) => {
   )}&periodEnd=${currentDate.add(2, 'year').format('YYYY-MM-DD')}`;
 
   try {
-    const apiData = await axios.get(proxyurl + url, {
+    let apiData = await axios.get(proxyurl + url, {
       headers: {
         'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
       },
     });
-    console.log(await apiData.data);
-    return await apiData.data;
+    const filteredData = await apiData.data.filter(
+      (booking) => !booking.is_available,
+    );
+    return filteredData;
   } catch (error) {
     console.log(error);
   }
