@@ -95,6 +95,7 @@ const CabinPage = () => {
         addDate={addDate}
         removeDate={removeDate}
         isDateAvailable={isDateAvailable}
+        title="The Edaward Cabin"
       />
       <div className="bg--light section ">
         <div className={`container flow-vert-lg`}>

@@ -95,6 +95,7 @@ const HousePage = () => {
         addDate={addDate}
         removeDate={removeDate}
         isDateAvailable={isDateAvailable}
+        title="The Edaward Loft"
       />
       <div className="bg--light section ">
         <div className={`container flow-vert-lg`}>
