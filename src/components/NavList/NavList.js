@@ -4,7 +4,7 @@ import styles from './NavList.module.scss';
 
 const NavList = (props) => {
   return (
-    <nav className={`flow ${styles.container}`}>
+    <nav className={styles.container}>
       <NavLink
         to="/house"
         className={styles.nav}

@@ -26,6 +26,10 @@
   }
 }
 
+.nav + .nav {
+  margin: 1rem 0 0 0;
+}
+
 .active {
   border-bottom: 1.5px solid #555;
   font-weight: normal;
@@ -45,5 +49,9 @@
   .nav {
     font-size: 1rem;
     color: #000;
+  }
+
+  .nav + .nav {
+    margin: 0 0 0 2rem;
   }
 }
