@@ -1,8 +1,12 @@
 @import '../../CSS/base';
 
-.footer {
+.container {
+  position: relative;
   z-index: 22;
+}
+.footer {
   margin-top: 3rem;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   gap: 2rem;

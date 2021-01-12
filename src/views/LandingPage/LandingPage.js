@@ -2,8 +2,9 @@ import React, { useEffect, useRef } from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
-import Button, { ExternalLink } from '../../components/Button/Button';
+import Button from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
+import Dropdown from '../../components/Dropdown/Dropdown';
 
 const LandingPage = () => {
   useEffect(() => {
@@ -20,63 +21,70 @@ const LandingPage = () => {
 
   return (
     <div data-testid="component-landing-page">
-      <ImageContainer
-        landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Hero.jpg'}
-        portraitSrc={
-          process.env.PUBLIC_URL + '/images/Homepage_Hero_Portrait.jpg'
-        }
-        alt="Yellow house under bright blue sky"
-      />
       <main id="content">
-        <section className="explore-section">
+        <div className="container">
+          <ImageContainer
+            landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Hero.jpg'}
+            portraitSrc={
+              process.env.PUBLIC_URL + '/images/Homepage_Hero_Portrait.jpg'
+            }
+            alt="Yellow house under bright blue sky"
+          />
+        </div>
+        <section>
           <FadeInTransition>
-            <p className=" explore-section__main">
-              "Five-star luxury; a million star experience."
-            </p>
-            <p>- Returning Guests</p>
-            <ExternalLink
-              text="See all reviews"
-              to="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
-            />
+            <div className={`container flow-vert explore`}>
+              <p className="explore__main">
+                "Five-star luxury; a million star experience."
+              </p>
+              <p>- Returning Guests</p>
+              <a
+                className="btn"
+                href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
+              >
+                See all reviews
+              </a>
+            </div>
           </FadeInTransition>
         </section>
 
-        <section className="section section--light">
-          <div className={styles.explore}>
-            <div className={styles.explore_header}>
-              <h2 className="section_header">
-                Make your next visit to wine country memorable.
-              </h2>
-              <p className="section_detail">
-                Stay with us at one of our three accommodations in Prince Edward
-                County and treat yourself to a luxurious country experience
-                nestled in 75 acres of peaceful nature away from the fast-paced
-                city life.
-              </p>
+        <section className="section bg--light">
+          <div className={`container control-flow-vert ${styles.overview}`}>
+            <div className="split">
+              <h2>Make your next visit to wine country memorable.</h2>
+              <div className="flow-vert">
+                <p>
+                  Stay with us at one of our three accommodations in Prince
+                  Edward County and treat yourself to a luxurious country
+                  experience nestled in 75 acres of peaceful nature away from
+                  the fast-paced city life.
+                </p>
+                <div className={`flow ${styles.scroll}`}>
+                  <button
+                    className="internal-link"
+                    aria-label="scroll to house overview"
+                    onClick={() => exicuteScrollTo(houseRef)}
+                  >
+                    House
+                  </button>
+                  <button
+                    className="internal-link"
+                    aria-label="scroll to loft overview"
+                    onClick={() => exicuteScrollTo(loftRef)}
+                  >
+                    Loft
+                  </button>
+                  <button
+                    className="internal-link"
+                    aria-label="scroll to cabin overview"
+                    onClick={() => exicuteScrollTo(cabinRef)}
+                  >
+                    Cabin
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className={styles.explore_scroll}>
-              <button
-                aria-label="scroll to house overview"
-                onClick={() => exicuteScrollTo(houseRef)}
-              >
-                House
-              </button>
-              <button
-                aria-label="scroll to loft overview"
-                onClick={() => exicuteScrollTo(loftRef)}
-              >
-                Loft
-              </button>
-              <button
-                aria-label="scroll to cabin overview"
-                onClick={() => exicuteScrollTo(cabinRef)}
-              >
-                Cabin
-              </button>
-            </div>
-          </div>
 
-          <div className={`${styles.cardContainer}`}>
             <OverviewCard
               refProp={houseRef}
               img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
@@ -110,78 +118,95 @@ const LandingPage = () => {
               rate="From $399(for a 2-night getaway)"
               to="/cabin"
             />
-          </div>
-          <section className={`${styles.concierge} section section--dark`}>
-            <div className={styles.concierge_header}>
-              <h2 className="section_header">The Concierge</h2>
-              <p>
-                We are here for you blah blah, if you have questions or special
-                requests blah blah email us at welcome@theedward.ca. Our
-                customer experience hours of operations are between 8:00 am and
-                5:00pm.
-              </p>
-            </div>
-            <div className={styles.concierge_details}>
-              <div className={styles.concierge_section}>
-                <h3>How to find us</h3>
+
+            <section className={`flow-vert-lg inner-section bg--dark`}>
+              <div className="split">
+                <h2>The Concierge</h2>
                 <p>
-                  662 Country Road 7 <br /> (also known as Lake on the Mountain
-                  Road, Picton, ON, K0K 2T0
+                  We are always here for you. if you have questions or special
+                  requests, please email us at welcome@theedward.ca. Our
+                  customer experience hours of operations are between 9:00 am
+                  and 5:00pm Monday to Friday.
                 </p>
-                <a
-                  target="_blank"
-                  aria-label="to google maps"
-                  rel="noreferrer"
-                  href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m8!3m7!1s0x89d7c8cb02908139:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522"
-                >
-                  <div className="btn btn--dark btn--small">
-                    <b>Latitude:</b> 44.031892
-                    <br />
-                    <b>Longitude:</b> -77.037088
+              </div>
+              <Dropdown header="How to find us" color="white">
+                <div className="split">
+                  <div></div>
+                  <div className="flow-vert">
+                    <p>
+                      Latitude: 44.031892 <br /> Longitude: -77.037088
+                    </p>
+                    <a
+                      className="btn--small btn btn--dark"
+                      target="_blank"
+                      rel="noreferrer"
+                      href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m8!3m7!1s0x89d7c8cb02908139:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522"
+                    >
+                      Open in Maps
+                    </a>
+                    <p>
+                      662 County Road 7 <br />
+                      (also known as Lake on the Mountain Road)
+                      <br />
+                      Picton, ON,
+                      <br />
+                      K0K 2T0
+                    </p>
                   </div>
-                </a>
-              </div>
-              <div className={styles.concierge_section}>
-                <h3>Arriving at The Edward</h3>
-                <p>
-                  <b>Check-in:</b> 4:00pm
-                </p>
-                <p>
-                  <b>Check-out:</b> 12:00pm
-                </p>
-                <p>Please specify if you would like a contactless checkin.</p>
-              </div>
-              <div className={styles.concierge_section}>
-                <h3>Cancellations</h3>
-                <p>
-                  <b>Full Refund</b> 2 weeks notice
-                </p>
-                <p>
-                  <b>%50 Refund:</b> 1 week notice
-                </p>
-                <p>Please specify if you would like a contactless checkin.</p>
-              </div>
-            </div>
-          </section>
+                </div>
+              </Dropdown>
+              <Dropdown header="Arriving at The Edward" color="white">
+                <div className="split">
+                  <div></div>
+                  <p style={{ maxWidth: '30ch' }}>
+                    Check-in: <strong>4:00pm</strong>
+                    <br />
+                    Check-out: <strong>12:00pm</strong>
+                    <br />
+                    Please specify if you would prefer a contactless check-in
+                    upon making your reservation.
+                  </p>
+                </div>
+              </Dropdown>
+              <Dropdown header="Cancellations" color="white">
+                <div className="split">
+                  <div></div>
+                  <p style={{ maxWidth: '30ch' }}>
+                    For full refund: <strong>1 week notice</strong>
+                    <br />
+                    <br />
+                    Should your plans change, a written cancellation email is
+                    required a minimum of 7 days prior to your booking date.
+                  </p>
+                </div>
+              </Dropdown>
+            </section>
+          </div>
         </section>
 
         <section className="explore-section">
           <FadeInTransition>
-            <p>The Edward Traveler’s Guide</p>
-            <p className="explore-section__main">
-              How do you best enjoy your time in Ontario’s gastronomical
-              capital?
-            </p>
-            <Button text="See our top picks" to="/andlkdn" />
+            <div className={`container flow-vert explore`}>
+              <p className="explore__main">The Edward Traveler’s Guide</p>
+              <p>
+                How do you best enjoy your time in Ontario’s gastronomical
+                capital?
+              </p>
+              <Button text="See our top picks" to="/andlkdn" />
+            </div>
           </FadeInTransition>
         </section>
-        <ImageContainer
-          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
-          portraitSrc={
-            process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
-          }
-          alt="Bike beneath a green tree on a sunny day"
-        />
+        <div className="container">
+          <ImageContainer
+            landscapeSrc={
+              process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'
+            }
+            portraitSrc={
+              process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
+            }
+            alt="Bike beneath a green tree on a sunny day"
+          />
+        </div>
       </main>
     </div>
   );

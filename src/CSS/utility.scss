@@ -1,0 +1,64 @@
+@import './base';
+
+.container {
+  width: 90vw;
+  margin: auto;
+  max-width: 1500px;
+}
+
+.bg--light {
+  background-color: $color_light_beige;
+  color: black;
+}
+
+.bg--dark {
+  background-color: $color_dark_blue;
+  color: #fff;
+}
+
+.split {
+  display: flex;
+  flex-direction: column;
+}
+
+.split > * {
+  flex-basis: 50%;
+}
+
+.split > * + * {
+  margin-top: var(--gap, $spacer);
+}
+
+.flow-vert > * + * {
+  margin-top: $spacer;
+}
+
+.flow-vert-sm > * + * {
+  margin-top: 0.3rem;
+}
+
+.flow-vert-lg > * + * {
+  margin-top: 3rem;
+}
+
+.flow > * + * {
+  margin: 0 0 0 $spacer;
+}
+
+.control-flow > * + * {
+  margin: 0 0 0 var(--gap, $spacer);
+}
+
+.control-flow-vert > * + * {
+  margin-top: var(--gap, $spacer);
+}
+
+@media (min-width: $media_tablet) {
+  .split {
+    flex-direction: row;
+  }
+  .split > * + * {
+    margin-top: 0;
+    margin-left: var(--gap, $spacer);
+  }
+}

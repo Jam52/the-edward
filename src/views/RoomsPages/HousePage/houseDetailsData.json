@@ -1,0 +1,31 @@
+{
+  "breakfast": [
+    { "url": "Granola.svg", "text": "Home-made Granola" },
+    { "url": "Bread.svg", "text": "Artisanal Bread" },
+    { "url": "Eggs.svg", "text": "Farm-fresh Eggs" },
+    { "url": "Milk.svg", "text": "Yogurt, Cream and Milk" },
+    { "url": "Jam.svg", "text": "Jams and Honey" },
+    { "url": "Coffee.svg", "text": "Coffee and Tea" }
+  ],
+  "amenities": [
+    { "url": "Wifi.svg", "text": "Wifi" },
+    { "url": "Blow Dryer.svg", "text": "Blow Dryers" },
+    { "url": "Parking.svg", "text": "Parking" },
+    { "url": "Iron.svg", "text": "Iron & Ironing Board" },
+    { "url": "Keyless Entry.svg", "text": "Keyless Entry" },
+    { "url": "Toys.svg", "text": "Children’s Toys" },
+    { "url": "Sandbank Pass.svg", "text": "Sandbank Pass" },
+    { "url": "Heating Cooling.svg", "text": "Heating & Cooling" },
+    { "url": "BBQ.svg", "text": "BBQ" },
+    { "url": "Smoke Detector.svg", "text": "Smoke & CO Detectors" },
+    { "url": "Firepit.svg", "text": "Outdoor Firepit" },
+    { "url": "Fire Extinguisher.svg", "text": "Fire Extinguishers" },
+    { "url": "Kitchen.svg", "text": "Cooking Essentials" }
+  ],
+  "houseRules": [
+    { "url": "Check In.svg", "text": "Check-in: 4:00pm" },
+    { "url": "Check Out.svg", "text": "Check-out: 12:00pm" },
+    { "url": "No Pets.svg", "text": "No Pets" },
+    { "url": "No Smoking.svg", "text": "No Smoking" }
+  ]
+}

@@ -1,6 +1,7 @@
 @import '../../CSS/base';
 
 .container {
+  --gap: 2rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -15,6 +16,26 @@
   }
 }
 
+.nav {
+  font-size: 1.5rem;
+  color: #333333;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 0.65;
+  }
+}
+
+.nav + .nav {
+  margin: 1rem 0 0 0;
+}
+
+.active {
+  border-bottom: 1.5px solid #555;
+  font-weight: normal;
+  opacity: 0.65;
+}
+
 @media (min-width: $media-tablet) {
   .container {
     flex-direction: row;
@@ -23,5 +44,14 @@
       margin-left: 2rem;
       margin-top: 0;
     }
+  }
+
+  .nav {
+    font-size: 1rem;
+    color: #000;
+  }
+
+  .nav + .nav {
+    margin: 0 0 0 2rem;
   }
 }

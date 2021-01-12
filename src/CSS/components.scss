@@ -1,0 +1,105 @@
+@import './base';
+
+.btn {
+  padding: 1.5em 3em;
+  border-radius: 1000px;
+  text-align: center;
+  transition: all 0.2s;
+  display: inline-block;
+  font-family: $font_main;
+  font-weight: bold;
+  flex-shrink: 0;
+  border: 2px solid #000;
+
+  &:hover {
+    background-color: $color_dark_blue;
+    border: 2px solid $color_dark_blue;
+    color: #fff;
+  }
+}
+
+.btn--small {
+  padding: 0.5em 2em;
+}
+
+.btn--dark {
+  color: #fff;
+  border: 2px solid #fff;
+
+  &:hover {
+    background-color: #fff;
+    border: 2px solid #fff;
+    color: #000;
+  }
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.inner-section {
+  padding: 2rem;
+}
+
+.skip a {
+  position: absolute;
+  display: block;
+  margin-top: 1em;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+
+  font-size: 1.5rem;
+}
+.skip a:focus {
+  text-align: center;
+  position: sticky;
+  width: 90vw;
+  margin: auto;
+  height: auto;
+  opacity: 1;
+}
+
+.explore {
+  --gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  margin: 6rem auto;
+  text-align: center;
+
+  &__main {
+    font-family: $font-serif;
+    font-size: 2.5rem;
+    max-width: 25ch;
+  }
+}
+
+.explore-secton {
+  min-height: 80vh;
+}
+
+.internal-link {
+  background: none;
+  border: none;
+  text-decoration: underline;
+  padding: 0;
+  transition: opacity 0.2s;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+@media (min-width: $media_computer_large) {
+  .explore-section {
+    min-height: auto;
+    margin: 13rem 2rem;
+
+    &_main {
+      font-size: 3rem;
+    }
+  }
+}

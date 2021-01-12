@@ -23,7 +23,7 @@ const Header = () => {
 
   return (
     <header data-testid="component-header">
-      <div className={styles.header}>
+      <div className={`container ${styles.header}`}>
         <h1
           className={
             isOpen

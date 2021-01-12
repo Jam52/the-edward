@@ -1,0 +1,33 @@
+.menu {
+  position: relative;
+  display: block;
+  height: 1.9rem;
+  width: 1.9rem;
+  transition: all 0.2s;
+  transform-origin: 50% 50%;
+  transform: rotate(45deg);
+
+  div {
+    position: absolute;
+    top: 50%;
+    height: 2px;
+    width: 100%;
+    background-color: #000;
+    border-radius: 20px;
+    transform-origin: 50% 50%;
+  }
+
+  div:first-child {
+    transform: rotate(45deg);
+  }
+
+  div:last-child {
+    transform: rotate(-45deg);
+  }
+}
+
+.rotate {
+  height: 2rem;
+  width: 2rem;
+  transform: rotate(90deg);
+}

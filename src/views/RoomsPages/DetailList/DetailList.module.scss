@@ -1,0 +1,19 @@
+@import '../../../CSS/base';
+@import '../RoomsPage.module.scss';
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  column-gap: 1rem;
+  row-gap: 0.8rem;
+}
+
+.detail {
+  @extend .details_icons;
+}
+
+@media (min-width: $media_tablet_landscape) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}

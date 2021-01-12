@@ -1,44 +1,47 @@
 import React from 'react';
-import NavItem from './NavItem/NavItem';
+import { NavLink } from 'react-router-dom';
 import styles from './NavList.module.scss';
 
 const NavList = (props) => {
   return (
-    <nav>
-      <ul className={styles.container}>
-        <li>
-          <NavItem
-            to="/house"
-            text="House"
-            click={props.click}
-            tabIndex={props.tabIndex}
-          />
-        </li>
-        <li>
-          <NavItem
-            to="/loft"
-            text="Loft"
-            click={props.click}
-            tabIndex={props.tabIndex}
-          />
-        </li>
-        <li>
-          <NavItem
-            to="/cabin"
-            text="Cabin"
-            click={props.click}
-            tabIndex={props.tabIndex}
-          />
-        </li>
-        <li>
-          <NavItem
-            to="/about"
-            text="About"
-            click={props.click}
-            tabIndex={props.tabIndex}
-          />
-        </li>
-      </ul>
+    <nav className={styles.container}>
+      <NavLink
+        to="/house"
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
+        tabIndex={props.tabIndex}
+      >
+        House
+      </NavLink>
+      <NavLink
+        to="/loft"
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
+        tabIndex={props.tabIndex}
+      >
+        Loft
+      </NavLink>
+      <NavLink
+        to="/cabin"
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
+        tabIndex={props.tabIndex}
+      >
+        Cabin
+      </NavLink>
+
+      <NavLink
+        to="/about"
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
+        tabIndex={props.tabIndex}
+      >
+        About
+      </NavLink>
     </nav>
   );
 };

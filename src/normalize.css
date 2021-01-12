@@ -12,6 +12,10 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
+img {
+  max-width: 100%;
+}
+
 /**
  * Remove default margin.
  */

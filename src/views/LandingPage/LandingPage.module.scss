@@ -1,77 +1,17 @@
 @import '../../CSS/base';
 
+.overview {
+  --gap: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
 .cardContainer {
+  --gap: 6rem;
+}
+
+.scroll {
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.concierge {
-  margin-top: 4rem;
-  padding: 2rem;
-  p {
-    max-width: 50ch;
-    margin: 0;
-  }
-  a {
-    display: block;
-    margin-top: 1rem;
-  }
-
-  &_header {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 2rem;
-  }
-
-  &_details {
-    display: flex;
-    flex-direction: column;
-  }
-  &_section {
-    margin-bottom: 2rem;
-    p {
-      max-width: 30ch;
-    }
-    p:last-child {
-      margin-top: 1rem;
-    }
-  }
-}
-
-.explore {
-  &_header {
-    display: flex;
-    flex-direction: column;
-    h2 {
-      max-width: 30ch;
-      margin: 0;
-    }
-  }
-
-  &_scroll {
-    display: flex;
-    margin-bottom: 2rem;
-    button {
-      background-color: transparent;
-      border: none;
-      padding: 0;
-      margin: 0;
-      font-family: $font_main;
-    }
-    button:hover {
-      opacity: 0.6;
-    }
-    button + button {
-      margin-left: 1rem;
-    }
-  }
-
-  .concierge {
-    &_header {
-      flex-direction: row;
-    }
-  }
 }
 
 @media (min-width: $media_tablet) {
