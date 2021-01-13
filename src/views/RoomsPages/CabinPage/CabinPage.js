@@ -7,7 +7,7 @@ import {
   addDate,
   removeDate,
   isDateAvailable,
-} from '../../../services/calendarLogic/multiDayBookingCalendar';
+} from '../../../services/calendarLogic/blockBookingCalendar.js';
 import FadeInTransition from '../../../components/FadeInTransition/FadeInTransition';
 import styles from '../RoomsPage.module.scss';
 
@@ -95,6 +95,7 @@ const CabinPage = () => {
         addDate={addDate}
         removeDate={removeDate}
         isDateAvailable={isDateAvailable}
+        title="The Edaward Cabin"
       />
       <div className="bg--light section ">
         <div className={`container flow-vert-lg`}>

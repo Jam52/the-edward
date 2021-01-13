@@ -7,6 +7,7 @@ import {
   fetchLodgifyRatesData,
   fetchLodgifyAvailabilityData,
 } from '../../services/lodgifyApi/lodgifyApi';
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 const dayjs = require('dayjs');
 var customParseFormat = require('dayjs/plugin/customParseFormat');
 dayjs.extend(customParseFormat);
@@ -28,10 +29,6 @@ class BookingBar extends Component {
       let availabilityData = await fetchLodgifyAvailabilityData(
         this.props.propertyId,
       );
-      availabilityData = availabilityData.filter(
-        (booking) => !booking.is_available,
-      );
-
       let rateData = await fetchLodgifyRatesData(
         this.props.propertyId,
         this.props.roomTypeId,
@@ -60,6 +57,7 @@ class BookingBar extends Component {
       this.state.lodgifyAvailabilityData,
       this.state.selectedDates,
     );
+    console.log(newDates);
     if (newDates) {
       this.setState({
         selectedDates: newDates,
@@ -75,8 +73,13 @@ class BookingBar extends Component {
     this.setState({ selectedDates: newSelectedDates });
   };
 
-  toggleCalendar = () => {
-    this.setState({ showCalendar: !this.state.showCalendar });
+  showCalendar = () => {
+    disableBodyScroll(Calendar);
+    this.setState({ showCalendar: true });
+  };
+  hideCalendar = () => {
+    enableBodyScroll(Calendar);
+    this.setState({ showCalendar: false });
   };
 
   render() {
@@ -93,7 +96,8 @@ class BookingBar extends Component {
       <Aux>
         {this.state.showCalendar ? (
           <Calendar
-            close={this.toggleCalendar}
+            ref={this.targetRef}
+            close={this.hideCalendar}
             addDate={this.addDate}
             selectedDates={this.state.selectedDates}
             remove={this.removeDate}
@@ -113,11 +117,11 @@ class BookingBar extends Component {
           }`}
         >
           <div className={`container ${styles.bookingbar_container}`}>
-            <h2>The Edaward House</h2>
+            <h2>{this.props.title}</h2>
             <p className={styles.bookingbar_cost}>{this.state.cost}</p>
             <div
               className={styles.bookingbar_dates}
-              onClick={this.toggleCalendar}
+              onClick={this.showCalendar}
             >
               <img
                 src={process.env.PUBLIC_URL + '/images/calendar.png'}
@@ -158,7 +162,14 @@ class BookingBar extends Component {
                 Book Now
               </button>
             ) : (
-              <button className="btn btn--light" onClick={this.toggleCalendar}>
+              <button
+                className="btn btn--light"
+                onClick={
+                  !this.state.showCalendar
+                    ? this.showCalendar
+                    : this.hideCalendar
+                }
+              >
                 {this.state.showCalendar ? 'Close' : 'Availability'}
               </button>
             )}
