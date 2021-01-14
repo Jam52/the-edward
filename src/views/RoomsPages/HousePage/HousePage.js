@@ -84,7 +84,7 @@ const HousePage = () => {
       </div>
       <div ref={ref}></div>
       <BookingBar
-        cost={'From $675/night'}
+        cost={'$675/night +tax'}
         propertyId={309275}
         roomTypeId={374215}
         show={showBooking}

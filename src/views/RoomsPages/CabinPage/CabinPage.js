@@ -40,7 +40,7 @@ const CabinPage = () => {
 
   return (
     <div
-      data-testid="component-house-page"
+      data-testid="component-cabin-page"
       className={`control-flow-vert ${styles.housePage}`}
     >
       <div className={`container control-flow-vert ${styles.container}`}>
@@ -80,7 +80,7 @@ const CabinPage = () => {
                 aria-label="scroll to loft overview"
                 onClick={() => exicuteScrollTo(detailsRef)}
               >
-                See House Details
+                See Cabin Details
               </button>
             </div>
           </div>
@@ -88,7 +88,7 @@ const CabinPage = () => {
       </div>
       <div ref={ref}></div>
       <BookingBar
-        cost={'From $675/night'}
+        cost={'$615/Weekend +tax'}
         propertyId={314113}
         roomTypeId={379185}
         show={showBooking}
