@@ -155,15 +155,19 @@ class BookingBar extends Component {
               <p>{orderedDates[1]}</p>
             </div>
             {this.state.selectedDates.length === 2 ? (
-              <button
-                className={`btn btn--light ${styles.booknow}`}
-                onClick={this.toggleCalendar}
+              <a
+                className={`btn btn--light ${styles.booknow} ${styles.button}`}
+                href={`https://checkout.lodgify.com/payam-shalchian/en/?currency=CAD#/${
+                  this.props.propertyId
+                }/${this.state.selectedDates[0].format(
+                  'YYYYMMDD',
+                )},${this.state.selectedDates[1].format('YYYYMMDD')},1/-`}
               >
                 Book Now
-              </button>
+              </a>
             ) : (
               <button
-                className="btn btn--light"
+                className={`btn btn--light ${styles.button}`}
                 onClick={
                   !this.state.showCalendar
                     ? this.showCalendar
