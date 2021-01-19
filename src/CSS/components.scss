@@ -98,6 +98,19 @@
   }
 }
 
+.arrow {
+  height: 1.5rem;
+  width: 4rem;
+  cursor: pointer;
+  &[aria-disabled='true'] {
+    opacity: 0.2;
+  }
+
+  &:hover {
+    opacity: 0.4;
+  }
+}
+
 @media (min-width: $media_computer_large) {
   .explore-section {
     min-height: auto;
