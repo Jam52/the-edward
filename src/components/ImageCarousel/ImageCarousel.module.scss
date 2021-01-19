@@ -1,0 +1,41 @@
+@import '../../CSS/base';
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 80vmin;
+  // min-height: 25rem;
+  margin: 0;
+}
+
+.arrows {
+  margin-top: 1rem;
+  img {
+    height: 1.5rem;
+    width: 4rem;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.4;
+    }
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  transition: transform 0.5s ease-out;
+}
+
+.content > * + * {
+  margin-left: 15px;
+}
+
+.slide {
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}

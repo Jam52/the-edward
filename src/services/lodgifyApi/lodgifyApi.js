@@ -40,3 +40,19 @@ export const fetchLodgifyAvailabilityData = async (propertyId) => {
     console.log(error);
   }
 };
+
+export const fetchLodgifyImages = async (propertyId) => {
+  const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
+  const url = `https://api.lodgify.com/v2/properties/${propertyId}/rooms`;
+
+  try {
+    let imageData = await axios.get(proxyurl + url, {
+      headers: {
+        'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
+      },
+    });
+    return await imageData.data[0].images;
+  } catch (error) {
+    console.log(error);
+  }
+};
