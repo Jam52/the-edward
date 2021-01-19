@@ -22,7 +22,7 @@ const CarouselContent = (props) => {
     setTranslateMod(possitionDiff);
     setTouchEnd(possitionX);
   };
-  const handleMoveEnd = (event) => {
+  const handleMoveEnd = () => {
     setTouchStart(0);
     setTranslateMod(0);
     setTouchEnd(0);
@@ -35,11 +35,12 @@ const CarouselContent = (props) => {
   };
 
   const handleMouseStart = (event) => {
+    event.preventDefault();
     setTouchStart(event.clientX);
   };
   const handleMouseMove = (event) => {
+    const possitionX = event.clientX;
     if (touchStart > 0) {
-      const possitionX = event.clientX;
       const possitionDiff = possitionX - touchStart;
       setTranslateMod(possitionDiff);
       setTouchEnd(possitionX);
@@ -59,6 +60,7 @@ const CarouselContent = (props) => {
       onMouseDown={(event) => handleMouseStart(event)}
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseUp={handleMoveEnd}
+      draggable
     >
       {props.images
         ? props.images.map((imageUrl, index) => {

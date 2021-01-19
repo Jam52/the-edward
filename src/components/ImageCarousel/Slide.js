@@ -3,13 +3,14 @@ import styles from './ImageCarousel.module.scss';
 
 const Slide = (props) => {
   return (
-    <div
+    <img
+      src={props.url.url}
       style={{
-        backgroundImage: `url(${props.url.url})`,
-        width: `${props.width() * 0.8}px`,
+        width: `${props.width() * 0.9}px`,
       }}
       className={styles.slide}
-    ></div>
+      alt={props.url.text}
+    />
   );
 };
 

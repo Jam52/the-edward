@@ -47,7 +47,7 @@ const ImageCarousel = (props) => {
     }
     setState({
       ...state,
-      translate: (-getWidth() * 0.8 - 15) * imgCount - 15,
+      translate: (-getWidth() * 0.9 - 15) * imgCount - 15,
       currentImg: imgCount,
     });
   };
@@ -60,7 +60,7 @@ const ImageCarousel = (props) => {
     }
     setState({
       ...state,
-      translate: (-getWidth() * 0.8 - 15) * imgCount,
+      translate: (-getWidth() * 0.9 - 15) * imgCount,
       currentImg: imgCount,
     });
   };
@@ -79,19 +79,22 @@ const ImageCarousel = (props) => {
       </div>
       <div className={styles.arrows}>
         <img
+          role="button"
+          aria-label="previouse image"
+          aria-disabled={state.currentImg === 0 ? true : false}
           src={process.env.PUBLIC_URL + '/images/arrow.svg'}
           alt=""
           onClick={() => prevImg()}
-          style={state.currentImg === 0 ? { opacity: '0.2' } : null}
         />
         <img
+          role="button"
+          aria-label="next image"
           src={process.env.PUBLIC_URL + '/images/arrow.svg'}
           alt=""
-          style={
-            state.currentImg === images.imageUrls.length - 1
-              ? { opacity: '0.2', transform: 'rotate(180deg)' }
-              : { transform: 'rotate(180deg)' }
+          aria-disabled={
+            state.currentImg === images.imageUrls.length - 1 ? true : false
           }
+          style={{ transform: 'rotate(180deg)' }}
           onClick={() => nextImg()}
         />
       </div>
