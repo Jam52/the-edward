@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import styles from './ImageCarousel.module.scss';
 import CarouselContent from './CarouselContent';
 import { fetchLodgifyImages } from '../../services/lodgifyApi/lodgifyApi';
+import Spinner from '../Spinner/Spinner';
 
 const ImageCarousel = (props) => {
   const [images, setImages] = useState({
@@ -68,14 +69,18 @@ const ImageCarousel = (props) => {
   return (
     <div data-testid="component-image-carousel" ref={carouselRef}>
       <div className={styles.container}>
-        <CarouselContent
-          transition={transition}
-          translate={translate}
-          width={() => getWidth()}
-          images={images.imageUrls}
-          swipeNext={() => nextImg()}
-          swipePrev={() => prevImg()}
-        />
+        {images.imageUrls.length > 0 ? (
+          <CarouselContent
+            transition={transition}
+            translate={translate}
+            width={() => getWidth()}
+            images={images.imageUrls}
+            swipeNext={() => nextImg()}
+            swipePrev={() => prevImg()}
+          />
+        ) : (
+          <Spinner />
+        )}
       </div>
       <div className={styles.arrows}>
         <img
