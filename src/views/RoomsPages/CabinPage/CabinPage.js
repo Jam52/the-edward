@@ -9,6 +9,7 @@ import {
   isDateAvailable,
 } from '../../../services/calendarLogic/blockBookingCalendar.js';
 import FadeInTransition from '../../../components/FadeInTransition/FadeInTransition';
+import ImageCarousel from '../../../components/ImageCarousel/ImageCarousel';
 import styles from '../RoomsPage.module.scss';
 
 const CabinPage = () => {
@@ -99,11 +100,9 @@ const CabinPage = () => {
       />
       <div className="bg--light section ">
         <div className={`container flow-vert-lg`}>
-          <ImageContainer
-            landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-            portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-            alt="Yellow house under bright blue sky"
-          />
+          <div className={styles.imageCarousel}>
+            <ImageCarousel propertyId={314113} />
+          </div>
           <div ref={detailsRef}>
             <CabinDetails />
           </div>

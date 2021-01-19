@@ -156,7 +156,7 @@ class BookingBar extends Component {
             </div>
             {this.state.selectedDates.length === 2 ? (
               <a
-                className={`btn btn--light ${styles.booknow} ${styles.button}`}
+                className={`btn btn--light btn--med ${styles.booknow} ${styles.button}`}
                 href={`https://checkout.lodgify.com/payam-shalchian/en/?currency=CAD#/${
                   this.props.propertyId
                 }/${this.state.selectedDates[0].format(
@@ -167,7 +167,7 @@ class BookingBar extends Component {
               </a>
             ) : (
               <button
-                className={`btn ${styles.button}`}
+                className={`btn btn--med ${styles.button}`}
                 onClick={
                   !this.state.showCalendar
                     ? this.showCalendar
