@@ -47,7 +47,7 @@ const ImageCarousel = (props) => {
     }
     setState({
       ...state,
-      translate: (-getWidth() * 0.9 - 15) * imgCount - 15,
+      translate: (-getWidth() * 0.85 - 15) * imgCount,
       currentImg: imgCount,
     });
   };
@@ -60,7 +60,7 @@ const ImageCarousel = (props) => {
     }
     setState({
       ...state,
-      translate: (-getWidth() * 0.9 - 15) * imgCount,
+      translate: (-getWidth() * 0.85 - 15) * imgCount,
       currentImg: imgCount,
     });
   };

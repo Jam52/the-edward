@@ -6,7 +6,7 @@ const Slide = (props) => {
     <img
       src={props.url.url}
       style={{
-        width: `${props.width() * 0.9}px`,
+        width: `${props.width() * 0.85}px`,
       }}
       className={styles.slide}
       alt={props.url.text}
