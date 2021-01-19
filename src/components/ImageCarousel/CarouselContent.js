@@ -22,13 +22,27 @@ const CarouselContent = (props) => {
     setTranslateMod(possitionDiff);
     setTouchEnd(possitionX);
   };
-  const handleTouchEnd = (event) => {
+  const handleMoveEnd = (event) => {
+    setTouchStart(0);
     setTranslateMod(0);
+    setTouchEnd(0);
     if (touchStart - touchEnd > 50) {
       props.swipeNext();
     }
     if (touchStart - touchEnd < -50) {
       props.swipePrev();
+    }
+  };
+
+  const handleMouseStart = (event) => {
+    setTouchStart(event.clientX);
+  };
+  const handleMouseMove = (event) => {
+    if (touchStart > 0) {
+      const possitionX = event.clientX;
+      const possitionDiff = possitionX - touchStart;
+      setTranslateMod(possitionDiff);
+      setTouchEnd(possitionX);
     }
   };
 
@@ -41,7 +55,10 @@ const CarouselContent = (props) => {
       className={styles.content}
       onTouchStart={(event) => handleTouchStart(event)}
       onTouchMove={(event) => handleTouchMove(event)}
-      onTouchEnd={(event) => handleTouchEnd(event)}
+      onTouchEnd={handleMoveEnd}
+      onMouseDown={(event) => handleMouseStart(event)}
+      onMouseMove={(event) => handleMouseMove(event)}
+      onMouseUp={handleMoveEnd}
     >
       {props.images
         ? props.images.map((imageUrl, index) => {
