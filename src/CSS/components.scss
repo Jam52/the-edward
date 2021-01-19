@@ -105,10 +105,11 @@
   &[aria-disabled='true'] {
     opacity: 0.2;
   }
+}
 
-  &:hover {
-    opacity: 0.4;
-  }
+.arrow--sm {
+  height: 1rem;
+  width: 3rem;
 }
 
 @media (min-width: $media_computer_large) {
