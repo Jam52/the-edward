@@ -10,7 +10,7 @@
   font-family: $font-main;
 
   &_header {
-    padding: 1rem;
+    padding: 1rem 0;
     background-color: $color_light_beige;
     color: black;
     display: flex;
@@ -18,7 +18,7 @@
     align-items: center;
 
     div {
-      min-width: 50%;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -103,6 +103,7 @@
     display: none;
     stroke-width: 5;
     stroke: black;
+    cursor: pointer;
   }
 }
 
@@ -114,6 +115,10 @@
   min-height: 20rem;
   max-width: 30rem;
   background-color: white;
+}
+
+.inner_container {
+  padding: 0 1rem;
 }
 
 .table {
@@ -160,7 +165,7 @@
     }
   }
 
-  .table {
+  .inner_container {
     padding: 0 4rem;
   }
 }

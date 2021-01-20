@@ -92,7 +92,7 @@ const Calendar = (props) => {
         {props.unavailableDates.length > 0 ? (
           <div className={styles.container}>
             <div className={styles.calendar_header}>
-              <div>
+              <div className={styles.inner_container}>
                 <img
                   src={process.env.PUBLIC_URL + '/images/arrow.svg'}
                   data-testid="backward-one-month"
@@ -132,6 +132,8 @@ const Calendar = (props) => {
 
               <svg
                 onClick={props.close}
+                role="button"
+                aria-label="close calendar"
                 height="1.5rem"
                 viewBox="0 0 100 100"
                 width="1.5rem"
@@ -142,7 +144,7 @@ const Calendar = (props) => {
               </svg>
             </div>
 
-            <table className={styles.table}>
+            <table className={`${styles.table} ${styles.inner_container}`}>
               <thead>
                 <tr className={styles.table_weekdays}>
                   <th>sun</th>
