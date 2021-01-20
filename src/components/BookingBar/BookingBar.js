@@ -128,30 +128,12 @@ class BookingBar extends Component {
                 alt="calendar"
               />
               <p>{orderedDates[0]}</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                version="1.1"
-                id="Layer_1"
-                x="0px"
-                y="0px"
-                width="3rem"
-                height="1rem"
-                viewBox="0 0 150 50"
-                enableBackground="new 0 0 150 50"
-              >
-                <g>
-                  <line
-                    stroke="#000000"
-                    strokeWidth="6"
-                    strokeMiterlimit="10"
-                    x1="1.266"
-                    y1="24.704"
-                    x2="125.302"
-                    y2="24.704"
-                  />
-                  <polygon points="124.396,6.284 124.396,44.606 148.349,23.69  " />
-                </g>
-              </svg>
+              <img
+                src={process.env.PUBLIC_URL + '/images/arrow.svg'}
+                className="arrow arrow--sm"
+                alt=""
+                style={{ transform: 'rotate(180deg)' }}
+              />
               <p>{orderedDates[1]}</p>
             </div>
             {this.state.selectedDates.length === 2 ? (

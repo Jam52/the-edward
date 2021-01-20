@@ -42,15 +42,14 @@
 }
 
 .Container {
-  position: relative;
   height: 100%;
   width: 100%;
 }
 
 .LoaderContainer {
   position: absolute;
-  padding-top: 40%;
-  width: 40%;
+  width: 10rem;
+  height: 10rem;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
