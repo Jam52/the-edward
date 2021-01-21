@@ -7,7 +7,7 @@ const Slide = (props) => {
       src={props.url.url}
       className={styles.slide}
       alt={props.url.text}
-      style={{ width: props.width() - 15 }}
+      style={{ width: props.width }}
     />
   );
 };

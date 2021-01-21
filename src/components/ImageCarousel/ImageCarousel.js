@@ -33,37 +33,94 @@ const ImageCarousel = (props) => {
     return carouselRef.current.offsetWidth;
   };
 
-  const nextImg = () => {
-    let images = document.getElementById('images');
-    let lastChild = images.lastElementChild;
-    lastChild.style.width = '0';
-    setTimeout(() => {
-      images.insertBefore(lastChild, images.childNodes[0]);
-      images.firstElementChild.style.width = `${getWidth() - 15}px`;
-    }, 500);
-  };
-
   const prevImg = () => {
     let images = document.getElementById('images');
+    let lastChild = images.lastElementChild;
+    lastChild.style.width = '0px';
+    setTimeout(() => {
+      images.insertBefore(lastChild, images.childNodes[0]);
+      images.firstElementChild.style.width = `${100 / state.imageUrls.length}%`;
+    }, 300);
+  };
+
+  const nextImg = () => {
+    let images = document.getElementById('images');
     let firstChild = images.firstElementChild;
-    firstChild.style.width = '0';
+    firstChild.style.width = '0px';
     images.appendChild(firstChild);
-    images.lastElementChild.style.width = `${getWidth() - 15}px`;
+    images.lastElementChild.style.width = '0px';
+    setTimeout(() => {
+      images.lastElementChild.style.width = `${100 / state.imageUrls.length}%`;
+    }, 100);
   };
 
   const renderSlides = state.imageUrls.map((image, index) => {
-    return <Slide url={image} width={getWidth} key={index} />;
+    return (
+      <Slide
+        url={image}
+        width={`${100 / state.imageUrls.length}%`}
+        key={index}
+      />
+    );
   });
+
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [translateMod, setTranslateMod] = useState(0);
+
+  // const handleTouchStart = (event) => {
+  //   setTouchStart(event.targetTouches[0].clientX);
+  // };
+  // const handleTouchMove = (event) => {
+  //   const possitionX = event.targetTouches[0].clientX;
+  //   const possitionDiff = possitionX - touchStart;
+  //   console.log(possitionDiff);
+  //   setTranslateMod(possitionDiff);
+  //   setTouchEnd(possitionX);
+  // };
+  // const handleMoveEnd = () => {
+  //   setTouchStart(0);
+  //   setTranslateMod(0);
+  //   setTouchEnd(0);
+  //   if (touchStart - touchEnd > 50) {
+  //     props.swipeNext();
+  //   }
+  //   if (touchStart - touchEnd < -50) {
+  //     props.swipePrev();
+  //   }
+  // };
+
+  // const handleMouseStart = (event) => {
+  //   event.preventDefault();
+  //   setTouchStart(event.clientX);
+  // };
+  // const handleMouseMove = (event) => {
+  //   const possitionX = event.clientX;
+  //   if (touchStart > 0) {
+  //     const possitionDiff = possitionX - touchStart;
+  //     setTranslateMod(possitionDiff);
+  //     setTouchEnd(possitionX);
+  //   }
+  // };
 
   return (
     <div data-testid="component-image-carousel">
       <div className={styles.container}>
-        <div className={styles.inner_container} ref={carouselRef}>
+        <div
+          className={styles.inner_container}
+          ref={carouselRef}
+          style={{
+            transform: `translateX(${-props.transform + translateMod}px)`,
+          }}
+        >
           {state.imageUrls.length > 0 ? (
             <div
               className={styles.content}
               id="images"
-              style={{ width: getWidth() * (state.imageUrls.length - 2) }}
+              style={{
+                width: `${state.imageUrls.length * 100}%`,
+                transform: `translateX(${`-${100 / state.imageUrls.length}%`})`,
+              }}
             >
               {renderSlides}
             </div>
