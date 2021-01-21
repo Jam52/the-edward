@@ -5,11 +5,9 @@ const Slide = (props) => {
   return (
     <img
       src={props.url.url}
-      style={{
-        width: `${props.width() * 0.85}px`,
-      }}
       className={styles.slide}
       alt={props.url.text}
+      style={{ width: props.width() - 15 }}
     />
   );
 };

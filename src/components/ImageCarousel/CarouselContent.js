@@ -9,7 +9,7 @@ const CarouselContent = (props) => {
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
-    setWidth(props.width() * props.images.length);
+    setWidth(props.width() * props.numImages);
   }, [props]);
 
   const handleTouchStart = (event) => {
@@ -51,7 +51,9 @@ const CarouselContent = (props) => {
     <div
       style={{
         width: `${width}px`,
-        transform: `translateX(${props.translate + translateMod}px)`,
+        transform: `translateX(${
+          -props.width() + props.transform + translateMod
+        }px)`,
       }}
       className={styles.content}
       onTouchStart={(event) => handleTouchStart(event)}
@@ -60,7 +62,6 @@ const CarouselContent = (props) => {
       onMouseDown={(event) => handleMouseStart(event)}
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseUp={handleMoveEnd}
-      draggable
     >
       {props.images
         ? props.images.map((imageUrl, index) => {
