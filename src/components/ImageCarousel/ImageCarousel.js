@@ -70,7 +70,6 @@ const ImageCarousel = (props) => {
   const handleTouchMove = (event) => {
     const possitionX = event.targetTouches[0].clientX;
     const possitionDiff = possitionX - touchStart;
-    console.log(possitionDiff);
     setTranslateMod(possitionDiff);
     setTouchEnd(possitionX);
   };
@@ -102,20 +101,16 @@ const ImageCarousel = (props) => {
   return (
     <div data-testid="component-image-carousel">
       <div className={styles.container}>
-        <div
-          className={styles.inner_container}
-          ref={carouselRef}
-          style={{
-            transform: `translateX(${-props.transform + translateMod}px)`,
-          }}
-        >
+        <div className={styles.inner_container} ref={carouselRef}>
           {state.imageUrls.length > 0 ? (
             <div
               className={styles.content}
               id="images"
               style={{
                 width: `${state.imageUrls.length * 100}%`,
-                transform: `translateX(${`-${100 / state.imageUrls.length}%`})`,
+                transform: `translateX(${`calc(-${
+                  100 / state.imageUrls.length
+                }% + ${translateMod}px)`})`,
               }}
               onTouchStart={(event) => handleTouchStart(event)}
               onTouchMove={(event) => handleTouchMove(event)}
