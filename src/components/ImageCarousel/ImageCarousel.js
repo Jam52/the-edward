@@ -29,10 +29,6 @@ const ImageCarousel = (props) => {
 
   const carouselRef = useRef(null);
 
-  const getWidth = () => {
-    return carouselRef.current.offsetWidth;
-  };
-
   const prevImg = () => {
     let images = document.getElementById('images');
     let lastChild = images.lastElementChild;
@@ -68,40 +64,40 @@ const ImageCarousel = (props) => {
   const [touchEnd, setTouchEnd] = useState(0);
   const [translateMod, setTranslateMod] = useState(0);
 
-  // const handleTouchStart = (event) => {
-  //   setTouchStart(event.targetTouches[0].clientX);
-  // };
-  // const handleTouchMove = (event) => {
-  //   const possitionX = event.targetTouches[0].clientX;
-  //   const possitionDiff = possitionX - touchStart;
-  //   console.log(possitionDiff);
-  //   setTranslateMod(possitionDiff);
-  //   setTouchEnd(possitionX);
-  // };
-  // const handleMoveEnd = () => {
-  //   setTouchStart(0);
-  //   setTranslateMod(0);
-  //   setTouchEnd(0);
-  //   if (touchStart - touchEnd > 50) {
-  //     props.swipeNext();
-  //   }
-  //   if (touchStart - touchEnd < -50) {
-  //     props.swipePrev();
-  //   }
-  // };
+  const handleTouchStart = (event) => {
+    setTouchStart(event.targetTouches[0].clientX);
+  };
+  const handleTouchMove = (event) => {
+    const possitionX = event.targetTouches[0].clientX;
+    const possitionDiff = possitionX - touchStart;
+    console.log(possitionDiff);
+    setTranslateMod(possitionDiff);
+    setTouchEnd(possitionX);
+  };
+  const handleMoveEnd = () => {
+    setTouchStart(0);
+    setTranslateMod(0);
+    setTouchEnd(0);
+    if (touchStart - touchEnd > 50) {
+      nextImg();
+    }
+    if (touchStart - touchEnd < -50) {
+      prevImg();
+    }
+  };
 
-  // const handleMouseStart = (event) => {
-  //   event.preventDefault();
-  //   setTouchStart(event.clientX);
-  // };
-  // const handleMouseMove = (event) => {
-  //   const possitionX = event.clientX;
-  //   if (touchStart > 0) {
-  //     const possitionDiff = possitionX - touchStart;
-  //     setTranslateMod(possitionDiff);
-  //     setTouchEnd(possitionX);
-  //   }
-  // };
+  const handleMouseStart = (event) => {
+    event.preventDefault();
+    setTouchStart(event.clientX);
+  };
+  const handleMouseMove = (event) => {
+    const possitionX = event.clientX;
+    if (touchStart > 0) {
+      const possitionDiff = possitionX - touchStart;
+      setTranslateMod(possitionDiff);
+      setTouchEnd(possitionX);
+    }
+  };
 
   return (
     <div data-testid="component-image-carousel">
@@ -121,6 +117,12 @@ const ImageCarousel = (props) => {
                 width: `${state.imageUrls.length * 100}%`,
                 transform: `translateX(${`-${100 / state.imageUrls.length}%`})`,
               }}
+              onTouchStart={(event) => handleTouchStart(event)}
+              onTouchMove={(event) => handleTouchMove(event)}
+              onTouchEnd={handleMoveEnd}
+              onMouseDown={(event) => handleMouseStart(event)}
+              onMouseMove={(event) => handleMouseMove(event)}
+              onMouseUp={handleMoveEnd}
             >
               {renderSlides}
             </div>
