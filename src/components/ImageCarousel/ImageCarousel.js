@@ -1,25 +1,25 @@
 import React, { useRef, useState, useEffect } from 'react';
 import styles from './ImageCarousel.module.scss';
-import CarouselContent from './CarouselContent';
 import { fetchLodgifyImages } from '../../services/lodgifyApi/lodgifyApi';
 import Spinner from '../Spinner/Spinner';
+import Slide from './Slide';
 
 const ImageCarousel = (props) => {
-  const [images, setImages] = useState({
+  const [state, setState] = useState({
     loading: false,
     imageUrls: [],
+    direction: '',
   });
 
   useEffect(() => {
     async function fetchData() {
-      setImages({ loading: true, imageUrls: [] });
+      setState({ loading: true, imageUrls: [] });
       try {
         const images = await fetchLodgifyImages(props.propertyId);
-        setImages({
+        setState({
           loading: false,
-          imageUrls: await images,
+          imageUrls: [images[images.length - 1], ...images, images[0]],
         });
-        console.log(await images);
       } catch (error) {
         console.log(error);
       }
@@ -29,64 +29,107 @@ const ImageCarousel = (props) => {
 
   const carouselRef = useRef(null);
 
-  const getWidth = () => {
-    return carouselRef.current.offsetWidth;
+  const prevImg = () => {
+    let images = document.getElementById('images');
+    let lastChild = images.lastElementChild;
+    lastChild.style.width = '0px';
+    setTimeout(() => {
+      images.insertBefore(lastChild, images.childNodes[0]);
+      images.firstElementChild.style.width = `${100 / state.imageUrls.length}%`;
+    }, 300);
   };
-
-  const [state, setState] = useState({
-    translate: 0,
-    transition: 4.5,
-    currentImg: 0,
-  });
-
-  const { translate, transition } = state;
 
   const nextImg = () => {
-    let imgCount = state.currentImg;
-    if (imgCount < images.imageUrls.length - 1) {
-      imgCount += 1;
-    }
-    setState({
-      ...state,
-      translate: (-getWidth() * 0.85 - 15) * imgCount,
-      currentImg: imgCount,
-    });
+    let images = document.getElementById('images');
+    let firstChild = images.firstElementChild;
+    firstChild.style.width = '0px';
+    images.appendChild(firstChild);
+    images.lastElementChild.style.width = '0px';
+    setTimeout(() => {
+      images.lastElementChild.style.width = `${100 / state.imageUrls.length}%`;
+    }, 100);
   };
 
-  const prevImg = () => {
-    console.log(state.currentImg);
-    let imgCount = state.currentImg;
-    if (imgCount > 0) {
-      imgCount--;
+  const renderSlides = state.imageUrls.map((image, index) => {
+    return (
+      <Slide
+        url={image}
+        width={`${100 / state.imageUrls.length}%`}
+        key={index}
+      />
+    );
+  });
+
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+  const [translateMod, setTranslateMod] = useState(0);
+
+  const handleTouchStart = (event) => {
+    setTouchStart(event.targetTouches[0].clientX);
+  };
+  const handleTouchMove = (event) => {
+    const possitionX = event.targetTouches[0].clientX;
+    const possitionDiff = possitionX - touchStart;
+    setTranslateMod(possitionDiff);
+    setTouchEnd(possitionX);
+  };
+  const handleMoveEnd = () => {
+    setTouchStart(0);
+    setTranslateMod(0);
+    setTouchEnd(0);
+    if (touchStart - touchEnd > 50) {
+      nextImg();
     }
-    setState({
-      ...state,
-      translate: (-getWidth() * 0.85 - 15) * imgCount,
-      currentImg: imgCount,
-    });
+    if (touchStart - touchEnd < -50) {
+      prevImg();
+    }
+  };
+
+  const handleMouseStart = (event) => {
+    event.preventDefault();
+    setTouchStart(event.clientX);
+  };
+  const handleMouseMove = (event) => {
+    const possitionX = event.clientX;
+    if (touchStart > 0) {
+      const possitionDiff = possitionX - touchStart;
+      setTranslateMod(possitionDiff);
+      setTouchEnd(possitionX);
+    }
   };
 
   return (
-    <div data-testid="component-image-carousel" ref={carouselRef}>
+    <div data-testid="component-image-carousel">
       <div className={styles.container}>
-        {images.imageUrls.length > 0 ? (
-          <CarouselContent
-            transition={transition}
-            translate={translate}
-            width={() => getWidth()}
-            images={images.imageUrls}
-            swipeNext={() => nextImg()}
-            swipePrev={() => prevImg()}
-          />
-        ) : (
-          <Spinner />
-        )}
+        <div className={styles.inner_container} ref={carouselRef}>
+          {state.imageUrls.length > 0 ? (
+            <div
+              className={styles.content}
+              id="images"
+              style={{
+                width: `${state.imageUrls.length * 100}%`,
+                transform: `translateX(${`calc(-${
+                  100 / state.imageUrls.length
+                }% + ${translateMod}px)`})`,
+              }}
+              onTouchStart={(event) => handleTouchStart(event)}
+              onTouchMove={(event) => handleTouchMove(event)}
+              onTouchEnd={handleMoveEnd}
+              onMouseDown={(event) => handleMouseStart(event)}
+              onMouseMove={(event) => handleMouseMove(event)}
+              onMouseUp={handleMoveEnd}
+            >
+              {renderSlides}
+            </div>
+          ) : (
+            <Spinner />
+          )}
+        </div>
       </div>
       <div className={styles.arrows}>
         <img
           role="button"
           aria-label="previouse image"
-          aria-disabled={state.currentImg === 0 ? true : false}
           src={process.env.PUBLIC_URL + '/images/arrow.svg'}
           alt=""
           onClick={() => prevImg()}
@@ -95,10 +138,6 @@ const ImageCarousel = (props) => {
           role="button"
           aria-label="next image"
           src={process.env.PUBLIC_URL + '/images/arrow.svg'}
-          alt=""
-          aria-disabled={
-            state.currentImg === images.imageUrls.length - 1 ? true : false
-          }
           style={{ transform: 'rotate(180deg)' }}
           onClick={() => nextImg()}
         />

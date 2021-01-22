@@ -6,11 +6,6 @@ const CarouselContent = (props) => {
   const [touchStart, setTouchStart] = useState(0);
   const [touchEnd, setTouchEnd] = useState(0);
   const [translateMod, setTranslateMod] = useState(0);
-  const [width, setWidth] = useState(0);
-
-  useEffect(() => {
-    setWidth(props.width() * props.images.length);
-  }, [props]);
 
   const handleTouchStart = (event) => {
     setTouchStart(event.targetTouches[0].clientX);
@@ -50,8 +45,9 @@ const CarouselContent = (props) => {
   return (
     <div
       style={{
-        width: `${width}px`,
-        transform: `translateX(${props.translate + translateMod}px)`,
+        transform: `translateX(${
+          -props.width() + props.transform + translateMod
+        }px)`,
       }}
       className={styles.content}
       onTouchStart={(event) => handleTouchStart(event)}
@@ -60,7 +56,6 @@ const CarouselContent = (props) => {
       onMouseDown={(event) => handleMouseStart(event)}
       onMouseMove={(event) => handleMouseMove(event)}
       onMouseUp={handleMoveEnd}
-      draggable
     >
       {props.images
         ? props.images.map((imageUrl, index) => {
