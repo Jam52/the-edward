@@ -40,13 +40,26 @@ const Footer = () => {
             House
           </NavLink>
           <NavLink
+            to="/loft"
+            className={styles.nav}
+            activeClassName={styles.active}
+          >
+            Loft
+          </NavLink>
+          {/* <NavLink
             to="/cabin"
             className={styles.nav}
             activeClassName={styles.active}
           >
             Cabin
-          </NavLink>
-          {/* <NavLink to="/about" className={styles.nav} activeClassName={styles.active}>About</NavLink> */}
+          </NavLink> */}
+          {/* <NavLink
+            to="/about"
+            className={styles.nav}
+            activeClassName={styles.active}
+          >
+            About
+          </NavLink> */}
         </div>
       </div>
     </footer>

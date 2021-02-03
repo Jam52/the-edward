@@ -18,8 +18,6 @@
 .arrows {
   margin-top: 1rem;
   img {
-    height: 1.5rem;
-    width: 4rem;
     cursor: pointer;
     &[aria-disabled='true'] {
       opacity: 0.2;
