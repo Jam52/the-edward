@@ -124,8 +124,9 @@ class BookingBar extends Component {
               onClick={this.showCalendar}
             >
               <img
-                src={process.env.PUBLIC_URL + '/images/calendar.png'}
+                src={process.env.PUBLIC_URL + '/images/Calendar.svg'}
                 alt="calendar"
+                className={styles.calendarLogo}
               />
               <p>{orderedDates[0]}</p>
               <img
