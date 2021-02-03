@@ -19,6 +19,11 @@
   }
 }
 
+.btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .btn--small {
   padding: 0.5em 2em;
 }
@@ -95,6 +100,10 @@
   transition: opacity 0.2s;
   &:hover {
     opacity: 0.5;
+  }
+
+  &--light {
+    color: white;
   }
 }
 

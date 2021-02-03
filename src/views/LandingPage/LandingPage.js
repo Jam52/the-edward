@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
-import Button from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
 import Dropdown from '../../components/Dropdown/Dropdown';
 
@@ -112,10 +111,16 @@ const LandingPage = () => {
               <div className="split">
                 <h2>The Concierge</h2>
                 <p>
-                  We are always here for you. if you have questions or special
-                  requests, please email us at welcome@theedward.ca. Our
-                  customer experience hours of operations are between 9:00 am
-                  and 5:00pm Monday to Friday.
+                  We are always here for you. If you have any questions, please
+                  email us at{' '}
+                  <a
+                    className="internal-link internal-link--light"
+                    href="mailto:welcome@theedward.ca"
+                  >
+                    welcome@theedward.ca.
+                  </a>{' '}
+                  Our customer experience hours of operation are 12:00pm -
+                  5:00pm Monday - Friday.
                 </p>
               </div>
               <Dropdown header="How to find us" color="white">
@@ -150,10 +155,11 @@ const LandingPage = () => {
                   <p style={{ maxWidth: '30ch' }}>
                     Check-in: <strong>4:00pm</strong>
                     <br />
-                    Check-out: <strong>12:00pm</strong>
+                    Check-out: <strong>11:00am</strong>
                     <br />
-                    Please specify if you would prefer a contactless check-in
-                    upon making your reservation.
+                    Please note that we are currently offering contactless
+                    check-in only. Upon booking we will provide with all of the
+                    details for a seamless start to your vacation.
                   </p>
                 </div>
               </Dropdown>
@@ -166,6 +172,11 @@ const LandingPage = () => {
                     <br />
                     Should your plans change, a written cancellation email is
                     required a minimum of 7 days prior to your booking date.
+                    <br />
+                    <br />
+                    Please note that due to COVID19, a small fee of 2.9% of the
+                    total amount paid is non-refundable. It is charged and kept
+                    by our payment system, Stripe.
                   </p>
                 </div>
               </Dropdown>
@@ -176,12 +187,11 @@ const LandingPage = () => {
         <section className="explore-section">
           <FadeInTransition>
             <div className={`container flow-vert explore`}>
-              <p className="explore__main">The Edward Traveler’s Guide</p>
-              <p>
-                How do you best enjoy your time in Ontario’s gastronomical
-                capital?
+              <p>The Edward Traveler’s Guide</p>
+              <p className="explore__main">
+                How to best enjoy your time in Ontario’s gastronomical capital.
               </p>
-              <Button text="See our top picks" to="/andlkdn" />
+              <p className="btn btn--disabled">Comming Soon</p>
             </div>
           </FadeInTransition>
         </section>
