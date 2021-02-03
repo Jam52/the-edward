@@ -37,7 +37,13 @@ const OverviewCard = (props) => {
           ))}
         </ul>
         <h4>Rate</h4>
-        <p data-testid="rate">{props.rate}</p>
+        <p data-testid="rate">
+          {props.rate} <br />
+          <span className={styles.smallPrint}>
+            *Cleaning fees and taxes are applied at checkout
+          </span>
+        </p>
+
         <Button text={`See ${props.roomName}`} to={props.to} />
       </div>
     </div>

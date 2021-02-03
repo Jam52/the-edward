@@ -8,7 +8,7 @@ const Dropdown = (props) => {
   return (
     <div className="flow-vert">
       <div className={styles.divider} />
-      <div className={styles.dropdown}>
+      <div className={styles.dropdown} onClick={() => toggleOpen(!isOpen)}>
         <h3 className={styles.dropdown_header}>{props.header}</h3>
         <ToggleButton
           isOpen={isOpen}

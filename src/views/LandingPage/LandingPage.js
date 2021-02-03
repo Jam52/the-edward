@@ -13,7 +13,6 @@ const LandingPage = () => {
 
   const houseRef = useRef(null);
   const loftRef = useRef(null);
-  const cabinRef = useRef(null);
 
   const exicuteScrollTo = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -34,10 +33,11 @@ const LandingPage = () => {
         <section>
           <FadeInTransition>
             <div className={`container flow-vert explore`}>
+              <p>What guests say about The Edward</p>
               <p className="explore__main">
-                "Five-star luxury; a million star experience."
+                "Peaceful retreat from the busy city life; real luxury."
               </p>
-              <p>- Returning Guests</p>
+
               <a
                 className="btn"
                 href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
@@ -54,10 +54,10 @@ const LandingPage = () => {
               <h2>Make your next visit to wine country memorable.</h2>
               <div className="flow-vert">
                 <p>
-                  Stay with us at one of our three accommodations in Prince
-                  Edward County and treat yourself to a luxurious country
-                  experience nestled in 75 acres of peaceful nature away from
-                  the fast-paced city life.
+                  Let us host you in one of our three beautiful and unique
+                  accommodations. Treat yourself to a luxurious Prince Edward
+                  County experience nestled in 75 acres of peaceful nature, away
+                  from the hustle and bustle of city life.
                 </p>
                 <div className={`flow ${styles.scroll}`}>
                   <button
@@ -74,13 +74,6 @@ const LandingPage = () => {
                   >
                     Loft
                   </button>
-                  <button
-                    className="internal-link"
-                    aria-label="scroll to cabin overview"
-                    onClick={() => exicuteScrollTo(cabinRef)}
-                  >
-                    Cabin
-                  </button>
                 </div>
               </div>
             </div>
@@ -90,9 +83,12 @@ const LandingPage = () => {
               img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
               altImg="Inside of house, white walls dark wood"
               roomName="House"
-              overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for families or a group of friends."
+              overview="With 24ft high atrium ceilings and three
+              grand suites, this light filled two-story house
+              is ideal for families or a group of friends
+              looking for a peaceful getaway"
               occupancy={['6 Adults', '3 Children']}
-              rate="From $675/night + Cleaning Fee"
+              rate="$675 per night"
               to="/house"
             />
 
@@ -102,21 +98,14 @@ const LandingPage = () => {
               img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
               altImg="Inside of loft, white walls, large bed"
               roomName="Loft"
-              overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
+              overview="Soft light through the skylights fill this sweet
+              space with warmth and comfort. Our 2 suite
+              Loft is the perfect spot for a couple or small
+              families to come home to after a day of
+              adventure in the County"
               occupancy={['2 Adults', '2 Children Under 10']}
-              rate="From $275/night + Cleaning Fee"
+              rate="$275 per night"
               to="/loft"
-            />
-
-            <OverviewCard
-              refProp={cabinRef}
-              img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
-              altImg="Glamping style cabin, large glass, amazing wooded surroundings."
-              roomName="Cabin"
-              overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
-              occupancy={['2 Adults', '1 Dog']}
-              rate="From $399(for a 2-night getaway)"
-              to="/cabin"
             />
 
             <section className={`flow-vert-lg inner-section bg--dark`}>
