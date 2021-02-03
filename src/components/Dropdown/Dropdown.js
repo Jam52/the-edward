@@ -16,7 +16,16 @@ const Dropdown = (props) => {
           color={props.color}
         />
       </div>
-      {isOpen ? props.children : null}
+      <div
+        className={
+          isOpen
+            ? `${styles.content_container} ${styles.open}`
+            : styles.content_container
+        }
+      >
+        {' '}
+        {isOpen ? props.children : null}
+      </div>
     </div>
   );
 };
