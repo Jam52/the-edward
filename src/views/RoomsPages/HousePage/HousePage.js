@@ -112,14 +112,11 @@ const HousePage = () => {
       <section className="explore-section">
         <FadeInTransition>
           <div className={`container flow-vert explore`}>
-            <p className="explore__main">The Edward Traveler’s Guide</p>
-            <p>
-              How do you best enjoy your time in Ontario’s gastronomical
-              capital?
+            <p>The Edward Traveler’s Guide</p>
+            <p className="explore__main">
+              How to best enjoy your time in Ontario’s gastronomical capital.
             </p>
-            <a className="btn" href="/andlkdn">
-              See our top picks
-            </a>
+            <p className="btn btn--disabled">Comming Soon</p>
           </div>
         </FadeInTransition>
       </section>

@@ -66,7 +66,7 @@ function LoftDetails() {
           </div>
         </div>
       </Dropdown>
-      <Dropdown header="Breakfasts" color="white">
+      <Dropdown header="Pantry" color="white">
         <div className="split">
           <div></div>
           <DetailList details={loftDetailsData.breakfast} />

@@ -167,12 +167,18 @@ const Calendar = (props) => {
             </table>
             <div className={styles.clearDates}>
               {props.selectedDates.length > 0 ? (
-                <button
-                  className={styles.clearDates_btn}
-                  onClick={() => props.clear()}
-                >
-                  Clear Dates
-                </button>
+                <div>
+                  <img
+                    src={process.env.PUBLIC_URL + './images/Refresh.svg'}
+                    alt="clear dates"
+                  />
+                  <button
+                    className={styles.clearDates_btn}
+                    onClick={() => props.clear()}
+                  >
+                    Clear Dates
+                  </button>
+                </div>
               ) : null}
             </div>
           </div>

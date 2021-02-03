@@ -85,7 +85,7 @@ const LandingPage = () => {
               overview="With 24ft high atrium ceilings and three
               grand suites, this light filled two-story house
               is ideal for families or a group of friends
-              looking for a peaceful getaway"
+              looking for a peaceful getaway."
               occupancy={['6 Adults', '3 Children']}
               rate="$675 per night"
               to="/house"
@@ -101,7 +101,7 @@ const LandingPage = () => {
               space with warmth and comfort. Our 2 suite
               Loft is the perfect spot for a couple or small
               families to come home to after a day of
-              adventure in the County"
+              adventure in the County."
               occupancy={['2 Adults', '2 Children Under 10']}
               rate="$275 per night"
               to="/loft"
