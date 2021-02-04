@@ -6,6 +6,12 @@ const ToggleButton = (props) => {
     ? [styles.menu, styles.rotate].join(' ')
     : styles.menu;
 
+  const onEnterHandler = (event) => {
+    if (event.key === 'Enter') {
+      props.click();
+    }
+  };
+
   return (
     <div
       className={menuButtonStyles}
@@ -15,6 +21,7 @@ const ToggleButton = (props) => {
       tabIndex="0"
       aria-expanded={props.isOpen}
       aria-label="menu"
+      onKeyDown={(event) => onEnterHandler(event)}
     >
       <div style={{ backgroundColor: props.color }} />
       <div style={{ backgroundColor: props.color }} />

@@ -1,10 +1,12 @@
 {
   "breakfast": [
-    { "url": "Granola.svg", "text": "Home-made Granola" },
-    { "url": "Bread.svg", "text": "Artisanal Bread" },
-    { "url": "Eggs.svg", "text": "Farm-fresh Eggs" },
-    { "url": "Milk.svg", "text": "Yogurt, Cream and Milk" },
-    { "url": "Jam.svg", "text": "Jams and Honey" },
+    { "url": "", "text": "All Purpose Flour" },
+    { "url": "Jam.svg", "text": "Sugar and Honey" },
+    { "url": "", "text": "Baking soda and Baking Powder" },
+    { "url": "", "text": "Oats" },
+    { "url": "", "text": "Salt and Pepper" },
+    { "url": "", "text": "Cooking oil" },
+    { "url": "", "text": "Olive oil and Balsamic vinegar" },
     { "url": "Coffee.svg", "text": "Coffee and Tea" }
   ],
   "amenities": [
@@ -24,7 +26,7 @@
   ],
   "houseRules": [
     { "url": "Check In.svg", "text": "Check-in: 4:00pm" },
-    { "url": "Check Out.svg", "text": "Check-out: 12:00pm" },
+    { "url": "Check Out.svg", "text": "Check-out: 11:00pm" },
     { "url": "No Pets.svg", "text": "No Pets" },
     { "url": "No Smoking.svg", "text": "No Smoking" }
   ]

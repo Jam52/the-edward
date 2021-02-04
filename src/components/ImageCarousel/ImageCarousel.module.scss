@@ -18,8 +18,6 @@
 .arrows {
   margin-top: 1rem;
   img {
-    height: 1.5rem;
-    width: 4rem;
     cursor: pointer;
     &[aria-disabled='true'] {
       opacity: 0.2;
@@ -53,15 +51,12 @@
   }
 
   .content > * {
-    transition: all 0.3s;
-    opacity: 0.3;
+    opacity: 0.5;
+  }
 
-    &:nth-child(2) {
+  .content {
+    & img:nth-child(2) {
       opacity: 1;
     }
   }
-
-  // .content > * {
-  //   margin-left: 0.2%;
-  // }
 }
