@@ -19,6 +19,11 @@
   }
 }
 
+.btn--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .btn--small {
   padding: 0.5em 2em;
 }
@@ -96,11 +101,15 @@
   &:hover {
     opacity: 0.5;
   }
+
+  &--light {
+    color: white;
+  }
 }
 
 .arrow {
-  height: 1.5rem;
-  width: 4rem;
+  height: 1.3rem;
+  width: 3.6rem;
   cursor: pointer;
   &[aria-disabled='true'] {
     opacity: 0.2;
@@ -108,8 +117,8 @@
 }
 
 .arrow--sm {
-  height: 1rem;
-  width: 3rem;
+  height: 0.7rem;
+  width: 2.5rem;
 }
 
 @media (min-width: $media_computer_large) {

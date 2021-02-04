@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react';
 import styles from './LandingPage.module.scss';
 import ImageContainer from '../../components/ImageContainer/ImageContainer';
 import OverviewCard from '../../components/OverviewCard/OverviewCard';
-import Button from '../../components/Button/Button';
 import FadeInTransition from '../../components/FadeInTransition/FadeInTransition';
 import Dropdown from '../../components/Dropdown/Dropdown';
 
@@ -13,7 +12,6 @@ const LandingPage = () => {
 
   const houseRef = useRef(null);
   const loftRef = useRef(null);
-  const cabinRef = useRef(null);
 
   const exicuteScrollTo = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -34,10 +32,11 @@ const LandingPage = () => {
         <section>
           <FadeInTransition>
             <div className={`container flow-vert explore`}>
+              <p>What guests say about The Edward</p>
               <p className="explore__main">
-                "Five-star luxury; a million star experience."
+                "Peaceful retreat from the busy city life; real luxury."
               </p>
-              <p>- Returning Guests</p>
+
               <a
                 className="btn"
                 href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
@@ -54,10 +53,10 @@ const LandingPage = () => {
               <h2>Make your next visit to wine country memorable.</h2>
               <div className="flow-vert">
                 <p>
-                  Stay with us at one of our three accommodations in Prince
-                  Edward County and treat yourself to a luxurious country
-                  experience nestled in 75 acres of peaceful nature away from
-                  the fast-paced city life.
+                  Let us host you in one of our three beautiful and unique
+                  accommodations. Treat yourself to a luxurious Prince Edward
+                  County experience nestled in 75 acres of peaceful nature, away
+                  from the hustle and bustle of city life.
                 </p>
                 <div className={`flow ${styles.scroll}`}>
                   <button
@@ -74,13 +73,6 @@ const LandingPage = () => {
                   >
                     Loft
                   </button>
-                  <button
-                    className="internal-link"
-                    aria-label="scroll to cabin overview"
-                    onClick={() => exicuteScrollTo(cabinRef)}
-                  >
-                    Cabin
-                  </button>
                 </div>
               </div>
             </div>
@@ -90,9 +82,12 @@ const LandingPage = () => {
               img={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
               altImg="Inside of house, white walls dark wood"
               roomName="House"
-              overview="With 24ft high atrium ceilings and three grand suites this light filler 3,000 sqft house is ideal for families or a group of friends."
+              overview="With 24ft high atrium ceilings and three
+              grand suites, this light filled two-story house
+              is ideal for families or a group of friends
+              looking for a peaceful getaway."
               occupancy={['6 Adults', '3 Children']}
-              rate="From $675/night + Cleaning Fee"
+              rate="$675 per night"
               to="/house"
             />
 
@@ -102,31 +97,30 @@ const LandingPage = () => {
               img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
               altImg="Inside of loft, white walls, large bed"
               roomName="Loft"
-              overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
+              overview="Soft light through the skylights fill this sweet
+              space with warmth and comfort. Our 2 suite
+              Loft is the perfect spot for a couple or small
+              families to come home to after a day of
+              adventure in the County."
               occupancy={['2 Adults', '2 Children Under 10']}
-              rate="From $275/night + Cleaning Fee"
+              rate="$275 per night"
               to="/loft"
-            />
-
-            <OverviewCard
-              refProp={cabinRef}
-              img={process.env.PUBLIC_URL + '/images/Homepage_Cabin.jpg'}
-              altImg="Glamping style cabin, large glass, amazing wooded surroundings."
-              roomName="Cabin"
-              overview="It all begins with an idea. Maybe you want to launch a business. Maybe you want to turn a hobby into somthing more."
-              occupancy={['2 Adults', '1 Dog']}
-              rate="From $399(for a 2-night getaway)"
-              to="/cabin"
             />
 
             <section className={`flow-vert-lg inner-section bg--dark`}>
               <div className="split">
                 <h2>The Concierge</h2>
                 <p>
-                  We are always here for you. if you have questions or special
-                  requests, please email us at welcome@theedward.ca. Our
-                  customer experience hours of operations are between 9:00 am
-                  and 5:00pm Monday to Friday.
+                  We are always here for you. If you have any questions, please
+                  email us at{' '}
+                  <a
+                    className="internal-link internal-link--light"
+                    href="mailto:welcome@theedward.ca"
+                  >
+                    welcome@theedward.ca.
+                  </a>{' '}
+                  Our customer experience hours of operation are 12:00pm -
+                  5:00pm Monday - Friday.
                 </p>
               </div>
               <Dropdown header="How to find us" color="white">
@@ -161,10 +155,11 @@ const LandingPage = () => {
                   <p style={{ maxWidth: '30ch' }}>
                     Check-in: <strong>4:00pm</strong>
                     <br />
-                    Check-out: <strong>12:00pm</strong>
+                    Check-out: <strong>11:00am</strong>
                     <br />
-                    Please specify if you would prefer a contactless check-in
-                    upon making your reservation.
+                    Please note that we are currently offering contactless
+                    check-in only. Upon booking we will provide with all of the
+                    details for a seamless start to your vacation.
                   </p>
                 </div>
               </Dropdown>
@@ -177,6 +172,11 @@ const LandingPage = () => {
                     <br />
                     Should your plans change, a written cancellation email is
                     required a minimum of 7 days prior to your booking date.
+                    <br />
+                    <br />
+                    Please note that due to COVID19, a small fee of 2.9% of the
+                    total amount paid is non-refundable. It is charged and kept
+                    by our payment system, Stripe.
                   </p>
                 </div>
               </Dropdown>
@@ -187,12 +187,11 @@ const LandingPage = () => {
         <section className="explore-section">
           <FadeInTransition>
             <div className={`container flow-vert explore`}>
-              <p className="explore__main">The Edward Traveler’s Guide</p>
-              <p>
-                How do you best enjoy your time in Ontario’s gastronomical
-                capital?
+              <p>The Edward Traveler’s Guide</p>
+              <p className="explore__main">
+                How to best enjoy your time in Ontario’s gastronomical capital.
               </p>
-              <Button text="See our top picks" to="/andlkdn" />
+              <p className="btn btn--disabled">Comming Soon</p>
             </div>
           </FadeInTransition>
         </section>

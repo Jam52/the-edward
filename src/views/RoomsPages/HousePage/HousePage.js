@@ -13,7 +13,6 @@ import styles from '../RoomsPage.module.scss';
 import ImageCarousel from '../../../components/ImageCarousel/ImageCarousel';
 
 const HousePage = () => {
-  //auto scrolls to the top of the page on load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -56,21 +55,28 @@ const HousePage = () => {
               <h2 className={styles.header}>
                 Welcome to your home away from home.
               </h2>
-              <div>
+              <div className="flow-vert">
                 <h3>Max Occupancy</h3>
                 <ul>
                   <li>6 Adults</li>
                   <li>3 Children under 10</li>
                 </ul>
+                <h3>Rate</h3>
+                <ul>
+                  <li>$675 per night</li>
+                  <li>+ $250 One-time Cleaning Fee</li>
+                  <li>+ Taxes</li>
+                </ul>
               </div>
             </div>
             <div className={`flow-vert ${styles.description}`}>
               <p className={styles.para}>
-                With 24 ft high atrium ceilings and three grand suites this
-                light filled two- storey house is ideal for families or a group
-                of friends. Much love, creativity and attention to detail has
-                gone into curating a space that balances classic and
-                contemporary design and that our guests can call home.
+                With 24ft high atrium ceilings and three grand suites, this
+                light filled two-story house is ideal for families or a group of
+                friends looking for a peaceful getaway. Much love, creativity
+                and attention to detail has gone into curating a space that
+                balances classic and contemporary design and that our guests can
+                call home.
               </p>
               <button
                 className="internal-link"
@@ -85,7 +91,6 @@ const HousePage = () => {
       </div>
       <div ref={ref}></div>
       <BookingBar
-        cost={'$675/night +tax'}
         propertyId={309275}
         roomTypeId={374215}
         show={showBooking}
@@ -107,14 +112,11 @@ const HousePage = () => {
       <section className="explore-section">
         <FadeInTransition>
           <div className={`container flow-vert explore`}>
-            <p className="explore__main">The Edward Traveler’s Guide</p>
-            <p>
-              How do you best enjoy your time in Ontario’s gastronomical
-              capital?
+            <p>The Edward Traveler’s Guide</p>
+            <p className="explore__main">
+              How to best enjoy your time in Ontario’s gastronomical capital.
             </p>
-            <a className="btn" href="/andlkdn">
-              See our top picks
-            </a>
+            <p className="btn btn--disabled">Comming Soon</p>
           </div>
         </FadeInTransition>
       </section>

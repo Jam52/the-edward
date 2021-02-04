@@ -19,7 +19,7 @@ function HouseDetails() {
         <p>
           You will have the house all to yourself. You will also have access to
           The Edward grounds and the outdoor fire pit, private patios and
-          private entrance
+          private entrance.
         </p>
       </div>
       <Dropdown header="Suites" color="white">
@@ -40,7 +40,7 @@ function HouseDetails() {
                   src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
                   alt=""
                 />
-                <p>5-piece Ensuite</p>
+                <p>4-piece Ensuite</p>
               </div>
               <div className={styles.details_icons}>
                 <img
@@ -64,7 +64,14 @@ function HouseDetails() {
                   src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
                   alt=""
                 />
-                <p>5-piece Ensuite</p>
+                <p>3-piece Ensuite</p>
+              </div>
+              <div className={styles.details_icons}>
+                <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bed.svg'}
+                  alt=""
+                />
+                <p>1 Twin Daybed</p>
               </div>
               <p className={styles.details_terms}>
                 * 2 Pop-up cribs are available upon request
@@ -97,7 +104,7 @@ function HouseDetails() {
           </div>
         </div>
       </Dropdown>
-      <Dropdown header="Breakfasts" color="white">
+      <Dropdown header="Pantry" color="white">
         <div className="split">
           <div></div>
           <DetailList details={houseDetailsData.breakfast} />
@@ -124,6 +131,11 @@ function HouseDetails() {
               <br />
               <br /> Should your plans change, a written cancellation email is
               required a minimum of 7 days prior to your booking date.
+              <br />
+              <br />
+              Please note that due to COVID19, a small fee of 2.9% of the total
+              amount paid is non-refundable. It is charged and kept by our
+              payment system, Stripe.
             </p>
             <div></div>
           </div>
