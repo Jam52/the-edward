@@ -1,7 +1,6 @@
 import React from 'react';
 import styles from './OverviewCard.module.scss';
 import PropTypes from 'prop-types';
-import Button from '../Button/Button';
 
 const OverviewCard = (props) => {
   return (
@@ -44,7 +43,7 @@ const OverviewCard = (props) => {
           </span>
         </p>
 
-        <Button text={`See ${props.roomName}`} to={props.to} />
+        <button className="btn btn--small">{props.roomName}</button>
       </div>
     </div>
   );
