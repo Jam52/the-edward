@@ -23,14 +23,19 @@
     padding: 1rem;
     width: 90%;
 
+    h3 {
+      font-family: $font_serif;
+      font-size: 2rem;
+    }
+
     p {
       max-width: 50ch;
     }
   }
 
   &_header {
-    font-family: $font_serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
+    margin: 1rem 0;
   }
 
   &_img {
@@ -53,12 +58,6 @@
   &__left {
     justify-content: flex-end;
   }
-}
-
-.smallPrint {
-  font-style: italic;
-  color: #555;
-  font-size: 0.8rem;
 }
 
 .overview_occupancy {

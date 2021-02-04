@@ -12,11 +12,6 @@ html {
   -webkit-text-size-adjust: 100%; /* 2 */
 }
 
-*:focus {
-  outline: 1.5px solid #b59a79;
-  outline-offset: 5px;
-}
-
 img {
   max-width: 100%;
 }

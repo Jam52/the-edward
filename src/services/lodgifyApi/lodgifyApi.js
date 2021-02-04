@@ -5,7 +5,7 @@ dayjs.extend(customParseFormat);
 
 export const fetchLodgifyRatesData = async (propertyId, roomTypeId) => {
   const currentDate = dayjs().format('YYYY-MM-DD');
-  const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+  const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
   const url = `https://api.lodgify.com/v2/rates/calendar?HouseId=${propertyId}&RoomTypeId=${roomTypeId}&StartDate=${currentDate}&EndDate=${currentDate}`;
   try {
     const apiData = await axios.get(proxyurl + url, {
@@ -21,7 +21,7 @@ export const fetchLodgifyRatesData = async (propertyId, roomTypeId) => {
 
 export const fetchLodgifyAvailabilityData = async (propertyId) => {
   const currentDate = dayjs();
-  const proxyurl = 'https://cors-anywhere.herokuapp.com/';
+  const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
   const url = `https://api.lodgify.com/v1/availability/${propertyId}?periodStart=${currentDate.format(
     'YYYY-MM-DD',
   )}&periodEnd=${currentDate.add(2, 'year').format('YYYY-MM-DD')}`;

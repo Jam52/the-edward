@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.scss';
 
 const Footer = () => {
@@ -23,43 +23,11 @@ const Footer = () => {
         </div>
         <div className={styles.footer_section}>
           <h2>Navigation</h2>
-
-          <NavLink
-            to="/"
-            exact
-            className={styles.nav}
-            activeClassName={styles.active}
-          >
-            Homepage
-          </NavLink>
-          <NavLink
-            to="/house"
-            className={styles.nav}
-            activeClassName={styles.active}
-          >
-            House
-          </NavLink>
-          <NavLink
-            to="/loft"
-            className={styles.nav}
-            activeClassName={styles.active}
-          >
-            Loft
-          </NavLink>
-          {/* <NavLink
-            to="/cabin"
-            className={styles.nav}
-            activeClassName={styles.active}
-          >
-            Cabin
-          </NavLink> */}
-          {/* <NavLink
-            to="/about"
-            className={styles.nav}
-            activeClassName={styles.active}
-          >
-            About
-          </NavLink> */}
+          <Link to="/">Home</Link>
+          <Link to="/house">House</Link>
+          <Link to="/cabin">Cabin</Link>
+          <Link to="/loft">Loft</Link>
+          <Link to="/about">About</Link>
         </div>
       </div>
     </footer>

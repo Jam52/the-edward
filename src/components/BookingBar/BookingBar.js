@@ -118,15 +118,14 @@ class BookingBar extends Component {
         >
           <div className={`container ${styles.bookingbar_container}`}>
             <h2>{this.props.title}</h2>
-
+            <p className={styles.bookingbar_cost}>{this.state.cost}</p>
             <div
               className={styles.bookingbar_dates}
               onClick={this.showCalendar}
             >
               <img
-                src={process.env.PUBLIC_URL + '/images/Calendar.svg'}
+                src={process.env.PUBLIC_URL + '/images/calendar.png'}
                 alt="calendar"
-                className={styles.calendarLogo}
               />
               <p>{orderedDates[0]}</p>
               <img

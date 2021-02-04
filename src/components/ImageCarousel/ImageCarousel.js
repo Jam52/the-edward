@@ -130,7 +130,6 @@ const ImageCarousel = (props) => {
         <img
           role="button"
           aria-label="previouse image"
-          className="arrow"
           src={process.env.PUBLIC_URL + '/images/arrow.svg'}
           alt=""
           onClick={() => prevImg()}
@@ -138,7 +137,6 @@ const ImageCarousel = (props) => {
         <img
           role="button"
           aria-label="next image"
-          className="arrow"
           src={process.env.PUBLIC_URL + '/images/arrow.svg'}
           style={{ transform: 'rotate(180deg)' }}
           onClick={() => nextImg()}

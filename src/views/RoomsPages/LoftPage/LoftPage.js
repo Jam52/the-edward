@@ -60,28 +60,21 @@ const HousePage = () => {
               <h2 className={styles.header}>
                 Welcome to your home away from home.
               </h2>
-              <div className="flow-vert">
+              <div>
                 <h3>Max Occupancy</h3>
                 <ul>
                   <li>6 Adults</li>
                   <li>3 Children under 10</li>
                 </ul>
-                <h3>Rate</h3>
-                <ul>
-                  <li>$275 per night</li>
-                  <li>+ $250 One-time Cleaning Fee</li>
-                  <li>+ Taxes</li>
-                </ul>
               </div>
             </div>
             <div className={`flow-vert ${styles.description}`}>
               <p className={styles.para}>
-                Soft light through the skylights fill this sweet space with
-                warmth and comfort. Our 2 suite Loft is the perfect spot for a
-                couple or small families to come home to after a day of
-                adventure in the County. Inspired by summer breezes and warm
-                beach days, this elegant space is sure to inspire simple
-                pleasures, time spent together and beautiful memories.
+                With 24 ft high atrium ceilings and three grand suites this
+                light filled two- storey house is ideal for families or a group
+                of friends. Much love, creativity and attention to detail has
+                gone into curating a space that balances classic and
+                contemporary design and that our guests can call home.
               </p>
               <button
                 className="internal-link"
@@ -118,11 +111,14 @@ const HousePage = () => {
       <section className="explore-section">
         <FadeInTransition>
           <div className={`container flow-vert explore`}>
-            <p>The Edward Traveler’s Guide</p>
-            <p className="explore__main">
-              How to best enjoy your time in Ontario’s gastronomical capital.
+            <p className="explore__main">The Edward Traveler’s Guide</p>
+            <p>
+              How do you best enjoy your time in Ontario’s gastronomical
+              capital?
             </p>
-            <p className="btn btn--disabled">Comming Soon</p>
+            <a className="btn" href="/andlkdn">
+              See our top picks
+            </a>
           </div>
         </FadeInTransition>
       </section>

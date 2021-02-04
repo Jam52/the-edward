@@ -6,16 +6,6 @@ const NavList = (props) => {
   return (
     <nav className={styles.container}>
       <NavLink
-        to="/"
-        exact
-        className={styles.nav}
-        activeClassName={styles.active}
-        onClick={props.click}
-        tabIndex={props.tabIndex}
-      >
-        Homepage
-      </NavLink>
-      <NavLink
         to="/house"
         className={styles.nav}
         activeClassName={styles.active}
@@ -33,8 +23,17 @@ const NavList = (props) => {
       >
         Loft
       </NavLink>
+      <NavLink
+        to="/cabin"
+        className={styles.nav}
+        activeClassName={styles.active}
+        onClick={props.click}
+        tabIndex={props.tabIndex}
+      >
+        Cabin
+      </NavLink>
 
-      {/* <NavLink
+      <NavLink
         to="/about"
         className={styles.nav}
         activeClassName={styles.active}
@@ -42,7 +41,7 @@ const NavList = (props) => {
         tabIndex={props.tabIndex}
       >
         About
-      </NavLink> */}
+      </NavLink>
     </nav>
   );
 };

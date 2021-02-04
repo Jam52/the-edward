@@ -142,21 +142,12 @@
 .clearDates {
   padding: 1rem;
   background-color: $color_light_beige;
-  div {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: row;
-    img {
-      height: 1.1rem;
-      margin-left: 1rem;
-    }
-    button {
-      display: block;
-      background: none;
-      border: none;
-      text-decoration: underline;
-    }
+  button {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: none;
+    text-decoration: underline;
   }
 }
 
