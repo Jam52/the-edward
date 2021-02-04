@@ -16,9 +16,14 @@ const ImageCarousel = (props) => {
       setState({ loading: true, imageUrls: [] });
       try {
         const images = await fetchLodgifyImages(props.propertyId);
+        const imageArr = [
+          images[images.length - 1],
+          ...images.slice(1),
+          images[0],
+        ];
         setState({
           loading: false,
-          imageUrls: [images[images.length - 1], ...images, images[0]],
+          imageUrls: imageArr,
         });
       } catch (error) {
         console.log(error);
