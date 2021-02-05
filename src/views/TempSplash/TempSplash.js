@@ -3,7 +3,12 @@ import styles from './TempSplash.module.scss';
 
 const TempSplash = () => {
   return (
-    <div className={styles.page}>
+    <div className={`${styles.page} control-flow-vert`}>
+      <img
+        className={styles.logo}
+        src={process.env.PUBLIC_URL + './images/The Edward_Logo.svg'}
+        alt="The Edward"
+      />
       <main className={`${styles.container} control-flow-vert`}>
         <p>– COVID19 Update –</p>
         <h1>Closed due to provincial lockdown.</h1>

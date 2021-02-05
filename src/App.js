@@ -1,5 +1,5 @@
 import React from 'react';
-// import LandingPage from './views/LandingPage/LandingPage';
+import LandingPage from './views/LandingPage/LandingPage';
 // import Header from './components/Header/Header';
 // import Footer from './components/Footer/Footer';
 import HousePage from './views/RoomsPages/HousePage/HousePage';
@@ -20,6 +20,7 @@ function App() {
           <Route path="/house" component={HousePage} />
           <Route path="/cabin" component={CabinPage} />
           <Route path="/Loft" component={LoftPage} />
+          <Route path="/homepage" component={LandingPage} />
           <Route path="/" component={TempSplash} />
         </Switch>
         {/* <Footer /> */}

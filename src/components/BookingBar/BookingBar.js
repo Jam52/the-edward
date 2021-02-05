@@ -150,7 +150,7 @@ class BookingBar extends Component {
               </a>
             ) : (
               <button
-                className={`btn btn--med ${styles.button}`}
+                className={`btn btn--small ${styles.button}`}
                 onClick={
                   !this.state.showCalendar
                     ? this.showCalendar
