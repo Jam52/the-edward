@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './OverviewCard.module.scss';
 import PropTypes from 'prop-types';
 
@@ -43,7 +44,9 @@ const OverviewCard = (props) => {
           </span>
         </p>
 
-        <button className="btn btn--small">{props.roomName}</button>
+        <Link className="btn btn--small" to={props.to}>
+          {props.roomName}
+        </Link>
       </div>
     </div>
   );
