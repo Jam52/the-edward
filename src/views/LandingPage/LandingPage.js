@@ -22,11 +22,9 @@ const LandingPage = () => {
       <main id="content">
         <div className="container">
           <ImageContainer
-            landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Hero.jpg'}
-            portraitSrc={
-              process.env.PUBLIC_URL + '/images/Homepage_Hero_Portrait.jpg'
-            }
+            image={process.env.PUBLIC_URL + '/images/Homepage_Header.jpg'}
             alt="Yellow house under bright blue sky"
+            possition="bottom"
           />
         </div>
         <section>
@@ -197,13 +195,9 @@ const LandingPage = () => {
         </section>
         <div className="container">
           <ImageContainer
-            landscapeSrc={
-              process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'
-            }
-            portraitSrc={
-              process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
-            }
-            alt="Bike beneath a green tree on a sunny day"
+            image={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
+            alt="Yellow house under bright blue sky"
+            possition="80% 80%"
           />
         </div>
       </main>
