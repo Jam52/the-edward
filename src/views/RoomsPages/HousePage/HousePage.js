@@ -45,9 +45,8 @@ const HousePage = () => {
     >
       <div className={`container control-flow-vert ${styles.container}`}>
         <ImageContainer
-          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-          portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-          alt="Yellow house under bright blue sky"
+          image={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
+          alt="Beautiful house interior, fresh white walls, dark stained funiture."
         />
         <FadeInTransition>
           <div className="split">
