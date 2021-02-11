@@ -18,6 +18,7 @@ const HousePage = () => {
   }, []);
 
   const [showBooking, setBooking] = useState(false);
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '100px',
@@ -31,7 +32,6 @@ const HousePage = () => {
 
   useEffect(() => {
     if (inView) {
-      console.log('in view');
       setTimeout(() => {
         setBooking(true);
       }, 0);
@@ -51,9 +51,7 @@ const HousePage = () => {
         <FadeInTransition>
           <div className="split">
             <div className="flow-vert">
-              <h2 className={styles.header}>
-                Welcome to your home away from home.
-              </h2>
+              <h2>Welcome to your home away from home.</h2>
               <div className="flow-vert">
                 <h3>Max Occupancy</h3>
                 <ul>
@@ -68,8 +66,8 @@ const HousePage = () => {
                 </ul>
               </div>
             </div>
-            <div className={`flow-vert ${styles.description}`}>
-              <p className={styles.para}>
+            <div className="flow-vert">
+              <p>
                 With 24ft high atrium ceilings and three grand suites, this
                 light filled two-story house is ideal for families or a group of
                 friends looking for a peaceful getaway. Much love, creativity
