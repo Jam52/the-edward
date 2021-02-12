@@ -18,7 +18,7 @@ const Dropdown = (props) => {
 
   const handelToggleOpen = () => {
     if (!isOpen) {
-      setContent(props.children);
+      setContent(<div className={styles.content}>{props.children}</div>);
       setTimeout(() => {
         getHeight();
       }, 0);
@@ -43,7 +43,7 @@ const Dropdown = (props) => {
       </div>
       <div
         className={styles.content_container}
-        style={isOpen ? { maxHeight: height + 'px' } : null}
+        style={isOpen ? { maxHeight: height + 50 + 'px' } : null}
       >
         <div ref={ref}>{content}</div>
       </div>
