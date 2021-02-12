@@ -107,8 +107,8 @@ const LandingPage = () => {
               to="/loft"
             />
 
-            <section className={`flow-vert-lg inner-section bg--dark`}>
-              <div className="split">
+            <section className={`flow-vert inner-section bg--dark`}>
+              <div className={`split ${styles.concierge}`}>
                 <h2>The Concierge</h2>
                 <p>
                   We are always here for you. If you have any questions, please

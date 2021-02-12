@@ -6,10 +6,8 @@ import loftDetailsData from './loftDetailsData.json';
 
 function LoftDetails() {
   return (
-    <div
-      className={`bg--dark inner-section control-flow-vert ${styles.details}`}
-    >
-      <div className="split">
+    <div className={`bg--dark inner-section flow-vert ${styles.details}`}>
+      <div className={`split ${styles.details_overview}`}>
         <div className="flow-vert">
           <h2>Loft Details</h2>
           <p>

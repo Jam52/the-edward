@@ -6,10 +6,8 @@ import houseDetailsData from './houseDetailsData.json';
 
 function HouseDetails() {
   return (
-    <div
-      className={`bg--dark inner-section control-flow-vert ${styles.details}`}
-    >
-      <div className="split">
+    <div className={`bg--dark inner-section flow-vert ${styles.details}`}>
+      <div className={`split ${styles.details_overview}`}>
         <div className="flow-vert">
           <h2>House Details</h2>
           <p>

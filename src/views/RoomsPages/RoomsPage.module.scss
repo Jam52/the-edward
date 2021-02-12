@@ -20,7 +20,9 @@
 
 .details {
   --gap: 2rem;
-
+  &_overview {
+    margin-bottom: 2rem;
+  }
   &_split {
     display: grid;
     grid-template-columns: 1fr;
