@@ -52,13 +52,13 @@ const HousePage = () => {
           <div className="split">
             <div className="flow-vert">
               <h2>Welcome to your home away from home.</h2>
-              <div className="flow-vert">
-                <h3>Max Occupancy</h3>
+              <div className={styles.overview_details}>
+                <h3 className="h4">Max Occupancy</h3>
                 <ul>
                   <li>6 Adults</li>
                   <li>3 Children under 10</li>
                 </ul>
-                <h3>Rate</h3>
+                <h3 className="h4">Rate</h3>
                 <ul>
                   <li>$675 per night</li>
                   <li>+ $250 One-time Cleaning Fee</li>
