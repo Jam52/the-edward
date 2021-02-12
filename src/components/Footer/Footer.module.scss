@@ -6,7 +6,7 @@
 }
 .footer {
   margin-top: 3rem;
-  padding: 3rem 0;
+  padding: 2rem 0 0.5rem;
   display: flex;
   flex-direction: column;
 
@@ -28,7 +28,7 @@
 }
 
 .footer > * + * {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
 }
 
 .footer_nav {
@@ -45,6 +45,10 @@
 
 .active {
   font-weight: bold;
+}
+
+.credit {
+  padding: 2rem 0;
 }
 
 @media (min-width: $media_tablet) {
