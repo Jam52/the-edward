@@ -5,20 +5,39 @@ import styles from './Dropdown.module.scss';
 const Dropdown = (props) => {
   const [isOpen, toggleOpen] = useState(false);
   const [height, setHeight] = useState(0);
+  const [content, setContent] = useState(null);
   const ref = useRef(null);
 
   useEffect(() => {
-    setHeight(ref.current.clientHeight);
+    getHeight();
   }, []);
+
+  const getHeight = () => {
+    setHeight(ref.current.clientHeight);
+  };
+
+  const handelToggleOpen = () => {
+    if (!isOpen) {
+      setContent(props.children);
+      setTimeout(() => {
+        getHeight();
+      }, 0);
+    } else {
+      setTimeout(() => {
+        setContent(null);
+      }, 500);
+    }
+    toggleOpen(!isOpen);
+  };
 
   return (
     <div className="flow-vert">
       <div className={styles.divider} />
-      <div className={styles.dropdown} onClick={() => toggleOpen(!isOpen)}>
+      <div className={styles.dropdown} onClick={handelToggleOpen}>
         <h3 className={styles.dropdown_header}>{props.header}</h3>
         <ToggleButton
           isOpen={isOpen}
-          click={() => toggleOpen(!isOpen)}
+          click={handelToggleOpen}
           color={props.color}
         />
       </div>
@@ -26,7 +45,7 @@ const Dropdown = (props) => {
         className={styles.content_container}
         style={isOpen ? { maxHeight: height + 'px' } : null}
       >
-        <div ref={ref}>{props.children}</div>
+        <div ref={ref}>{content}</div>
       </div>
     </div>
   );
