@@ -22,7 +22,7 @@
 
   &_container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
   }
 
@@ -40,10 +40,10 @@
     &_dates {
       display: flex;
       align-items: center;
-      padding: 0.5rem;
+      padding: 0.5rem 1rem;
       background-color: $color_light_beige;
       cursor: pointer;
-
+      height: 2.4rem;
       img {
         height: 2rem;
       }
@@ -90,5 +90,6 @@
 
   .button {
     margin-left: auto;
+    padding: 0.8rem 2rem;
   }
 }
