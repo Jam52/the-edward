@@ -53,7 +53,7 @@ const LandingPage = () => {
               <h2>Make your next visit to wine country memorable.</h2>
               <div className="flow-vert">
                 <p>
-                  Let us host you in one of our three beautiful and unique
+                  Let us host you in one of our two beautiful and unique
                   accommodations. Treat yourself to a luxurious Prince Edward
                   County experience nestled in 75 acres of peaceful nature, away
                   from the hustle and bustle of city life.
@@ -94,7 +94,7 @@ const LandingPage = () => {
             <OverviewCard
               refProp={loftRef}
               isFlipped
-              img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
+              img={process.env.PUBLIC_URL + '/images/Loft_Main.jpg'}
               altImg="Inside of loft, white walls, large bed"
               roomName="Loft"
               overview="Soft light through the skylights fill this sweet

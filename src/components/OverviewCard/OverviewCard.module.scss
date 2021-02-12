@@ -33,21 +33,17 @@
     font-size: 1.5rem;
   }
 
+  &_details {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+
   &_img {
     position: relative;
     width: 90%;
-    overflow: hidden;
-    padding-bottom: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    img {
-      position: absolute;
-      width: 100%;
-      top: 50%;
-      transform: translateY(-50%);
-    }
+    height: 90vmin;
+    object-fit: cover;
   }
 
   &__left {
@@ -59,20 +55,6 @@
   font-style: italic;
   color: #555;
   font-size: 0.8rem;
-}
-
-.overview_occupancy {
-  list-style: none;
-  padding-left: 0;
-  margin: 0.5rem 0 1.5rem 0;
-}
-
-@media (min-width: $media_tablet) {
-  .overview {
-    &_img {
-      padding-bottom: 80%;
-    }
-  }
 }
 
 @media (min-width: $media_tablet_landscape) {
@@ -97,15 +79,6 @@
 
     &_img {
       width: 80%;
-      padding-bottom: 60%;
-    }
-  }
-}
-
-@media (min-width: $media_computer_small) {
-  .overview {
-    &_img {
-      padding-bottom: 50%;
     }
   }
 }

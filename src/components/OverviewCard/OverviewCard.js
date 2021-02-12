@@ -16,9 +16,13 @@ const OverviewCard = (props) => {
       ref={props.refProp}
       tabIndex="-1"
     >
-      <div className={styles.overview_img}>
-        <img src={props.img} alt={props.imgAlt} data-testid="image" />
-      </div>
+      <img
+        src={props.img}
+        alt={props.imgAlt}
+        data-testid="image"
+        className={styles.overview_img}
+      />
+
       <div
         className={
           props.isFlipped
@@ -31,20 +35,20 @@ const OverviewCard = (props) => {
         </h3>
         <p data-testid="overview">{props.overview}</p>
         <h4>Max Occupancy</h4>
-        <ul data-testid="occupancy" className={styles.overview_occupancy}>
+        <ul data-testid="occupancy" className={styles.overview_details}>
           {props.occupancy.map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
         <h4>Rate</h4>
-        <p data-testid="rate">
+        <p data-testid="rate" className={styles.overview_details}>
           {props.rate} <br />
           <span className={styles.smallPrint}>
-            *Cleaning fees and taxes are applied at checkout
+            *Plus cleaning free and taxes
           </span>
         </p>
 
-        <Link className="btn btn--small" to={props.to}>
+        <Link className="btn btn--med" to={props.to}>
           {props.roomName}
         </Link>
       </div>
