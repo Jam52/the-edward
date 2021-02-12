@@ -30,7 +30,7 @@ const Footer = () => {
             className={styles.nav}
             activeClassName={styles.active}
           >
-            Homepage
+            Welcome
           </NavLink>
           <NavLink
             to="/house"

@@ -13,7 +13,7 @@ const NavList = (props) => {
         onClick={props.click}
         tabIndex={props.tabIndex}
       >
-        Homepage
+        Welcome
       </NavLink>
       <NavLink
         to="/house"
