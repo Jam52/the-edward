@@ -152,15 +152,18 @@ const LandingPage = () => {
               <Dropdown header="Arriving at The Edward" color="white">
                 <div className="split">
                   <div></div>
-                  <p style={{ maxWidth: '30ch' }}>
-                    Check-in: <strong>4:00pm</strong>
-                    <br />
-                    Check-out: <strong>11:00am</strong>
-                    <br />
-                    Please note that we are currently offering contactless
-                    check-in only. Upon booking we will provide with all of the
-                    details for a seamless start to your vacation.
-                  </p>
+                  <div className="flow-vert">
+                    <p style={{ maxWidth: '30ch' }}>
+                      Check-in: <strong>4:00pm</strong>
+                      <br />
+                      Check-out: <strong>11:00am</strong>
+                    </p>
+                    <p>
+                      Please note that we are currently offering contactless
+                      check-in only. Upon booking we will provide you with all
+                      of the details for a seamless start to your vacation.
+                    </p>
+                  </div>
                 </div>
               </Dropdown>
               <Dropdown header="Cancellations" color="white">

@@ -21,9 +21,13 @@ const Footer = () => {
           <a href="tel:+1 613 661 6389">+1 613 661 6389</a>
           <a href="mailto: welcome@theedward.ca">welcome@theedward.ca</a>
         </div>
-        <div className={styles.footer_section}>
+        <img
+          src={process.env.PUBLIC_URL + '/images/Pride-flag.jpg'}
+          alt="Pride Flag"
+          className={styles.footer_pride}
+        />
+        <div className={`${styles.footer_section} ${styles.footer_nav}`}>
           <h2>Navigation</h2>
-
           <NavLink
             to="/"
             exact
