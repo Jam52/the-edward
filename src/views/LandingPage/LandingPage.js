@@ -37,6 +37,8 @@ const LandingPage = () => {
 
               <a
                 className="btn"
+                target="_blank"
+                rel="noreferrer"
                 href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
               >
                 See all reviews
