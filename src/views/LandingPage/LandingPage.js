@@ -202,7 +202,7 @@ const LandingPage = () => {
           <ImageContainer
             image={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
             alt="Yellow house under bright blue sky"
-            possition="80% 80%"
+            possition="80% 60%"
           />
         </div>
       </main>
