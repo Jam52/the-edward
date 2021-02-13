@@ -1,11 +1,11 @@
 {
   "breakfast": [
-    { "url": "Jam.svg", "text": "Jams and Honey" },
+    { "url": "Jam.svg", "text": "Jam and Honey" },
     { "url": "Granola.svg", "text": " Oats" },
     { "url": "Salt and Pepper.svg", "text": "Salt and Pepper" },
     { "url": "Cooking Oil.svg", "text": " Cooking Oil" },
-    { "url": "Coffee.svg", "text": " Olive Oil and Vinegar " },
-    { "url": "Olive Oil and Vinegar.svg", "text": "Coffee and Tea" },
+    { "url": "Olive Oil and Vinegar.svg", "text": " Olive Oil and Vinegar " },
+    { "url": "Coffee.svg", "text": "Coffee and Tea" },
     { "url": "Baking Essentials.svg", "text": "Baking Essentials" }
   ],
   "amenities": [
@@ -14,7 +14,7 @@
     { "url": "Keyless Entry.svg", "text": "Keyless Entry" },
     { "url": "Sandbank Pass.svg", "text": "Sandbank Pass" },
     { "url": "Kitchen.svg", "text": "Cooking Essentials" },
-    { "url": "Blow Dryer.svg", "text": "Blow Dryers" },
+    { "url": "Blow Dryer.svg", "text": "Blow Dryer" },
     { "url": "Toys.svg", "text": "Children’s Toys" },
     { "url": "Heating Cooling.svg", "text": "Heating & Cooling" },
     { "url": "Smoke Detector.svg", "text": "Smoke & CO Detectors" },
@@ -22,7 +22,7 @@
   ],
   "houseRules": [
     { "url": "Check In.svg", "text": "Check-in: 4:00pm" },
-    { "url": "Check Out.svg", "text": "Check-out: 11:00pm" },
+    { "url": "Check Out.svg", "text": "Check-out: 11:00am" },
     { "url": "No Pets.svg", "text": "No Pets" },
     { "url": "No Smoking.svg", "text": "No Smoking" }
   ]

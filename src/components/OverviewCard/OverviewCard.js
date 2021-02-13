@@ -44,7 +44,7 @@ const OverviewCard = (props) => {
         <p data-testid="rate" className={styles.overview_details}>
           {props.rate} <br />
           <span className={styles.smallPrint}>
-            *Plus cleaning free and taxes
+            *Plus cleaning fee and taxes
           </span>
         </p>
 

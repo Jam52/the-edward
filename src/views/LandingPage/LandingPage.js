@@ -97,7 +97,7 @@ const LandingPage = () => {
               img={process.env.PUBLIC_URL + '/images/Loft_Main.jpg'}
               altImg="Inside of loft, white walls, large bed"
               roomName="Loft"
-              overview="Soft light through the skylights fill this sweet
+              overview="Soft light through the skylights fills this sweet
               space with warmth and comfort. Our 2 suite
               Loft is the perfect spot for a couple or small
               families to come home to after a day of
