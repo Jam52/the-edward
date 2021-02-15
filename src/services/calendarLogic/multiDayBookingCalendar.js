@@ -21,7 +21,12 @@ export const addDate = (
       }
       return 0;
     });
-    if (areDatesBookedBetween(newDates, lodgifyAvailabilityData)) {
+    if (
+      !areBothDatesInsideAvailableBookingPeriod(
+        newDates,
+        lodgifyAvailabilityData,
+      )
+    ) {
       alert('Booking must be continuous.');
       return null;
     } else if (isLessThanMinimumDays(newDates, minimumStay)) {
@@ -40,17 +45,23 @@ const isLessThanMinimumDays = (newDates, minimumStay) => {
   return false;
 };
 
-const areDatesBookedBetween = (newDates, lodgifyAvailabilityData) => {
-  const unavailableDates = lodgifyAvailabilityData
-    .map((booking) => booking.period_start)
-    .concat(lodgifyAvailabilityData.map((booking) => booking.period_end));
+const areBothDatesInsideAvailableBookingPeriod = (
+  newDates,
+  lodgifyAvailabilityData,
+) => {
+  let availablePeriods = lodgifyAvailabilityData.filter(
+    (period) => period.is_available,
+  );
 
   if (
-    unavailableDates.some(
-      (date) =>
-        dayjs(date).isAfter(newDates[0], 'day') &&
-        dayjs(date).isBefore(newDates[1], ' day'),
-    )
+    availablePeriods.some((period) => {
+      return (
+        dayjs(period.period_start)
+          .subtract(1, 'day')
+          .isBefore(newDates[0], 'day') &&
+        dayjs(period.period_end).add(2, 'day').isAfter(newDates[1], ' day')
+      );
+    })
   ) {
     return true;
   }
@@ -64,12 +75,10 @@ export const removeDate = (day, selectedDates) => {
   return newSelectedDates;
 };
 
-const filterAvailableDates = (dates) => {
-  return dates.filter((bookingPeriod) => bookingPeriod.is_available);
-};
-
 export const isDateUnAvailable = (date, lodifyData) => {
-  const availableDates = filterAvailableDates(lodifyData);
+  const availableDates = lodifyData.filter(
+    (bookingPeriod) => bookingPeriod.is_available,
+  );
   return availableDates.every((booking) => {
     const startDate = dayjs(booking.period_start);
     const endDate = dayjs(booking.period_end).add(1, 'day');
