@@ -2,6 +2,7 @@ import { cleanup, fireEvent, render } from '@testing-library/react';
 import '../Calendar';
 import Calendar from '../Calendar';
 import mockAvailabilityData from './mockAvailabilityData.json';
+import { isDateUnAvailable } from '../../../../services/calendarLogic/multiDayBookingCalendar';
 const dayjs = require('dayjs');
 
 describe('Calendar', () => {
@@ -11,9 +12,11 @@ describe('Calendar', () => {
     wrapper = render(
       <Calendar
         selectedDates={[]}
-        unavailableDates={mockAvailabilityData}
+        lodgifyData={mockAvailabilityData}
         bookingWindowDays={60}
         todaysDate={currentDate}
+        minimumStay={2}
+        isDateUnAvailable={isDateUnAvailable}
       />,
     );
   });

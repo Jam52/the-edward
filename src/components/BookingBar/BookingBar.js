@@ -57,7 +57,6 @@ class BookingBar extends Component {
       this.state.lodgifyAvailabilityData,
       this.state.selectedDates,
     );
-    console.log(newDates);
     if (newDates) {
       this.setState({
         selectedDates: newDates,
@@ -104,7 +103,6 @@ class BookingBar extends Component {
             lodgifyData={this.state.lodgifyAvailabilityData}
             bookingWindowDays={this.state.bookingWindowDays}
             minimumStay={this.state.minimumStay}
-            prepDays={this.state.prepDays}
             todaysDate={dayjs()}
             clear={() => this.setState({ selectedDates: [] })}
             isDateUnAvailable={this.props.isDateUnAvailable}
