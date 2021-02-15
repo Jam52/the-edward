@@ -38,7 +38,6 @@ const Calendar = (props) => {
       day.isBefore(todaysDate.add(1, 'day')) ||
       day.isAfter(todaysDate.add(props.bookingWindowDays, 'day'))
     ) {
-      console.log('in');
       classes.push(styles.calendar_day__booked);
       click = () => console.log('nothing');
     } else {
