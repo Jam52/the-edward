@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer';
 import {
   addDate,
   removeDate,
-  isDateAvailable,
+  isDateUnAvailable,
 } from '../../../services/calendarLogic/multiDayBookingCalendar';
 import FadeInTransition from '../../../components/FadeInTransition/FadeInTransition';
 import ImageCarousel from '../../../components/ImageCarousel/ImageCarousel';
@@ -98,7 +98,7 @@ const HousePage = () => {
         show={showBooking}
         addDate={addDate}
         removeDate={removeDate}
-        isDateAvailable={isDateAvailable}
+        isDateUnAvailable={isDateUnAvailable}
         title="The Edaward Loft"
       />
       <div className="bg--light section ">

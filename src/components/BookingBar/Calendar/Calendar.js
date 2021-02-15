@@ -15,10 +15,6 @@ const Calendar = (props) => {
     changeDate(date.subtract(1, amount));
   };
 
-  const isDateAvailable = (date) => {
-    return props.isDateAvailable(date, props.unavailableDates);
-  };
-
   let firstDayOfMonth = Number(date.date(1).format('d'));
   let numDaysInMonth = date.daysInMonth();
 
@@ -38,7 +34,7 @@ const Calendar = (props) => {
       classes.push(styles.calendar_day__today);
     }
     if (
-      !isDateAvailable(day) ||
+      props.isDateUnAvailable(day, props.lodgifyData) ||
       day.isBefore(todaysDate.add(1, 'day')) ||
       day.isAfter(todaysDate.add(props.bookingWindowDays, 'day'))
     ) {
@@ -89,7 +85,7 @@ const Calendar = (props) => {
   return (
     <Aux>
       <div data-testid="component-calendar" className={styles.calendar}>
-        {props.unavailableDates.length > 0 ? (
+        {props.lodgifyData.length > 0 ? (
           <div className={styles.container}>
             <div className={styles.calendar_header}>
               <div className={styles.inner_container}>

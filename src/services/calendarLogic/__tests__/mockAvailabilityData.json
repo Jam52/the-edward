@@ -10,7 +10,17 @@
     "booking_ids": null,
     "closed_period_id": 576153
   },
-
+  {
+    "property_id": 314113,
+    "room_type_id": 379185,
+    "period_start": "2021-04-30",
+    "period_end": "2021-05-02",
+    "available": 1,
+    "total_units": 1,
+    "is_available": true,
+    "booking_ids": null,
+    "closed_period_id": null
+  },
   {
     "property_id": 314113,
     "room_type_id": 379185,
@@ -21,5 +31,27 @@
     "is_available": false,
     "booking_ids": null,
     "closed_period_id": 576154
+  },
+  {
+    "property_id": 314113,
+    "room_type_id": 379185,
+    "period_start": "2021-05-07",
+    "period_end": "2021-05-09",
+    "available": 1,
+    "total_units": 1,
+    "is_available": true,
+    "booking_ids": null,
+    "closed_period_id": null
+  },
+  {
+    "property_id": 314113,
+    "room_type_id": 379185,
+    "period_start": "2021-05-10",
+    "period_end": "2021-05-13",
+    "available": 0,
+    "total_units": 1,
+    "is_available": false,
+    "booking_ids": null,
+    "closed_period_id": 576155
   }
 ]

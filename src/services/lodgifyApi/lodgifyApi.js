@@ -32,10 +32,7 @@ export const fetchLodgifyAvailabilityData = async (propertyId) => {
         'X-ApiKey': process.env.REACT_APP_LODGIFY_KEY,
       },
     });
-    const filteredData = await apiData.data.filter(
-      (booking) => !booking.is_available,
-    );
-    return filteredData;
+    return apiData.data;
   } catch (error) {
     console.log(error);
   }

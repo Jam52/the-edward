@@ -4,19 +4,19 @@ dayjs.extend(customParseFormat);
 
 export const addDate = (day, minimumStay, lodgifyAvailabilityData) => {
   let selectedDates = [];
-  if (isDateAvailable(day, lodgifyAvailabilityData)) {
+  if (!isDateUnAvailable(day, lodgifyAvailabilityData)) {
     selectedDates.push(day);
   }
-  if (isDateAvailable(day.add(1, 'day'), lodgifyAvailabilityData)) {
+  if (!isDateUnAvailable(day.add(1, 'day'), lodgifyAvailabilityData)) {
     selectedDates.push(day.add(1, 'day'));
   }
-  if (isDateAvailable(day.add(2, 'day'), lodgifyAvailabilityData)) {
+  if (!isDateUnAvailable(day.add(2, 'day'), lodgifyAvailabilityData)) {
     selectedDates.push(day.add(2, 'day'));
   }
-  if (isDateAvailable(day.subtract(1, 'day'), lodgifyAvailabilityData)) {
+  if (!isDateUnAvailable(day.subtract(1, 'day'), lodgifyAvailabilityData)) {
     selectedDates.push(day.subtract(1, 'day'));
   }
-  if (isDateAvailable(day.subtract(2, 'day'), lodgifyAvailabilityData)) {
+  if (!isDateUnAvailable(day.subtract(2, 'day'), lodgifyAvailabilityData)) {
     selectedDates.push(day.subtract(2, 'day'));
   }
 
@@ -37,8 +37,11 @@ export const removeDate = () => {
   return [];
 };
 
-export const isDateAvailable = (date, unavailableDates) => {
-  return unavailableDates.every((booking) => {
+export const isDateUnAvailable = (date, lodifyData) => {
+  const availableDates = lodifyData.filter(
+    (bookingPeriod) => bookingPeriod.is_available,
+  );
+  return availableDates.every((booking) => {
     const startDate = dayjs(booking.period_start);
     const endDate = dayjs(booking.period_end);
     if (date.isSame(startDate, 'day') || date.isSame(endDate, 'day')) {
