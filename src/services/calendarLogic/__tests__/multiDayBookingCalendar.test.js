@@ -1,6 +1,6 @@
 import {
   addDate,
-  isDateAvailable,
+  isDateUnAvailable,
   removeDate,
 } from '../multiDayBookingCalendar';
 import mockAvailabilityData from './mockAvailabilityData.json';
@@ -27,8 +27,8 @@ describe('multiDayBookingCalendar', () => {
         ).toBe(null);
       });
       test('date is more than minimum number of nights returns same unchanged array', () => {
-        const firstSelectedDate = dayjs('2021-04-30');
-        const secondSelectedDate = dayjs('2021-05-02');
+        const firstSelectedDate = dayjs('2021-05-07');
+        const secondSelectedDate = dayjs('2021-05-09');
         expect(
           addDate(secondSelectedDate, 2, mockAvailabilityData, [
             firstSelectedDate,
@@ -46,14 +46,14 @@ describe('multiDayBookingCalendar', () => {
       });
     });
   });
-  describe('isDateAvailable', () => {
-    test('returns true for available date', () => {
-      const date = dayjs('2021-04-30');
-      expect(isDateAvailable(date, mockAvailabilityData)).toBeTruthy();
+  describe('isDateUnAvailable', () => {
+    test('returns false for available date', () => {
+      const date = dayjs('2021-05-08');
+      expect(isDateUnAvailable(date, mockAvailabilityData)).toBe(false);
     });
-    test('returns false for unavailable date', () => {
-      const date = dayjs('2021-04-29');
-      expect(isDateAvailable(date, mockAvailabilityData)).toBeFalsy();
+    test('returns true for unavailable date', () => {
+      const date = dayjs('2021-04-26');
+      expect(isDateUnAvailable(date, mockAvailabilityData)).toBeTruthy();
     });
   });
   describe('removeDate', () => {
