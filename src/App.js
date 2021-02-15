@@ -1,11 +1,10 @@
 import React from 'react';
 import LandingPage from './views/LandingPage/LandingPage';
-// import Header from './components/Header/Header';
-// import Footer from './components/Footer/Footer';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import HousePage from './views/RoomsPages/HousePage/HousePage';
 import LoftPage from './views/RoomsPages/LoftPage/LoftPage';
-import CabinPage from './views/RoomsPages/CabinPage/CabinPage';
-import TempSplash from './views/TempSplash/TempSplash';
+// import CabinPage from './views/RoomsPages/CabinPage/CabinPage';
 import { Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -15,15 +14,14 @@ function App() {
         <a href="#content">Skip to Main Content</a>
       </div>
       <div data-testid="component-app" className="page_container">
-        {/* <Header /> */}
+        <Header />
         <Switch>
           <Route path="/house" component={HousePage} />
-          <Route path="/cabin" component={CabinPage} />
+          {/* <Route path="/cabin" component={CabinPage} /> */}
           <Route path="/Loft" component={LoftPage} />
-          <Route path="/homepage" component={LandingPage} />
-          <Route path="/" component={TempSplash} />
+          <Route path="/" component={LandingPage} />
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );

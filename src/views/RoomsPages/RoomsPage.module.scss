@@ -8,13 +8,29 @@
   --gap: 3rem;
 }
 
+.overview_details {
+  margin-top: 2rem;
+  h3 {
+    margin-top: 1rem;
+  }
+  ul {
+    margin-top: 0.5rem;
+  }
+}
+
 .details {
   --gap: 2rem;
-
+  &_overview {
+    margin-bottom: 2rem;
+  }
   &_split {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1rem;
+
+    div {
+      padding-right: 0.5rem;
+    }
   }
 
   &_terms {
@@ -36,7 +52,7 @@
   }
 }
 
-@media (min-width: $media_tablet) {
+@media (min-width: $media_tablet_landscape) {
   .details {
     &_split {
       grid-template-columns: 1fr 1fr;

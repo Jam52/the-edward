@@ -46,13 +46,9 @@ const HousePage = () => {
     >
       <div className={`container control-flow-vert ${styles.container}`}>
         <ImageContainer
-          landscapeSrc={
-            process.env.PUBLIC_URL + '/images/Loft_Hero_Landscape.jpg'
-          }
-          portraitSrc={
-            process.env.PUBLIC_URL + '/images/Loft_Hero_Portrait.jpg'
-          }
-          alt="Yellow house under bright blue sky"
+          image={process.env.PUBLIC_URL + '/images/Loft_Main.jpg'}
+          alt="Beautiful loft room interior, fresh white walls, soft comfortable bed."
+          possition="50% 100%"
         />
         <FadeInTransition>
           <div className="split">
@@ -60,23 +56,23 @@ const HousePage = () => {
               <h2 className={styles.header}>
                 Welcome to your home away from home.
               </h2>
-              <div className="flow-vert">
-                <h3>Max Occupancy</h3>
+              <div className={styles.overview_details}>
+                <h3 className="h4">Max Occupancy</h3>
                 <ul>
-                  <li>6 Adults</li>
-                  <li>3 Children under 10</li>
+                  <li>2 Adults</li>
+                  <li>2 Children under 10</li>
                 </ul>
-                <h3>Rate</h3>
+                <h3 className="h4">Rate</h3>
                 <ul>
                   <li>$275 per night</li>
-                  <li>+ $250 One-time Cleaning Fee</li>
-                  <li>+ Taxes</li>
+                  <li>+ $150 One-time Cleaning Fee</li>
+                  <li>+ Taxes (13% HST and 4% MAT)</li>
                 </ul>
               </div>
             </div>
             <div className={`flow-vert ${styles.description}`}>
               <p className={styles.para}>
-                Soft light through the skylights fill this sweet space with
+                Soft light through the skylights fills this sweet space with
                 warmth and comfort. Our 2 suite Loft is the perfect spot for a
                 couple or small families to come home to after a day of
                 adventure in the County. Inspired by summer breezes and warm

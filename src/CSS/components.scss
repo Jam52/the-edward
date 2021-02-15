@@ -30,7 +30,7 @@
 }
 
 .btn--med {
-  padding: 1.2em 1.7em;
+  padding: 1em 2.3em;
 }
 
 .btn--dark {
@@ -87,10 +87,10 @@
     font-size: 2.5rem;
     max-width: 25ch;
   }
-}
 
-.explore-secton {
-  min-height: 80vh;
+  .btn {
+    margin-top: 2rem;
+  }
 }
 
 .internal-link {
@@ -99,6 +99,7 @@
   text-decoration: underline;
   padding: 0;
   transition: opacity 0.2s;
+  font-weight: 500;
   &:hover {
     opacity: 0.5;
   }

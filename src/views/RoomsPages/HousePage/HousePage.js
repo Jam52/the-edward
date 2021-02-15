@@ -18,6 +18,7 @@ const HousePage = () => {
   }, []);
 
   const [showBooking, setBooking] = useState(false);
+
   const [ref, inView] = useInView({
     triggerOnce: true,
     rootMargin: '100px',
@@ -31,7 +32,6 @@ const HousePage = () => {
 
   useEffect(() => {
     if (inView) {
-      console.log('in view');
       setTimeout(() => {
         setBooking(true);
       }, 0);
@@ -45,32 +45,29 @@ const HousePage = () => {
     >
       <div className={`container control-flow-vert ${styles.container}`}>
         <ImageContainer
-          landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-          portraitSrc={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
-          alt="Yellow house under bright blue sky"
+          image={process.env.PUBLIC_URL + '/images/Homepage_House.jpg'}
+          alt="Beautiful house interior, fresh white walls, dark stained funiture."
         />
         <FadeInTransition>
           <div className="split">
             <div className="flow-vert">
-              <h2 className={styles.header}>
-                Welcome to your home away from home.
-              </h2>
-              <div className="flow-vert">
-                <h3>Max Occupancy</h3>
+              <h2>Welcome to your home away from home.</h2>
+              <div className={styles.overview_details}>
+                <h3 className="h4">Max Occupancy</h3>
                 <ul>
                   <li>6 Adults</li>
                   <li>3 Children under 10</li>
                 </ul>
-                <h3>Rate</h3>
+                <h3 className="h4">Rate</h3>
                 <ul>
                   <li>$675 per night</li>
                   <li>+ $250 One-time Cleaning Fee</li>
-                  <li>+ Taxes</li>
+                  <li>+ Taxes (13% HST and 4% MAT)</li>
                 </ul>
               </div>
             </div>
-            <div className={`flow-vert ${styles.description}`}>
-              <p className={styles.para}>
+            <div className="flow-vert">
+              <p>
                 With 24ft high atrium ceilings and three grand suites, this
                 light filled two-story house is ideal for families or a group of
                 friends looking for a peaceful getaway. Much love, creativity

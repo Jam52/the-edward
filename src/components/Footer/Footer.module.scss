@@ -6,10 +6,9 @@
 }
 .footer {
   margin-top: 3rem;
-  padding: 3rem 0;
+  padding: 2rem 0 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
 
   &_section {
     display: flex;
@@ -21,6 +20,19 @@
       margin: 0;
     }
   }
+
+  &_pride {
+    width: 2.7rem;
+    height: 1.8rem;
+  }
+}
+
+.footer > * + * {
+  margin-top: 3.5rem;
+}
+
+.footer_nav {
+  margin-top: 1rem;
 }
 
 .nav {
@@ -35,12 +47,21 @@
   font-weight: bold;
 }
 
+.credit {
+  padding: 2rem 0;
+}
+
 @media (min-width: $media_tablet) {
+  .footer > * + * {
+    margin-top: 0;
+    margin-left: 2rem;
+  }
   .footer {
     flex-direction: row;
-  }
 
-  .footer_section:last-child {
-    margin-left: auto;
+    &_pride {
+      margin-left: auto;
+      margin-top: 0.2rem;
+    }
   }
 }

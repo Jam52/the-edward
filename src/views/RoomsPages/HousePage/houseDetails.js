@@ -6,10 +6,8 @@ import houseDetailsData from './houseDetailsData.json';
 
 function HouseDetails() {
   return (
-    <div
-      className={`bg--dark inner-section control-flow-vert ${styles.details}`}
-    >
-      <div className="split">
+    <div className={`bg--dark inner-section flow-vert ${styles.details}`}>
+      <div className={`split ${styles.details_overview}`}>
         <div className="flow-vert">
           <h2>House Details</h2>
           <p>
@@ -18,7 +16,7 @@ function HouseDetails() {
         </div>
         <p>
           You will have the house all to yourself. You will also have access to
-          The Edward grounds and the outdoor fire pit, private patios and
+          The Edward grounds and the outdoor fire pit, private patios and a
           private entrance.
         </p>
       </div>
@@ -64,7 +62,7 @@ function HouseDetails() {
                   src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
                   alt=""
                 />
-                <p>3-piece Ensuite</p>
+                <p>4-piece Ensuite</p>
               </div>
               <div className={styles.details_icons}>
                 <img
@@ -88,17 +86,17 @@ function HouseDetails() {
               </div>
               <div className={styles.details_icons}>
                 <img
+                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
+                  alt=""
+                />
+                <p>4-piece Ensuite</p>
+              </div>
+              <div className={styles.details_icons}>
+                <img
                   src={process.env.PUBLIC_URL + '/images/detailIcons/Bed.svg'}
                   alt=""
                 />
                 <p>1 Twin Pull-out</p>
-              </div>
-              <div className={styles.details_icons}>
-                <img
-                  src={process.env.PUBLIC_URL + '/images/detailIcons/Bath.svg'}
-                  alt=""
-                />
-                <p>5-piece Ensuite</p>
               </div>
             </div>
           </div>

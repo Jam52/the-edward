@@ -22,11 +22,9 @@ const LandingPage = () => {
       <main id="content">
         <div className="container">
           <ImageContainer
-            landscapeSrc={process.env.PUBLIC_URL + '/images/Homepage_Hero.jpg'}
-            portraitSrc={
-              process.env.PUBLIC_URL + '/images/Homepage_Hero_Portrait.jpg'
-            }
+            image={process.env.PUBLIC_URL + '/images/Homepage_Header.jpg'}
             alt="Yellow house under bright blue sky"
+            possition="bottom"
           />
         </div>
         <section>
@@ -39,6 +37,8 @@ const LandingPage = () => {
 
               <a
                 className="btn"
+                target="_blank"
+                rel="noreferrer"
                 href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
               >
                 See all reviews
@@ -53,7 +53,7 @@ const LandingPage = () => {
               <h2>Make your next visit to wine country memorable.</h2>
               <div className="flow-vert">
                 <p>
-                  Let us host you in one of our three beautiful and unique
+                  Let us host you in one of our two beautiful and unique
                   accommodations. Treat yourself to a luxurious Prince Edward
                   County experience nestled in 75 acres of peaceful nature, away
                   from the hustle and bustle of city life.
@@ -86,7 +86,7 @@ const LandingPage = () => {
               grand suites, this light filled two-story house
               is ideal for families or a group of friends
               looking for a peaceful getaway."
-              occupancy={['6 Adults', '3 Children']}
+              occupancy={['6 Adults', '3 Children under 10']}
               rate="$675 per night"
               to="/house"
             />
@@ -94,21 +94,21 @@ const LandingPage = () => {
             <OverviewCard
               refProp={loftRef}
               isFlipped
-              img={process.env.PUBLIC_URL + '/images/Homepage_Loft.jpg'}
+              img={process.env.PUBLIC_URL + '/images/Loft_Main.jpg'}
               altImg="Inside of loft, white walls, large bed"
               roomName="Loft"
-              overview="Soft light through the skylights fill this sweet
+              overview="Soft light through the skylights fills this sweet
               space with warmth and comfort. Our 2 suite
               Loft is the perfect spot for a couple or small
               families to come home to after a day of
               adventure in the County."
-              occupancy={['2 Adults', '2 Children Under 10']}
+              occupancy={['2 Adults', '2 Children under 10']}
               rate="$275 per night"
               to="/loft"
             />
 
-            <section className={`flow-vert-lg inner-section bg--dark`}>
-              <div className="split">
+            <section className={`flow-vert inner-section bg--dark`}>
+              <div className={`split ${styles.concierge}`}>
                 <h2>The Concierge</h2>
                 <p>
                   We are always here for you. If you have any questions, please
@@ -152,15 +152,18 @@ const LandingPage = () => {
               <Dropdown header="Arriving at The Edward" color="white">
                 <div className="split">
                   <div></div>
-                  <p style={{ maxWidth: '30ch' }}>
-                    Check-in: <strong>4:00pm</strong>
-                    <br />
-                    Check-out: <strong>11:00am</strong>
-                    <br />
-                    Please note that we are currently offering contactless
-                    check-in only. Upon booking we will provide with all of the
-                    details for a seamless start to your vacation.
-                  </p>
+                  <div className="flow-vert">
+                    <p style={{ maxWidth: '30ch' }}>
+                      Check-in: <strong>4:00pm</strong>
+                      <br />
+                      Check-out: <strong>11:00am</strong>
+                    </p>
+                    <p>
+                      Please note that we are currently offering contactless
+                      check-in only. Upon booking we will provide you with all
+                      of the details for a seamless start to your vacation.
+                    </p>
+                  </div>
                 </div>
               </Dropdown>
               <Dropdown header="Cancellations" color="white">
@@ -197,13 +200,9 @@ const LandingPage = () => {
         </section>
         <div className="container">
           <ImageContainer
-            landscapeSrc={
-              process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'
-            }
-            portraitSrc={
-              process.env.PUBLIC_URL + '/images/Homepage_Footer_Portrait.jpg'
-            }
-            alt="Bike beneath a green tree on a sunny day"
+            image={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
+            alt="Yellow house under bright blue sky"
+            possition="80% 60%"
           />
         </div>
       </main>
