@@ -194,7 +194,7 @@ const LandingPage = () => {
               <p className="explore__main">
                 How to best enjoy your time in Ontario’s gastronomical capital.
               </p>
-              <p className="btn btn--disabled">Comming Soon</p>
+              <p className="btn btn--disabled">Coming Soon</p>
             </div>
           </FadeInTransition>
         </section>
