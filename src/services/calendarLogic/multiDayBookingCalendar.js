@@ -64,10 +64,15 @@ export const removeDate = (day, selectedDates) => {
   return newSelectedDates;
 };
 
-export const isDateAvailable = (date, unavailableDates) => {
-  return unavailableDates.every((booking) => {
+const filterAvailableDates = (dates) => {
+  return dates.filter((bookingPeriod) => bookingPeriod.is_available);
+};
+
+export const isDateUnAvailable = (date, lodifyData) => {
+  const availableDates = filterAvailableDates(lodifyData);
+  return availableDates.every((booking) => {
     const startDate = dayjs(booking.period_start);
-    const endDate = dayjs(booking.period_end);
+    const endDate = dayjs(booking.period_end).add(1, 'day');
     if (date.isSame(startDate, 'day') || date.isSame(endDate, 'day')) {
       return false;
     }
