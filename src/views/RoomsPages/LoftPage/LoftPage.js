@@ -72,12 +72,12 @@ const HousePage = () => {
             </div>
             <div className={`flow-vert ${styles.description}`}>
               <p className={styles.para}>
-                Soft light through the skylights fills this sweet space with
-                warmth and comfort. Our 2 suite Loft is the perfect spot for a
-                couple or small families to come home to after a day of
-                adventure in the County. Inspired by summer breezes and warm
-                beach days, this elegant space is sure to inspire simple
-                pleasures, time spent together and beautiful memories.
+                Soft light fills this sweet space with warmth and comfort. Our 2
+                suite Loft is the perfect spot for couples or small families to
+                come home to after a day of adventure in the County. Inspired by
+                summer breezes and warm beach days, this elegant space is sure
+                to inspire simple pleasures, time spent together and beautiful
+                memories.
               </p>
               <button
                 className="internal-link"
@@ -99,7 +99,7 @@ const HousePage = () => {
         addDate={addDate}
         removeDate={removeDate}
         isDateUnAvailable={isDateUnAvailable}
-        title="The Edaward Loft"
+        title="The Edward Loft"
       />
       <div className="bg--light section ">
         <div className={`container flow-vert-lg`}>
@@ -114,7 +114,7 @@ const HousePage = () => {
       <section className="explore-section">
         <FadeInTransition>
           <div className={`container flow-vert explore`}>
-            <p>The Edward Traveler’s Guide</p>
+            <p>The Edward Traveller’s Guide</p>
             <p className="explore__main">
               How to best enjoy your time in Ontario’s gastronomical capital.
             </p>

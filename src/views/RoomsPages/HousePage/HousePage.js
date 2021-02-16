@@ -94,7 +94,7 @@ const HousePage = () => {
         addDate={addDate}
         removeDate={removeDate}
         isDateUnAvailable={isDateUnAvailable}
-        title="The Edaward House"
+        title="The Edward House"
       />
       <div className="bg--light section ">
         <div className={`container flow-vert-lg`}>
@@ -109,7 +109,7 @@ const HousePage = () => {
       <section className="explore-section">
         <FadeInTransition>
           <div className={`container flow-vert explore`}>
-            <p>The Edward Traveler’s Guide</p>
+            <p>The Edward Traveller’s Guide</p>
             <p className="explore__main">
               How to best enjoy your time in Ontario’s gastronomical capital.
             </p>
