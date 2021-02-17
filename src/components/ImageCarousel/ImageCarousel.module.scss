@@ -37,12 +37,17 @@
   transition: all 0.3s;
 }
 
+.slideContainer {
+  padding: 0 0.5rem;
+  transition: all 0.3s;
+}
+
 .slide {
   box-sizing: border-box;
   height: 100%;
+  width: 100%;
   object-fit: cover;
   flex-shrink: 0;
-  transition: all 0.3s;
 }
 
 @media (min-width: $media_tablet_landscape) {
@@ -51,11 +56,11 @@
   }
 
   .content > * {
-    opacity: 0.5;
+    opacity: 0.4;
   }
 
   .content {
-    & img:nth-child(2) {
+    & .slideContainer:nth-child(2) {
       opacity: 1;
     }
   }
