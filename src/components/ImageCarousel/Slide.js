@@ -3,12 +3,9 @@ import styles from './ImageCarousel.module.scss';
 
 const Slide = (props) => {
   return (
-    <img
-      src={props.url.url}
-      className={styles.slide}
-      alt={props.url.text}
-      style={{ width: props.width }}
-    />
+    <div className={styles.slideContainer} style={{ width: props.width }}>
+      <img src={props.url.url} className={styles.slide} alt={props.url.text} />
+    </div>
   );
 };
 
