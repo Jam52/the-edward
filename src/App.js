@@ -6,8 +6,21 @@ import HousePage from './views/RoomsPages/HousePage/HousePage';
 import LoftPage from './views/RoomsPages/LoftPage/LoftPage';
 // import CabinPage from './views/RoomsPages/CabinPage/CabinPage';
 import { Route, Switch } from 'react-router-dom';
+import { fetchLodgifyAvailabilityData } from './services/lodgifyApi/lodgifyApi';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const data = await fetchLodgifyAvailabilityData(309275);
+        console.log(data);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+    fetchData();
+  });
   return (
     <div className="page">
       <div className="skip">
