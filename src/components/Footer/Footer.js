@@ -23,7 +23,7 @@ const Footer = () => {
             <a href="mailto: welcome@theedward.ca">welcome@theedward.ca</a>
           </div>
           <img
-            src={process.env.PUBLIC_URL + '/images/Pride-flag.jpg'}
+            src={process.env.PUBLIC_URL + '/images/Pride-flag_new.jpg'}
             alt="Pride Flag"
             className={styles.footer_pride}
           />
