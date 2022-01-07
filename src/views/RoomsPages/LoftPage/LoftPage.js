@@ -64,8 +64,8 @@ const HousePage = () => {
                 </ul>
                 <h3 className="h4">Rate</h3>
                 <ul>
-                  <li>$275 per night</li>
-                  <li>+ $150 One-time Cleaning Fee</li>
+                  <li>$285 per night</li>
+                  <li>+ $205 One-time Cleaning Fee</li>
                   <li>+ Taxes (13% HST and 4% MAT)</li>
                 </ul>
               </div>
