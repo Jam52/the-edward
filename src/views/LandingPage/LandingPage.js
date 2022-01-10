@@ -87,7 +87,7 @@ const LandingPage = () => {
               is ideal for families or a group of friends
               looking for a peaceful getaway."
               occupancy={['6 Adults', '3 Children under 10']}
-              rate="$675 per night"
+              rate="$775 per night"
               to="/house"
             />
 
@@ -103,7 +103,7 @@ const LandingPage = () => {
               families to come home to after a day of
               adventure in the County."
               occupancy={['2 Adults', '2 Children under 10']}
-              rate="$275 per night"
+              rate="$285 per night"
               to="/loft"
             />
 
