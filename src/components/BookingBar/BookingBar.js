@@ -138,7 +138,7 @@ class BookingBar extends Component {
             {this.state.selectedDates.length === 2 ? (
               <a
                 className={`btn  ${styles.booknow} ${styles.button}`}
-                href={`https://checkout.lodgify.com/payam-shalchian/en/?currency=CAD#/${
+                href={`https://checkout.lodgify.com/theedward/en/?currency=CAD#/${
                   this.props.propertyId
                 }/${this.state.selectedDates[0].format(
                   'YYYYMMDD',
