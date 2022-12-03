@@ -3,9 +3,10 @@ const dayjs = require('dayjs');
 var customParseFormat = require('dayjs/plugin/customParseFormat');
 dayjs.extend(customParseFormat);
 
+const proxyurl = 'https://proxy.cors.sh/';
+
 export const fetchLodgifyRatesData = async (propertyId, roomTypeId) => {
   const currentDate = dayjs().format('YYYY-MM-DD');
-  const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
   const url = `https://api.lodgify.com/v2/rates/calendar?HouseId=${propertyId}&RoomTypeId=${roomTypeId}&StartDate=${currentDate}&EndDate=${currentDate}`;
   try {
     const apiData = await axios.get(proxyurl + url, {
@@ -21,7 +22,6 @@ export const fetchLodgifyRatesData = async (propertyId, roomTypeId) => {
 
 export const fetchLodgifyAvailabilityData = async (propertyId) => {
   const currentDate = dayjs();
-  const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
   const url = `https://api.lodgify.com/v1/availability/${propertyId}?periodStart=${currentDate.format(
     'YYYY-MM-DD',
   )}&periodEnd=${currentDate.add(2, 'year').format('YYYY-MM-DD')}`;
@@ -39,7 +39,6 @@ export const fetchLodgifyAvailabilityData = async (propertyId) => {
 };
 
 export const fetchLodgifyImages = async (propertyId) => {
-  const proxyurl = 'https://afternoon-sierra-79620.herokuapp.com/';
   const url = `https://api.lodgify.com/v2/properties/${propertyId}/rooms`;
 
   try {
