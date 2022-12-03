@@ -3,7 +3,7 @@ const dayjs = require('dayjs');
 var customParseFormat = require('dayjs/plugin/customParseFormat');
 dayjs.extend(customParseFormat);
 
-const proxyurl = 'https://proxy.cors.sh/';
+const proxyurl = 'https://corsproxy.io/?';
 
 export const fetchLodgifyRatesData = async (propertyId, roomTypeId) => {
   const currentDate = dayjs().format('YYYY-MM-DD');
