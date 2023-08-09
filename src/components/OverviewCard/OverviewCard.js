@@ -40,13 +40,7 @@ const OverviewCard = (props) => {
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <h4>Rate</h4>
-        <p data-testid="rate" className={styles.overview_details}>
-          {props.rate} <br />
-          <span className={styles.smallPrint}>
-            *Plus cleaning fee and taxes
-          </span>
-        </p>
+        
 
         <Link className="btn btn--med" to={props.to}>
           {props.roomName}

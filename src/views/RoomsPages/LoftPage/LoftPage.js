@@ -57,12 +57,6 @@ const HousePage = () => {
                   <li>2 Adults</li>
                   <li>2 Children under 10</li>
                 </ul>
-                <h3 className="h4">Rate</h3>
-                <ul>
-                  <li>$285 per night</li>
-                  <li>+ $205 One-time Cleaning Fee</li>
-                  <li>+ Taxes (13% HST and 4% MAT)</li>
-                </ul>
               </div>
             </div>
             <div className={`flow-vert ${styles.description}`}>
@@ -101,17 +95,6 @@ const HousePage = () => {
           </div>
         </div>
       </div>
-      <section className="explore-section">
-        <FadeInTransition>
-          <div className={`container flow-vert explore`}>
-            <p>The Edward Traveller’s Guide</p>
-            <p className="explore__main">
-              How to best enjoy your time in Ontario’s gastronomical capital.
-            </p>
-            <p className="btn btn--disabled">Coming Soon</p>
-          </div>
-        </FadeInTransition>
-      </section>
     </div>
   );
 };

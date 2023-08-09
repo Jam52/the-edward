@@ -10,6 +10,9 @@ const Footer = () => {
     >
       <div className="container">
         <div className={styles.footer}>
+          <a href="https://www.instagram.com/theedwardpec/" target='_blank' rel='noreferrer noopener'>
+            <img src={process.env.PUBLIC_URL + 'images/insta.png'} className={styles.insta_icon} alt="instagram"/>
+          </a>
           <div className={styles.footer_section}>
             <h2>Address</h2>
             <p>
@@ -20,7 +23,7 @@ const Footer = () => {
           <div className={styles.footer_section}>
             <h2>Contact</h2>
             <a href="tel:+1 613 661 6389">+1 613 661 6389</a>
-            <a href="mailto: welcome@theedward.ca">welcome@theedward.ca</a>
+            <a href="mailto: hello@countycurated.com">hello@countycurated.com</a>
           </div>
           <img
             src={process.env.PUBLIC_URL + '/images/Pride-flag_new.jpg'}
