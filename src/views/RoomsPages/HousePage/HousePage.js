@@ -3,11 +3,6 @@ import ImageContainer from '../../../components/ImageContainer/ImageContainer';
 import HouseDetails from './houseDetails';
 import BookingBar from '../../../components/BookingBar/BookingBar';
 import { useInView } from 'react-intersection-observer';
-import {
-  addDate,
-  removeDate,
-  isDateUnAvailable,
-} from '../../../services/calendarLogic/multiDayBookingCalendar';
 import FadeInTransition from '../../../components/FadeInTransition/FadeInTransition';
 import styles from '../RoomsPage.module.scss';
 import ImageCarousel from '../../../components/ImageCarousel/ImageCarousel';
@@ -88,12 +83,8 @@ const HousePage = () => {
       </div>
       <div ref={ref}></div>
       <BookingBar
-        propertyId={309275}
-        roomTypeId={374215}
+        bookingUrl="https://airbnb.com/h/theedwardhouse"
         show={showBooking}
-        addDate={addDate}
-        removeDate={removeDate}
-        isDateUnAvailable={isDateUnAvailable}
         title="The Edward House"
       />
       <div className="bg--light section ">

@@ -3,11 +3,6 @@ import ImageContainer from '../../../components/ImageContainer/ImageContainer';
 import LoftDetails from './LoftDetails';
 import BookingBar from '../../../components/BookingBar/BookingBar';
 import { useInView } from 'react-intersection-observer';
-import {
-  addDate,
-  removeDate,
-  isDateUnAvailable,
-} from '../../../services/calendarLogic/multiDayBookingCalendar';
 import FadeInTransition from '../../../components/FadeInTransition/FadeInTransition';
 import ImageCarousel from '../../../components/ImageCarousel/ImageCarousel';
 import styles from '../RoomsPage.module.scss';
@@ -92,13 +87,8 @@ const HousePage = () => {
       </div>
       <div ref={ref}></div>
       <BookingBar
-        cost={'$375/night +tax'}
-        propertyId={314112}
-        roomTypeId={379184}
+        bookingUrl="https://airbnb.com/h/theedwardloft"
         show={showBooking}
-        addDate={addDate}
-        removeDate={removeDate}
-        isDateUnAvailable={isDateUnAvailable}
         title="The Edward Loft"
       />
       <div className="bg--light section ">

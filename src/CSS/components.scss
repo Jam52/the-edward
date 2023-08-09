@@ -19,6 +19,12 @@
   }
 }
 
+.btn-icon {
+  width:1rem;
+  transform: translateY(0.1rem);
+  opacity: 0.7;
+}
+
 .btn--disabled {
   opacity: 0.6;
   cursor: not-allowed;
