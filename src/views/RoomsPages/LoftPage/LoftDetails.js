@@ -87,15 +87,7 @@ function LoftDetails() {
           <div></div>
           <div className="split">
             <p>
-              For full refund: <strong>1 week notice</strong>
-              <br />
-              <br /> Should your plans change, a written cancellation email is
-              required a minimum of 7 days prior to your booking date.
-              <br />
-              <br />
-              Please note that due to COVID19, a small fee of 2.9% of the total
-              amount paid is non-refundable. It is charged and kept by our
-              payment system, Stripe.
+              Information regarding our cancellation policy can be found on Airbnb once travel dates have been selected.
             </p>
             <div></div>
           </div>

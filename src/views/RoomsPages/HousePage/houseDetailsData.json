@@ -25,7 +25,7 @@
   ],
   "houseRules": [
     { "url": "Check In.svg", "text": "Check-in: 4:00pm" },
-    { "url": "Check Out.svg", "text": "Check-out: 11:00am" },
+    { "url": "Check Out.svg", "text": "Check-out: 10:00am" },
     { "url": "No Pets.svg", "text": "No Pets" },
     { "url": "No Smoking.svg", "text": "No Smoking" }
   ]

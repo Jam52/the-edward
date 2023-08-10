@@ -12,6 +12,7 @@ const LandingPage = () => {
 
   const houseRef = useRef(null);
   const loftRef = useRef(null);
+  const wholeHomeRef = useRef(null);
 
   const exicuteScrollTo = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -34,15 +35,6 @@ const LandingPage = () => {
               <p className="explore__main">
                 "Peaceful retreat from the busy city life; real luxury."
               </p>
-
-              <a
-                className="btn"
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
-              >
-                See all reviews
-              </a>
             </div>
           </FadeInTransition>
         </section>
@@ -73,6 +65,13 @@ const LandingPage = () => {
                   >
                     Loft
                   </button>
+                  <button
+                    className="internal-link"
+                    aria-label="scroll to house overview"
+                    onClick={() => exicuteScrollTo(wholeHomeRef)}
+                  >
+                    Whole Home
+                  </button>
                 </div>
               </div>
             </div>
@@ -86,9 +85,8 @@ const LandingPage = () => {
               grand suites, this light filled two-story house
               is ideal for families or a group of friends
               looking for a peaceful getaway."
-              occupancy={['6 Adults', '3 Children under 10']}
-              rate="$775 per night"
-              to="/house"
+              occupancy={['6 Adults']}
+              to="https://airbnb.com/h/theedwardhouse"
             />
 
             <OverviewCard
@@ -103,105 +101,26 @@ const LandingPage = () => {
               families to come home to after a day of
               adventure in the County."
               occupancy={['2 Adults', '2 Children under 10']}
-              rate="$285 per night"
-              to="/loft"
+              to="https://airbnb.com/h/theedwardloft"
             />
 
-            <section className={`flow-vert inner-section bg--dark`}>
-              <div className={`split ${styles.concierge}`}>
-                <h2>The Concierge</h2>
-                <p>
-                  We are always here for you. If you have any questions, please
-                  email us at{' '}
-                  <a
-                    className="internal-link internal-link--light"
-                    href="mailto:welcome@theedward.ca"
-                  >
-                    welcome@theedward.ca.
-                  </a>{' '}
-                  Our customer experience hours of operation are 12:00pm -
-                  5:00pm Monday - Friday.
-                </p>
-              </div>
-              <Dropdown header="How to find us" color="white">
-                <div className="split">
-                  <div></div>
-                  <div className="flow-vert">
-                    <p>
-                      Latitude: 44.031892 <br /> Longitude: -77.037088
-                    </p>
-                    <a
-                      className="btn--small btn btn--dark"
-                      target="_blank"
-                      rel="noreferrer"
-                      href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m8!3m7!1s0x89d7c8cb02908139:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522"
-                    >
-                      Open in Maps
-                    </a>
-                    <p>
-                      662 County Road 7 <br />
-                      (also known as Lake on the Mountain Road)
-                      <br />
-                      Picton, ON,
-                      <br />
-                      K0K 2T0
-                    </p>
-                  </div>
-                </div>
-              </Dropdown>
-              <Dropdown header="Arriving at The Edward" color="white">
-                <div className="split">
-                  <div></div>
-                  <div className="flow-vert">
-                    <p style={{ maxWidth: '30ch' }}>
-                      Check-in: <strong>4:00pm</strong>
-                      <br />
-                      Check-out: <strong>11:00am</strong>
-                    </p>
-                    <p>
-                      Please note that we are currently offering contactless
-                      check-in only. Upon booking we will provide you with all
-                      of the details for a seamless start to your vacation.
-                    </p>
-                  </div>
-                </div>
-              </Dropdown>
-              <Dropdown header="Cancellations" color="white">
-                <div className="split">
-                  <div></div>
-                  <p style={{ maxWidth: '30ch' }}>
-                    For full refund: <strong>1 week notice</strong>
-                    <br />
-                    <br />
-                    Should your plans change, a written cancellation email is
-                    required a minimum of 7 days prior to your booking date.
-                    <br />
-                    <br />
-                    Please note that due to COVID19, a small fee of 2.9% of the
-                    total amount paid is non-refundable. It is charged and kept
-                    by our payment system, Stripe.
-                  </p>
-                </div>
-              </Dropdown>
-            </section>
+            <OverviewCard
+              refProp={wholeHomeRef}
+              img={process.env.PUBLIC_URL + '/images/WholeHome.jpeg'}
+              altImg="Large room with people sitting around a modern, beautiful coffee table."
+              roomName="Whole Home"
+              overview="This spectacular 5 Bedroom home is made up of the Main House & Loft, 
+              both with their own separate entrances making this the perfect property for your group."
+              occupancy={['10 Guests']}
+              to="https://airbnb.com/h/theedwardwholehome"
+            />
           </div>
         </section>
 
-        <section className="explore-section">
-          <FadeInTransition>
-            <div className={`container flow-vert explore`}>
-              <p>The Edward Traveller’s Guide</p>
-              <p className="explore__main">
-                How to best enjoy your time in Ontario’s gastronomical capital.
-              </p>
-              <p className="btn btn--disabled">Coming Soon</p>
-            </div>
-          </FadeInTransition>
-        </section>
         <div className="container">
           <ImageContainer
-            image={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
-            alt="Yellow house under bright blue sky"
+            image={process.env.PUBLIC_URL + '/images/Outdoors.jpeg'}
+            alt="Vintage bicycle under apple tree in bloom."
             possition="80% 60%"
           />
         </div>

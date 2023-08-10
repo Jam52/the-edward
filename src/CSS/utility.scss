@@ -22,6 +22,7 @@
 }
 
 .split > * {
+  margin-left: $spacer;
   flex-basis: 50%;
 }
 

@@ -35,6 +35,16 @@
   margin-top: 1rem;
 }
 
+.insta_icon {
+  width: 4rem;
+  height: 4rem;
+  transition: opacity 0.3s;
+  &:hover {
+    
+    opacity: 0.5;
+  }
+}
+
 .nav {
   cursor: pointer;
   transition: opacity 0.3s;

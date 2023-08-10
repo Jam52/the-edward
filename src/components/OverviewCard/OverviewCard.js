@@ -40,17 +40,12 @@ const OverviewCard = (props) => {
             <li key={item}>{item}</li>
           ))}
         </ul>
-        <h4>Rate</h4>
-        <p data-testid="rate" className={styles.overview_details}>
-          {props.rate} <br />
-          <span className={styles.smallPrint}>
-            *Plus cleaning fee and taxes
-          </span>
-        </p>
+        
 
-        <Link className="btn btn--med" to={props.to}>
+        <a className="btn btn--med split" href={props.to} rel='noreferrer noopener' target="_blank">
           {props.roomName}
-        </Link>
+          <img class="btn-icon btn-icon--invert" src={process.env.PUBLIC_URL + '/images/external-link.png'}></img>
+        </a>
       </div>
     </div>
   );
