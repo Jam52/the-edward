@@ -42,9 +42,10 @@ const OverviewCard = (props) => {
         </ul>
         
 
-        <Link className="btn btn--med" to={props.to}>
+        <a className="btn btn--med split" href={props.to} rel='noreferrer noopener' target="_blank">
           {props.roomName}
-        </Link>
+          <img class="btn-icon btn-icon--invert" src={process.env.PUBLIC_URL + '/images/external-link.png'}></img>
+        </a>
       </div>
     </div>
   );

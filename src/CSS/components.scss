@@ -17,12 +17,19 @@
     border: 2px solid $color_dark_blue;
     color: #fff;
   }
+  &:hover .btn-icon--invert {
+      filter: invert(0);
+  }
 }
 
 .btn-icon {
   width:1rem;
-  transform: translateY(0.1rem);
+  transform: translateY(0.15rem);
   opacity: 0.7;
+}
+
+.btn-icon--invert {
+  filter: invert(1);
 }
 
 .btn--disabled {
@@ -47,6 +54,10 @@
     background-color: #fff;
     border: 2px solid #fff;
     color: #000;
+
+    .btn-icon {
+      filter: invert(1);
+    }
   }
 }
 

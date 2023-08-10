@@ -12,6 +12,7 @@ const LandingPage = () => {
 
   const houseRef = useRef(null);
   const loftRef = useRef(null);
+  const wholeHomeRef = useRef(null);
 
   const exicuteScrollTo = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -34,15 +35,6 @@ const LandingPage = () => {
               <p className="explore__main">
                 "Peaceful retreat from the busy city life; real luxury."
               </p>
-
-              <a
-                className="btn"
-                target="_blank"
-                rel="noreferrer"
-                href="https://www.google.com/maps/place/The+Edward+Bed+%26+Breakfast/@44.0317706,-77.0398409,17z/data=!3m1!4b1!4m10!3m9!1s0x0:0xdf06b6bf77c6a155!5m2!4m1!1i2!8m2!3d44.0317706!4d-77.0376522!9m1!1b1"
-              >
-                See all reviews
-              </a>
             </div>
           </FadeInTransition>
         </section>
@@ -73,6 +65,13 @@ const LandingPage = () => {
                   >
                     Loft
                   </button>
+                  <button
+                    className="internal-link"
+                    aria-label="scroll to house overview"
+                    onClick={() => exicuteScrollTo(wholeHomeRef)}
+                  >
+                    Whole Home
+                  </button>
                 </div>
               </div>
             </div>
@@ -87,7 +86,7 @@ const LandingPage = () => {
               is ideal for families or a group of friends
               looking for a peaceful getaway."
               occupancy={['6 Adults']}
-              to="/house"
+              to="https://airbnb.com/h/theedwardhouse"
             />
 
             <OverviewCard
@@ -102,16 +101,26 @@ const LandingPage = () => {
               families to come home to after a day of
               adventure in the County."
               occupancy={['2 Adults', '2 Children under 10']}
-              rate="$285 per night"
-              to="/loft"
+              to="https://airbnb.com/h/theedwardloft"
+            />
+
+            <OverviewCard
+              refProp={wholeHomeRef}
+              img={process.env.PUBLIC_URL + '/images/WholeHome.jpeg'}
+              altImg="Large room with people sitting around a modern, beautiful coffee table."
+              roomName="Whole Home"
+              overview="This spectacular 5 Bedroom home is made up of the Main House & Loft, 
+              both with their own separate entrances making this the perfect property for your group."
+              occupancy={['10 Guests']}
+              to="https://airbnb.com/h/theedwardwholehome"
             />
           </div>
         </section>
 
         <div className="container">
           <ImageContainer
-            image={process.env.PUBLIC_URL + '/images/Homepage_Footer.jpg'}
-            alt="Yellow house under bright blue sky"
+            image={process.env.PUBLIC_URL + '/images/Outdoors.jpeg'}
+            alt="Vintage bicycle under apple tree in bloom."
             possition="80% 60%"
           />
         </div>
